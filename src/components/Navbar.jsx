@@ -18,7 +18,7 @@ export default function Navbar({ onOpenBooking }) {
     { name: 'What We Do', href: '#services' },
     { name: '5-Step Process', href: '#workflow' },
     { name: 'Reviews', href: '#reviews' },
-    { name: 'About Gaya', href: '#about' },
+    { name: 'About', href: '#about' },
     { name: 'FAQ', href: '#faq' },
   ];
 

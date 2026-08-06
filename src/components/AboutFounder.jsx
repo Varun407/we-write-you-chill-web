@@ -40,10 +40,10 @@ export default function AboutFounder({ onOpenBooking }) {
               </div>
             </div>
 
-            {/* Floating Quote Badge */}
-            <div className="absolute -bottom-5 -right-4 hidden sm:flex items-center gap-2.5 p-3.5 rounded-xl bg-white border border-slate-200 shadow-lg max-w-xs z-20">
+            {/* Quote Badge Below Image */}
+            <div className="mt-4 flex items-center gap-3 p-3.5 rounded-xl bg-white border border-slate-200 shadow-md">
               <Heart className="w-5 h-5 text-[#2650a8] shrink-0" />
-              <p className="text-xs text-slate-700 font-semibold">
+              <p className="text-xs text-slate-700 font-semibold leading-snug">
                 "Posting every single day since Sept 30, 2023. Built on real compounding, not fast food marketing."
               </p>
             </div>
@@ -55,7 +55,7 @@ export default function AboutFounder({ onOpenBooking }) {
               About The Strategist
             </span>
 
-            <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
+            <h2 className="font-heading font-extrabold text-xl sm:text-2xl lg:text-[26px] xl:text-3xl text-[#000000] tracking-tight leading-tight">
               Gaya — <span className="highlight-swipe">LinkedIn Personal Branding Strategist</span>
             </h2>
 
