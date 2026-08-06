@@ -30,7 +30,7 @@ export default function Navbar({ onOpenBooking }) {
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
             <img 
-              src="/we-write-you-chill-logo.png" 
+              src="./we-write-you-chill-logo.png" 
               alt="We Write You Chill Logo" 
               className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />

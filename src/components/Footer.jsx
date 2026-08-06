@@ -21,7 +21,7 @@ export default function Footer({ onOpenBooking }) {
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <img 
-                src="/we-write-you-chill-logo.png" 
+                src="./we-write-you-chill-logo.png" 
                 alt="We Write You Chill Logo" 
                 className="h-10 w-auto object-contain"
               />

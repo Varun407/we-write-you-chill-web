@@ -79,7 +79,7 @@ export default function Hero({ onOpenBooking, onOpenEnquiry }) {
           <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-slate-900 flex items-center justify-center border border-slate-100">
             
             {/* Background Image Preview */}
-            <div className="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-luminosity" style={{ backgroundImage: `url('/assets/gaya-founder.jpg')` }}></div>
+            <div className="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-luminosity" style={{ backgroundImage: `url('./assets/gaya-founder.jpg')` }}></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/80 via-[#000000]/30 to-transparent"></div>
 
             {/* Floating Badges */}

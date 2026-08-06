@@ -10,8 +10,8 @@ export default function Testimonials() {
       title: 'Founder & Buyer\'s Agent',
       company: 'Secure Future Property Advisory',
       metrics: '8 Properties Worth $5.5M in 5 Years',
-      avatar: '/assets/gaya-founder.jpg',
-      screenshot: '/assets/testimonial-adarsh.png',
+      avatar: './assets/gaya-founder.jpg',
+      screenshot: './assets/testimonial-adarsh.png',
       quote: 'Working with Gaya has been a fantastic experience. She took the time to really understand not just what I do, but how I think and communicate. Rather than writing generic LinkedIn posts, she built a content strategy around my own voice and philosophy, making it feel authentic from day one.',
       highlights: ['Reusable content templates', 'Clear content pillars', 'Authentic voice capture']
     },
@@ -20,8 +20,8 @@ export default function Testimonials() {
       title: 'Buyer\'s Agent',
       company: 'Interstate Investor Specialist',
       metrics: '2 Direct Inbound Client Enquiries',
-      avatar: '/assets/gaya-founder.jpg',
-      screenshot: '/assets/testimonial-jathu.png',
+      avatar: './assets/gaya-founder.jpg',
+      screenshot: './assets/testimonial-jathu.png',
       quote: 'Before working with Gaya, I was drawn to her posts because they felt real. Honest, raw, and not overly polished like most you see online. When Gaya reached out to me, we started working together to improve my LinkedIn presence... I\'ve already had two people enquire about working with me!',
       highlights: ['Inbound enquiries generated', 'Clear outreach framework', 'Genuine conversations']
     },
@@ -30,8 +30,8 @@ export default function Testimonials() {
       title: 'Home & Investment Loan Specialist',
       company: 'Self-Employed Borrower Expert',
       metrics: 'Overcame Overthinking & Built Confidence',
-      avatar: '/assets/gaya-founder.jpg',
-      screenshot: '/assets/testimonial-renee.png',
+      avatar: './assets/gaya-founder.jpg',
+      screenshot: './assets/testimonial-renee.png',
       quote: 'Before working with Gaya, I honestly felt quite stuck and hesitant with LinkedIn. I knew I had valuable experience to share, but I overthought everything... Working with Gaya completely changed that. She has a way of drawing the words out of you so nothing feels forced or marketing-ish.',
       highlights: ['Confidence in posting', 'Zero marketing fluff', 'Collaborative process']
     },
@@ -40,8 +40,8 @@ export default function Testimonials() {
       title: 'Mortgage Broker & Founder',
       company: 'ShernAdvisory (10+ Yrs Lending Experience)',
       metrics: 'Booked Calls with Ideal Clients & Referral Partners',
-      avatar: '/assets/gaya-founder.jpg',
-      screenshot: '/assets/testimonial-jason.png',
+      avatar: './assets/gaya-founder.jpg',
+      screenshot: './assets/testimonial-jason.png',
       quote: 'My biggest challenge was knowing what to post on LinkedIn and finding the time to actually get started... Since working with Gaya we have booked calls with ideal clients and referral partners. We also have content scheduled and a strategy to connect with my network.',
       highlights: ['Booked client strategy calls', 'Referral partner deals', 'Predictable content schedule']
     }
