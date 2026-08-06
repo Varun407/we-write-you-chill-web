@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, ShieldCheck, Heart, Sparkles, CheckCircle, ExternalLink } from 'lucide-react';
+import { ArrowRight, Heart, CheckCircle, ExternalLink } from 'lucide-react';
+import { getAssetPath } from '../utils/assetPath';
 
 export default function AboutFounder({ onOpenBooking }) {
   const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
@@ -16,7 +17,7 @@ export default function AboutFounder({ onOpenBooking }) {
             <div className="relative mx-auto max-w-md lg:max-w-none rounded-2xl overflow-hidden bg-white border border-slate-200 p-2 shadow-lg group">
               <div className="aspect-[4/5] w-full rounded-xl overflow-hidden relative">
                 <img 
-                  src="./assets/gaya-founder.jpg" 
+                  src={getAssetPath('assets/gaya-founder.jpg')} 
                   alt="Gayathiri (Gaya) - Founder of We Write You Chill" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
