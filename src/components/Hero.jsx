@@ -1,6 +1,6 @@
 import React from 'react';
 import { Star, ArrowRight, Play, CheckCircle2, TrendingUp, MessageSquare } from 'lucide-react';
-import { getAssetPath } from '../utils/assetPath';
+import gayaFounderImg from '../assets/gaya-founder.jpg';
 
 export default function Hero({ onOpenBooking, onOpenEnquiry }) {
   const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
@@ -82,7 +82,7 @@ export default function Hero({ onOpenBooking, onOpenEnquiry }) {
             {/* Background Image Preview */}
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-luminosity" 
-              style={{ backgroundImage: `url('${getAssetPath('assets/gaya-founder.jpg')}')` }}
+              style={{ backgroundImage: `url(${gayaFounderImg})` }}
             ></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/80 via-[#000000]/30 to-transparent"></div>
 
@@ -95,7 +95,7 @@ export default function Hero({ onOpenBooking, onOpenEnquiry }) {
               </div>
             </div>
 
-            <div className="absolute bottom-5 right-5 hidden sm:flex items-center gap-3 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-left shadow-md">
+            <div className="absolute bottom-5 right-5 hidden sm:flex items-center gap-3 px-4 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-left shadow-md">
               <MessageSquare className="w-4 h-4 text-[#f4ba43]" />
               <div>
                 <div className="text-[10px] text-slate-500 font-medium">Outreach Acceptance</div>

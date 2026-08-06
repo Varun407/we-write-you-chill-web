@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUp, MessageCircle, ExternalLink, Calendar } from 'lucide-react';
-import { getAssetPath } from '../utils/assetPath';
+import logoImg from '../assets/logo.png';
 
 export default function Footer({ onOpenBooking }) {
   const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
@@ -22,7 +22,7 @@ export default function Footer({ onOpenBooking }) {
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <img 
-                src={getAssetPath('we-write-you-chill-logo.png')} 
+                src={logoImg} 
                 alt="We Write You Chill Logo" 
                 className="h-10 w-auto object-contain"
               />

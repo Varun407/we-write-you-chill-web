@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Calendar, ArrowRight } from 'lucide-react';
-import { getAssetPath } from '../utils/assetPath';
+import logoImg from '../assets/logo.png';
 
 export default function Navbar({ onOpenBooking }) {
   const [scrolled, setScrolled] = useState(false);
@@ -31,7 +31,7 @@ export default function Navbar({ onOpenBooking }) {
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
             <img 
-              src={getAssetPath('we-write-you-chill-logo.png')} 
+              src={logoImg} 
               alt="We Write You Chill Logo" 
               className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
