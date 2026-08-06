@@ -25,7 +25,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0c10] text-[#f3f4f6] flex flex-col font-sans selection:bg-[#3367d1]/30 selection:text-white">
+    <div className="min-h-screen bg-white text-[#0f172a] flex flex-col font-sans selection:bg-[#2650a8]/20 selection:text-[#000000]">
       
       {/* Sticky Top Header Navigation */}
       <Navbar onOpenBooking={handleOpenBooking} />

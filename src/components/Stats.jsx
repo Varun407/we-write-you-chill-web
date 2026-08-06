@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, TrendingUp, Users, Award, Building2 } from 'lucide-react';
+import { ShieldCheck, TrendingUp, Users, Building2 } from 'lucide-react';
 
 export default function Stats() {
   const stats = [
@@ -10,7 +10,7 @@ export default function Stats() {
   ];
 
   return (
-    <section className="py-14 bg-[#0b0c10] border-y border-white/5 relative z-20">
+    <section className="py-14 bg-[#f8fafc] border-y border-slate-200 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, idx) => {
@@ -18,19 +18,19 @@ export default function Stats() {
             return (
               <div 
                 key={idx} 
-                className="p-6 rounded-2xl glass-card glass-card-hover border border-white/10 flex flex-col items-start justify-between"
+                className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#2650a8]/30 transition-all flex flex-col items-start justify-between"
               >
-                <div className="p-3 rounded-xl bg-[#3367d1]/10 text-[#60a5fa] mb-4">
+                <div className="p-3 rounded-xl bg-[#2650a8]/10 text-[#2650a8] mb-4">
                   <Icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
+                  <div className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-[#000000] tracking-tight">
                     {stat.value}
                   </div>
-                  <div className="mt-1 font-semibold text-sm text-gray-200">
+                  <div className="mt-1 font-bold text-sm text-slate-800">
                     {stat.label}
                   </div>
-                  <div className="mt-1 text-xs text-gray-400">
+                  <div className="mt-1 text-xs text-slate-500 font-medium">
                     {stat.desc}
                   </div>
                 </div>

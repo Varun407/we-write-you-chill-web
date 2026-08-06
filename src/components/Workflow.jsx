@@ -9,8 +9,9 @@ export default function Workflow({ onOpenBooking }) {
       subtitle: 'Capturing how you think, speak, and communicate',
       description: 'We sit down with you for a 1-on-1 voice interview. We understand your business philosophy, client case studies, and exact communication style so every single post sounds 100% like you.',
       icon: UserCheck,
-      color: 'from-[#3367d1] to-[#60a5fa]',
-      badge: 'Step 01'
+      badge: 'Step 01',
+      iconBg: 'bg-[#2650a8] text-white',
+      badgeClass: 'bg-[#2650a8]/10 text-[#2650a8] border-[#2650a8]/20'
     },
     {
       num: 2,
@@ -18,8 +19,9 @@ export default function Workflow({ onOpenBooking }) {
       subtitle: 'Mapping your content to your high-value audience',
       description: 'We define 3-4 strategic content pillars (e.g. investor portfolio building, self-employed loan approvals, market breakdowns) to position you as the obvious choice in your market.',
       icon: Compass,
-      color: 'from-[#8b3dff] to-[#a855f7]',
-      badge: 'Step 02'
+      badge: 'Step 02',
+      iconBg: 'bg-[#f4ba43] text-slate-900',
+      badgeClass: 'bg-[#f4ba43]/20 text-[#b45309] border-[#f4ba43]/30'
     },
     {
       num: 3,
@@ -27,8 +29,9 @@ export default function Workflow({ onOpenBooking }) {
       subtitle: 'High-converting posts, carousels, & lead assets',
       description: 'We draft your weekly posts, custom templates, and downloadable guides. You review and approve in minutes — zero stress, zero blank page syndrome.',
       icon: FileText,
-      color: 'from-[#ec4899] to-[#f43f5e]',
-      badge: 'Step 03'
+      badge: 'Step 03',
+      iconBg: 'bg-[#2650a8] text-white',
+      badgeClass: 'bg-[#2650a8]/10 text-[#2650a8] border-[#2650a8]/20'
     },
     {
       num: 4,
@@ -36,8 +39,9 @@ export default function Workflow({ onOpenBooking }) {
       subtitle: 'Building your LinkedIn conversion funnel',
       description: 'We revamp your profile headline, banner, and bio into a landing page. Plus, we implement a simple, non-salesy outreach system to connect with active buyers & referral partners.',
       icon: Share2,
-      color: 'from-[#f4ba43] to-[#f59e0b]',
-      badge: 'Step 04'
+      badge: 'Step 04',
+      iconBg: 'bg-[#f4ba43] text-slate-900',
+      badgeClass: 'bg-[#f4ba43]/20 text-[#b45309] border-[#f4ba43]/30'
     },
     {
       num: 5,
@@ -45,28 +49,26 @@ export default function Workflow({ onOpenBooking }) {
       subtitle: 'Booked calls, real deals, & long-term assets',
       description: 'Watch inbound enquiries roll into your DMs and calendar. We hand over all reusable templates, framework guides, and strategy blueprints so you retain lifetime value.',
       icon: Rocket,
-      color: 'from-[#10b981] to-[#059669]',
-      badge: 'Step 05'
+      badge: 'Step 05',
+      iconBg: 'bg-emerald-600 text-white',
+      badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200'
     }
   ];
 
   return (
-    <section id="workflow" className="py-24 bg-[#0a0b0e] relative z-10 border-t border-white/5">
+    <section id="workflow" className="py-24 bg-[#f8fafc] relative z-10 border-t border-slate-200">
       
-      {/* Background Accent */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#3367d1]/10 rounded-full blur-[140px] pointer-events-none"></div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#8b3dff] px-3 py-1 rounded-full glass-card border border-[#8b3dff]/30 inline-block mb-4">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/20 inline-block mb-4">
             Our 5-Step Process
           </span>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+          <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#000000] tracking-tight leading-tight">
             How We Take You From <span className="highlight-swipe">Inconsistent To Inbound</span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-gray-300 font-subheading">
+          <p className="mt-4 text-base sm:text-lg text-slate-600 font-subheading">
             A simple, collaborative 5-step workflow built specifically for busy Realtors, Buyer's Agents, and Loan Brokers.
           </p>
         </div>
@@ -74,8 +76,8 @@ export default function Workflow({ onOpenBooking }) {
         {/* Workflow Timeline Steps */}
         <div className="relative space-y-8 md:space-y-12">
           
-          {/* Connecting Line (Desktop) */}
-          <div className="hidden md:block absolute left-1/2 top-10 bottom-10 w-0.5 bg-gradient-to-b from-[#3367d1] via-[#8b3dff] to-[#10b981] -translate-x-1/2 z-0 opacity-30"></div>
+          {/* Connecting Line */}
+          <div className="hidden md:block absolute left-1/2 top-10 bottom-10 w-0.5 bg-slate-300 -translate-x-1/2 z-0"></div>
 
           {steps.map((step, index) => {
             const Icon = step.icon;
@@ -89,32 +91,32 @@ export default function Workflow({ onOpenBooking }) {
                 
                 {/* Step Card Content */}
                 <div className="w-full md:w-1/2">
-                  <div className="p-8 rounded-3xl glass-card glass-card-hover border border-white/10 relative overflow-hidden group">
+                  <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#2650a8]/30 transition-all duration-300 relative overflow-hidden group">
                     
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs font-extrabold px-3 py-1 rounded-full bg-white/10 text-white border border-white/15">
+                      <span className={`text-xs font-bold px-3 py-1 rounded-full border ${step.badgeClass}`}>
                         {step.badge}
                       </span>
-                      <span className="font-heading font-extrabold text-3xl text-white/20 group-hover:text-white/60 transition-colors">
+                      <span className="font-heading font-black text-3xl text-slate-300 group-hover:text-[#2650a8] transition-colors">
                         0{step.num}
                       </span>
                     </div>
 
-                    <h3 className="font-heading font-bold text-2xl text-white mb-2 group-hover:text-[#60a5fa] transition-colors">
+                    <h3 className="font-heading font-bold text-2xl text-[#000000] mb-2 group-hover:text-[#2650a8] transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-xs font-semibold text-[#8b3dff] uppercase tracking-wider mb-4">
+                    <p className="text-xs font-semibold text-[#2650a8] uppercase tracking-wider mb-4">
                       {step.subtitle}
                     </p>
-                    <p className="text-sm text-gray-300 leading-relaxed">
+                    <p className="text-sm text-slate-600 leading-relaxed">
                       {step.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Step Circle Indicator */}
-                <div className="shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-white/20 flex items-center justify-center shadow-xl shadow-[#3367d1]/20 z-20 group-hover:scale-110 transition-transform">
-                  <div className={`p-3 rounded-xl bg-gradient-to-r ${step.color} text-white shadow-md`}>
+                <div className="shrink-0 w-16 h-16 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shadow-lg z-20 group-hover:scale-110 transition-transform">
+                  <div className={`p-3 rounded-xl ${step.iconBg} shadow-md`}>
                     <Icon className="w-6 h-6" />
                   </div>
                 </div>
@@ -130,10 +132,10 @@ export default function Workflow({ onOpenBooking }) {
         <div className="mt-16 text-center">
           <button
             onClick={onOpenBooking}
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-base font-bold text-white bg-gradient-to-r from-[#3367d1] via-[#60a5fa] to-[#8b3dff] hover:opacity-95 shadow-xl shadow-[#3367d1]/30 transition-all duration-300 hover:scale-[1.03] cursor-pointer"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-base font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-xl shadow-[#2650a8]/25 transition-all duration-300 hover:scale-[1.03] cursor-pointer"
           >
             <span>Start Step 1: Voice Discovery Call</span>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5 text-[#f4ba43]" />
           </button>
         </div>
 

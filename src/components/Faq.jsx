@@ -32,18 +32,18 @@ export default function Faq({ onOpenBooking }) {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-[#0b0c10] relative z-10">
+    <section id="faq" className="py-24 bg-white relative z-10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#60a5fa] px-3 py-1 rounded-full glass-card border border-[#3367d1]/30 inline-block mb-4">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/20 inline-block mb-4">
             Frequently Asked Questions
           </span>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+          <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#000000] tracking-tight leading-tight">
             Got Questions? <span className="highlight-swipe">We Have Answers.</span>
           </h2>
-          <p className="mt-4 text-base text-gray-300 font-subheading">
+          <p className="mt-4 text-base text-slate-600 font-subheading">
             Everything you need to know about working with We Write You Chill.
           </p>
         </div>
@@ -56,21 +56,21 @@ export default function Faq({ onOpenBooking }) {
             return (
               <div
                 key={idx}
-                className="rounded-2xl glass-card border border-white/10 overflow-hidden transition-all duration-200"
+                className="rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden transition-all duration-200"
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? -1 : idx)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-heading font-bold text-lg text-white hover:text-[#60a5fa] transition-colors cursor-pointer"
+                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-heading font-bold text-lg text-[#000000] hover:text-[#2650a8] transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
-                    <HelpCircle className="w-5 h-5 text-[#3367d1] shrink-0" />
+                    <HelpCircle className="w-5 h-5 text-[#2650a8] shrink-0" />
                     <span>{faq.q}</span>
                   </span>
-                  <ChevronDown className={`w-5 h-5 text-gray-400 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#60a5fa]' : ''}`} />
+                  <ChevronDown className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#2650a8]' : ''}`} />
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-2 text-sm text-gray-300 leading-relaxed border-t border-white/5 animate-in fade-in duration-200">
+                  <div className="px-6 pb-6 pt-2 text-sm text-slate-600 leading-relaxed border-t border-slate-100 animate-in fade-in duration-200">
                     {faq.a}
                   </div>
                 )}
@@ -80,15 +80,15 @@ export default function Faq({ onOpenBooking }) {
         </div>
 
         {/* Bottom Callout */}
-        <div className="mt-12 p-8 rounded-3xl glass-card border border-white/15 text-center bg-gradient-to-r from-[#3367d1]/15 to-[#8b3dff]/15">
-          <h3 className="font-heading font-bold text-xl text-white mb-2">Have a specific question about your profile?</h3>
-          <p className="text-sm text-gray-300 mb-6">Book a 15-minute intro chat with Gaya to discuss your goals.</p>
+        <div className="mt-12 p-8 rounded-3xl bg-slate-50 border border-slate-200 text-center shadow-sm">
+          <h3 className="font-heading font-bold text-xl text-[#000000] mb-2">Have a specific question about your profile?</h3>
+          <p className="text-sm text-slate-600 mb-6">Book a 15-minute intro chat with Gaya to discuss your goals.</p>
           <button
             onClick={onOpenBooking}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white bg-gradient-to-r from-[#3367d1] to-[#8b3dff] hover:opacity-95 shadow-lg shadow-[#3367d1]/25 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-lg shadow-[#2650a8]/20 transition-all cursor-pointer"
           >
             <span>Book Strategy Call</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-[#f4ba43]" />
           </button>
         </div>
 

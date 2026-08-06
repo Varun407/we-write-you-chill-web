@@ -15,8 +15,8 @@ export default function Services({ onOpenBooking }) {
         'Zero time wasted staring at a blank screen'
       ],
       badge: 'Popular',
-      color: 'from-[#3367d1]/20 to-[#60a5fa]/5',
-      borderColor: 'border-[#3367d1]/30'
+      color: 'bg-blue-50/50',
+      badgeClass: 'bg-[#2650a8]/10 text-[#2650a8] border-[#2650a8]/20'
     },
     {
       number: '02',
@@ -30,8 +30,7 @@ export default function Services({ onOpenBooking }) {
         'Direct booking link integration'
       ],
       badge: 'High Impact',
-      color: 'from-[#8b3dff]/20 to-[#a855f7]/5',
-      borderColor: 'border-[#8b3dff]/30'
+      badgeClass: 'bg-[#f4ba43]/20 text-[#b45309] border-[#f4ba43]/40'
     },
     {
       number: '03',
@@ -45,8 +44,7 @@ export default function Services({ onOpenBooking }) {
         'Full handover documentation'
       ],
       badge: 'Long-term Value',
-      color: 'from-[#f4ba43]/20 to-[#f59e0b]/5',
-      borderColor: 'border-[#f4ba43]/30'
+      badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200'
     },
     {
       number: '04',
@@ -60,24 +58,23 @@ export default function Services({ onOpenBooking }) {
         'Optimized for search visibility & recruiter/investor eyes'
       ],
       badge: 'Foundation',
-      color: 'from-[#10b981]/20 to-[#059669]/5',
-      borderColor: 'border-[#10b981]/30'
+      badgeClass: 'bg-[#2650a8]/10 text-[#2650a8] border-[#2650a8]/20'
     }
   ];
 
   return (
-    <section id="services" className="py-24 bg-[#0b0c10] relative z-10">
+    <section id="services" className="py-24 bg-white relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#60a5fa] px-3 py-1 rounded-full glass-card border border-[#3367d1]/30 inline-block mb-4">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/20 inline-block mb-4">
             What We Do
           </span>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+          <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#000000] tracking-tight leading-tight">
             Four Ways We Make Clients <span className="highlight-swipe">Come To You</span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-gray-300 font-subheading">
+          <p className="mt-4 text-base sm:text-lg text-slate-600 font-subheading">
             Whether you are a Buyer's Agent securing property portfolios or a Mortgage Broker closing loans, we turn your LinkedIn into a client magnet.
           </p>
         </div>
@@ -87,32 +84,32 @@ export default function Services({ onOpenBooking }) {
           {services.map((item, idx) => (
             <div
               key={idx}
-              className={`group relative p-8 rounded-3xl glass-card border ${item.borderColor} bg-gradient-to-br ${item.color} glass-card-hover flex flex-col justify-between`}
+              className="group relative p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#2650a8]/40 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <span className="font-heading font-black text-4xl text-white/30 group-hover:text-white/80 transition-colors">
+                  <span className="font-heading font-black text-4xl text-slate-300 group-hover:text-[#2650a8] transition-colors">
                     {item.number}
                   </span>
-                  <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white border border-white/15">
+                  <span className={`text-xs font-bold px-3 py-1 rounded-full border ${item.badgeClass}`}>
                     {item.badge}
                   </span>
                 </div>
 
-                <h3 className="font-heading font-bold text-2xl text-white mb-2 group-hover:text-[#60a5fa] transition-colors">
+                <h3 className="font-heading font-bold text-2xl text-[#000000] mb-2 group-hover:text-[#2650a8] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs font-medium text-gray-400 mb-4 uppercase tracking-wider">
+                <p className="text-xs font-semibold text-slate-500 mb-4 uppercase tracking-wider">
                   {item.subtitle}
                 </p>
-                <p className="text-sm text-gray-300 leading-relaxed mb-6">
+                <p className="text-sm text-slate-600 leading-relaxed mb-6">
                   {item.description}
                 </p>
 
                 <ul className="space-y-3 mb-8">
                   {item.points.map((pt, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2.5 text-xs text-gray-200">
-                      <div className="p-0.5 rounded-full bg-[#3367d1]/20 text-[#60a5fa] mt-0.5 shrink-0">
+                    <li key={pIdx} className="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                      <div className="p-0.5 rounded-full bg-[#2650a8]/10 text-[#2650a8] mt-0.5 shrink-0">
                         <Check className="w-3.5 h-3.5" />
                       </div>
                       <span>{pt}</span>
@@ -123,7 +120,7 @@ export default function Services({ onOpenBooking }) {
 
               <button
                 onClick={onOpenBooking}
-                className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-white glass-card border border-white/20 group-hover:border-[#3367d1] group-hover:bg-[#3367d1] transition-all duration-300 cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl text-sm font-bold text-slate-800 bg-slate-50 hover:bg-[#2650a8] hover:text-white border border-slate-200 hover:border-[#2650a8] transition-all duration-300 cursor-pointer shadow-xs"
               >
                 <span>Get Started with {item.title.split(' ')[0]}</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
