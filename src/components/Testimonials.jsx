@@ -1,0 +1,174 @@
+import React, { useState } from 'react';
+import { Star, Quote, CheckCircle, ExternalLink, Image as ImageIcon, Sparkles } from 'lucide-react';
+
+export default function Testimonials() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const testimonials = [
+    {
+      name: 'Adarsh Kediyoor',
+      title: 'Founder & Buyer\'s Agent',
+      company: 'Secure Future Property Advisory',
+      metrics: '8 Properties Worth $5.5M in 5 Years',
+      avatar: '/assets/testimonial-adarsh.png',
+      screenshot: '/assets/testimonial-adarsh.png',
+      quote: 'Working with Gaya has been a fantastic experience. She took the time to really understand not just what I do, but how I think and communicate. Rather than writing generic LinkedIn posts, she built a content strategy around my own voice and philosophy, making it feel authentic from day one.',
+      highlights: ['Reusable content templates', 'Clear content pillars', 'Authentic voice capture']
+    },
+    {
+      name: 'Jathu Srikanthan',
+      title: 'Buyer\'s Agent',
+      company: 'Interstate Investor Specialist',
+      metrics: '2 Direct Inbound Client Enquiries',
+      avatar: '/assets/testimonial-jathu.png',
+      screenshot: '/assets/testimonial-jathu.png',
+      quote: 'Before working with Gaya, I was drawn to her posts because they felt real. Honest, raw, and not overly polished like most you see online. When Gaya reached out to me, we started working together to improve my LinkedIn presence... I\'ve already had two people enquire about working with me!',
+      highlights: ['Inbound enquiries generated', 'Clear outreach framework', 'Genuine conversations']
+    },
+    {
+      name: 'Renee Hohenhaus',
+      title: 'Home & Investment Loan Specialist',
+      company: 'Self-Employed Borrower Expert',
+      metrics: 'Overcame Overthinking & Built Confidence',
+      avatar: '/assets/testimonial-renee.png',
+      screenshot: '/assets/testimonial-renee.png',
+      quote: 'Before working with Gaya, I honestly felt quite stuck and hesitant with LinkedIn. I knew I had valuable experience to share, but I overthought everything... Working with Gaya completely changed that. She has a way of drawing the words out of you so nothing feels forced or marketing-ish.',
+      highlights: ['Confidence in posting', 'Zero marketing fluff', 'Collaborative process']
+    },
+    {
+      name: 'Jason Kuan',
+      title: 'Mortgage Broker & Founder',
+      company: 'ShernAdvisory (10+ Yrs Lending Experience)',
+      metrics: 'Booked Calls with Ideal Clients & Referral Partners',
+      avatar: '/assets/testimonial-jason.png',
+      screenshot: '/assets/testimonial-jason.png',
+      quote: 'My biggest challenge was knowing what to post on LinkedIn and finding the time to actually get started... Since working with Gaya we have booked calls with ideal clients and referral partners. We also have content scheduled and a strategy to connect with my network.',
+      highlights: ['Booked client strategy calls', 'Referral partner deals', 'Predictable content schedule']
+    }
+  ];
+
+  return (
+    <section id="reviews" className="py-24 bg-[#0b0c10] relative z-10">
+      
+      {/* Background Glow */}
+      <div className="absolute top-1/3 right-0 w-96 h-96 bg-[#8b3dff]/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card border border-[#f4ba43]/30 text-[#f4ba43] mb-4">
+            <Star className="w-4 h-4 fill-current" />
+            <span className="text-xs font-bold uppercase tracking-wider">Verified Client Feedback</span>
+          </div>
+
+          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+            Real Brokers. Real Realtors. <span className="highlight-swipe">Real Inbound Leads.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-gray-300 font-subheading">
+            Don't take our word for it — read what Buyer's Agents and Mortgage Brokers say about working with Gaya.
+          </p>
+        </div>
+
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {testimonials.map((item, idx) => (
+            <div
+              key={idx}
+              className="p-8 rounded-3xl glass-card glass-card-hover border border-white/10 flex flex-col justify-between relative group overflow-hidden"
+            >
+              <div>
+                {/* Header Profile Info */}
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#3367d1]/50 bg-[#1e293b] shrink-0">
+                      <img 
+                        src={item.avatar} 
+                        alt={item.name} 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="font-heading font-bold text-lg text-white group-hover:text-[#60a5fa] transition-colors">
+                        {item.name}
+                      </h3>
+                      <p className="text-xs text-gray-300 font-medium">
+                        {item.title}
+                      </p>
+                      <p className="text-xs text-gray-400">
+                        {item.company}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-0.5 text-[#f4ba43]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Metric Pill */}
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#3367d1]/10 text-[#60a5fa] border border-[#3367d1]/20 text-xs font-semibold mb-5">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>{item.metrics}</span>
+                </div>
+
+                {/* Quote Text */}
+                <div className="relative mb-6">
+                  <Quote className="w-8 h-8 text-white/10 absolute -top-3 -left-2 pointer-events-none" />
+                  <p className="text-sm text-gray-300 leading-relaxed italic pl-4 border-l-2 border-[#3367d1]/40">
+                    "{item.quote}"
+                  </p>
+                </div>
+
+                {/* Highlights */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {item.highlights.map((hl, hIdx) => (
+                    <span key={hIdx} className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-white/5 text-gray-300 border border-white/10">
+                      ✓ {hl}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* View Original LinkedIn Screenshot Button */}
+              <button
+                onClick={() => setSelectedImage(item.screenshot)}
+                className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold text-gray-300 glass-card border border-white/10 hover:border-white/30 hover:text-white transition-all cursor-pointer"
+              >
+                <ImageIcon className="w-4 h-4 text-[#60a5fa]" />
+                <span>View Original LinkedIn Recommendation</span>
+                <ExternalLink className="w-3.5 h-3.5 ml-auto opacity-60" />
+              </button>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      {/* Image Modal Lightbox */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-4xl w-full bg-[#111827] p-2 rounded-2xl border border-white/20 shadow-2xl">
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/60 text-white hover:bg-black"
+            >
+              ✕
+            </button>
+            <img 
+              src={selectedImage} 
+              alt="LinkedIn Recommendation Screenshot" 
+              className="w-full h-auto max-h-[85vh] object-contain rounded-xl"
+            />
+          </div>
+        </div>
+      )}
+
+    </section>
+  );
+}
