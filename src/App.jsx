@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Stats from './components/Stats';
+import WhyLinkedinNotWorking from './components/WhyLinkedinNotWorking';
+import Results from './components/Results';
 import Services from './components/Services';
 import Workflow from './components/Workflow';
 import Testimonials from './components/Testimonials';
@@ -32,23 +33,31 @@ export default function App() {
 
       {/* Main Page Content */}
       <main className="flex-grow">
+        {/* 1. Hero Section */}
         <Hero 
           onOpenBooking={handleOpenBooking} 
           onOpenEnquiry={handleOpenEnquiry} 
         />
         
-        <div id="results">
-          <Stats />
-        </div>
+        {/* 2. Why your LinkedIn isn't working (yet) */}
+        <WhyLinkedinNotWorking onOpenBooking={handleOpenBooking} />
 
+        {/* 3. Proven Client Results & Case Studies */}
+        <Results />
+
+        {/* 4. Three Ways I Provide Support (Packages) */}
         <Services onOpenBooking={handleOpenBooking} />
 
+        {/* 5. The 5-Step Content-Connection-Conversation Framework */}
         <Workflow onOpenBooking={handleOpenBooking} />
 
+        {/* 6. Original LinkedIn Recommendation Screenshots */}
         <Testimonials />
 
+        {/* 7. About Founder Gaya */}
         <AboutFounder onOpenBooking={handleOpenBooking} />
 
+        {/* 8. Frequently Asked Questions */}
         <Faq onOpenBooking={handleOpenBooking} />
       </main>
 

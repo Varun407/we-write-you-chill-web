@@ -2,110 +2,116 @@ import React from 'react';
 import { Star, ArrowRight, Play, CheckCircle2, TrendingUp, MessageSquare } from 'lucide-react';
 
 export default function Hero({ onOpenBooking, onOpenEnquiry }) {
+  const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
+
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-white">
+    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-white">
       
       {/* Background Soft Glow Blobs */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-[#2650a8]/8 rounded-full blur-[140px] pointer-events-none animate-pulse-glow"></div>
       <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-[#f4ba43]/15 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         
-        {/* Rating Badge */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#f4ba43]/15 border border-[#f4ba43]/30 mb-8 shadow-sm">
+        {/* Rating & Trust Badge */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f4ba43]/15 border border-[#f4ba43]/30 mb-6 shadow-xs">
           <div className="flex items-center gap-1 text-[#f4ba43]">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-3.5 h-3.5 fill-current" />
             ))}
           </div>
           <span className="text-xs font-bold tracking-wide text-slate-800">
-            <span className="text-[#2650a8] font-extrabold">20+</span> Real Estate Professionals Helped
+            <span className="text-[#2650a8] font-black">25+</span> Property & Finance Clients Supported
           </span>
         </div>
 
-        {/* Main Headline */}
-        <h1 className="max-w-5xl mx-auto font-heading font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.08] text-[#000000]">
-          We Create Content & Strategy That Drive{' '}
+        {/* Main Caption */}
+        <h1 className="max-w-4xl mx-auto font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.15] text-[#000000]">
+          Three things work on LinkedIn.{' '}
           <span className="text-[#2650a8] highlight-swipe">
-            Inbound Deals.
+            Nobody tells you which three.
           </span>
         </h1>
 
-        {/* Subtitle */}
-        <p className="max-w-3xl mx-auto mt-6 text-lg sm:text-xl text-slate-600 font-subheading leading-relaxed">
-          Not viral views or virtual pats on the back from other agents — <strong className="text-[#000000] font-bold">real client enquiries</strong>. The done-for-you LinkedIn engine for Realtors, Buyer's Agents & Mortgage Brokers.
+        {/* Sub Caption */}
+        <p className="max-w-2xl mx-auto mt-5 text-base sm:text-lg text-slate-600 font-subheading leading-relaxed">
+          LinkedIn branding, content, outreach and video for property and finance experts. <strong className="text-[#000000] font-bold">You bring the expertise.</strong> We build everything that makes people trust it before they call.
         </p>
 
         {/* Call to Action Group */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            onClick={onOpenBooking}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-base font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-xl shadow-[#2650a8]/25 transition-all duration-300 hover:scale-[1.03] cursor-pointer"
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+          <a
+            href={zoomBookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm sm:text-base font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-lg shadow-[#2650a8]/20 transition-all duration-300 hover:scale-[1.02] cursor-pointer"
           >
-            <span>Book 1-on-1 Strategy Call</span>
-            <ArrowRight className="w-5 h-5 text-[#f4ba43]" />
-          </button>
+            <span>Book 1-on-1 Personal Brand Call</span>
+            <ArrowRight className="w-4 h-4 text-[#f4ba43]" />
+          </a>
           
           <button
             onClick={onOpenEnquiry}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-bold text-slate-800 bg-slate-50 hover:bg-slate-100 border border-slate-300 transition-all shadow-sm"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm sm:text-base font-bold text-slate-800 bg-slate-50 hover:bg-slate-100 border border-slate-300 transition-all shadow-xs cursor-pointer"
           >
-            <span>Submit Enquiry</span>
+            <span>Submit Quick Enquiry</span>
           </button>
         </div>
 
         {/* Feature Pills */}
-        <div className="mt-10 flex flex-wrap justify-center items-center gap-6 text-sm font-semibold text-slate-700">
+        <div className="mt-8 flex flex-wrap justify-center items-center gap-5 text-xs sm:text-sm font-semibold text-slate-700">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-[#2650a8]" />
-            <span>100% Authentic Voice Discovery</span>
+            <span>Only 45 Mins Needed Every 4 Weeks</span>
           </div>
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-[#f4ba43]" />
-            <span>Reusable Content Pillars & Templates</span>
+            <span>Content - Connection - Conversation System</span>
           </div>
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-[#2650a8]" />
-            <span>Active Network Outreach System</span>
+            <span>Includes Free Pre-Onboarding Audit</span>
           </div>
         </div>
 
-        {/* Hero Video Container */}
-        <div className="mt-14 relative max-w-5xl mx-auto rounded-3xl p-3 bg-white border border-slate-200 shadow-2xl overflow-hidden group">
-          <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center border border-slate-100">
+        {/* Hero Video / Strategy Assessment Container */}
+        <div className="mt-12 relative max-w-4xl mx-auto rounded-2xl p-2.5 bg-white border border-slate-200 shadow-xl overflow-hidden group">
+          <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-slate-900 flex items-center justify-center border border-slate-100">
             
             {/* Background Image Preview */}
             <div className="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-luminosity" style={{ backgroundImage: `url('/assets/gaya-founder.jpg')` }}></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/80 via-[#000000]/30 to-transparent"></div>
 
-            {/* Floating Stats Badges */}
-            <div className="absolute top-6 left-6 hidden sm:flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-left shadow-lg">
-              <TrendingUp className="w-5 h-5 text-[#2650a8]" />
+            {/* Floating Badges */}
+            <div className="absolute top-5 left-5 hidden sm:flex items-center gap-3 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-left shadow-md">
+              <TrendingUp className="w-4 h-4 text-[#2650a8]" />
               <div>
-                <div className="text-xs text-slate-500 font-medium">Average Leads Increase</div>
-                <div className="text-sm font-bold text-[#000000]">+340% Inbound</div>
+                <div className="text-[10px] text-slate-500 font-medium">Network Growth</div>
+                <div className="text-xs font-bold text-[#000000]">+30% to +40% Weekly</div>
               </div>
             </div>
 
-            <div className="absolute bottom-6 right-6 hidden sm:flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-left shadow-lg">
-              <MessageSquare className="w-5 h-5 text-[#f4ba43]" />
+            <div className="absolute bottom-5 right-5 hidden sm:flex items-center gap-3 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-left shadow-md">
+              <MessageSquare className="w-4 h-4 text-[#f4ba43]" />
               <div>
-                <div className="text-xs text-slate-500 font-medium">Target Audience</div>
-                <div className="text-sm font-bold text-[#000000]">Realtors & Brokers</div>
+                <div className="text-[10px] text-slate-500 font-medium">Outreach Acceptance</div>
+                <div className="text-xs font-bold text-[#000000]">Avg 40% Acceptance</div>
               </div>
             </div>
 
-            {/* Play Button Overlay */}
-            <div className="relative z-10 flex flex-col items-center gap-4">
-              <button 
-                onClick={onOpenBooking}
-                className="w-20 h-20 rounded-full bg-[#2650a8] text-white flex items-center justify-center shadow-2xl shadow-[#2650a8]/50 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#1d4088] cursor-pointer border-2 border-white"
+            {/* Play Button / Zoom Action */}
+            <div className="relative z-10 flex flex-col items-center gap-3">
+              <a 
+                href={zoomBookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-16 h-16 rounded-full bg-[#2650a8] text-white flex items-center justify-center shadow-xl shadow-[#2650a8]/40 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#1d4088] cursor-pointer border-2 border-white"
               >
-                <Play className="w-8 h-8 fill-current text-[#f4ba43] ml-1" />
-              </button>
-              <div className="text-center">
-                <p className="text-base font-bold text-white drop-shadow-md">See How Gaya Transforms Real Estate LinkedIn Profiles</p>
-                <p className="text-xs text-slate-200 font-medium">Click to watch strategy breakdown & client case studies</p>
+                <Play className="w-6 h-6 fill-current text-[#f4ba43] ml-1" />
+              </a>
+              <div className="text-center px-4">
+                <p className="text-sm font-bold text-white drop-shadow-md">Get Gaya's Free LinkedIn Assessment Plan</p>
+                <p className="text-xs text-slate-200 font-medium">Book a call to receive your customized profile & outreach blueprint</p>
               </div>
             </div>
 
