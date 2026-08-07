@@ -138,7 +138,7 @@ export default function Results() {
           </div>
 
           <a
-            href="/assessment.html"
+            href="./assessment.html"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-sm transition-all"
