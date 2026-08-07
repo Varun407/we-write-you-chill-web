@@ -45,13 +45,13 @@ export default function Results() {
   return (
     <section id="results" className="py-20 bg-white relative z-10 border-t border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3 py-1 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/20 inline-block mb-3">
             Proven Track Record
           </span>
-          
+
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
             Real Results For <span className="highlight-swipe">Property & Finance Experts</span>
           </h2>
@@ -85,7 +85,7 @@ export default function Results() {
         {/* Case Studies Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {caseStudies.map((cs, idx) => (
-            <div 
+            <div
               key={idx}
               className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#2650a8]/30 transition-all duration-300 flex flex-col justify-between group"
             >

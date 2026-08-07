@@ -8,21 +8,21 @@ export default function AboutFounder({ onOpenBooking }) {
 
   return (
     <section id="about" className="py-20 bg-white relative z-10 border-t border-slate-200">
-      
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
+
           {/* Image Column */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none rounded-2xl overflow-hidden bg-white border border-slate-200 p-2 shadow-lg group">
               <div className="aspect-[4/5] w-full rounded-xl overflow-hidden relative">
-                <img 
-                  src={gayaFounderImg} 
-                  alt="Gayathiri (Gaya) - Founder of We Write You Chill" 
+                <img
+                  src={gayaFounderImg}
+                  alt="Gayathiri (Gaya) - Founder of We Write You Chill"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
-                
+
                 <div className="absolute bottom-5 left-5 right-5 p-3.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-md flex items-center justify-between">
                   <div>
                     <h4 className="font-heading font-extrabold text-base text-[#000000]">Gaya</h4>
@@ -62,15 +62,15 @@ export default function AboutFounder({ onOpenBooking }) {
 
             <div className="space-y-3.5 text-sm sm:text-base text-slate-700 leading-relaxed font-subheading">
               <p>
-                I previously worked as an <strong className="text-[#000000] font-bold">assistant buyer's agent in Australia</strong>. I know firsthand how tough it is to build trust with high-net-worth clients and competitive referral partners.
+                I previously worked as an assistant buyer's agent in Australia. I know firsthand how tough it is to build trust with high-net-worth clients and competitive referral partners.
               </p>
 
               <p>
-                I have been posting on LinkedIn <strong className="text-[#000000] font-bold">every single day since September 30, 2023 till today</strong>. After making several mistakes myself in this process, three core things stood out to grow your brand — and that's how the framework was assembled: <strong className="text-[#2650a8] font-bold">Content - Connection - Conversation</strong>.
+                I have been posting on LinkedIn every single day since September 30, 2023 till today. After making several mistakes myself in this process, three core things stood out to grow your brand and that's how the framework was assembled: <strong className="text-[#2650a8] font-bold">Content - Connection - Conversation</strong>.
               </p>
 
               <p>
-                In 2025, I launched LinkedIn content marketing as a full-time business under <strong className="text-[#000000] font-bold">We Write You Chill</strong>. Since then, I have worked with more than <strong className="text-[#2650a8] font-extrabold">25 property and finance clients</strong> to build their personal brands.
+                In 2025, I launched LinkedIn content marketing as a full-time business under We Write You Chill. Since then, I have worked with more than 25 property and finance clients to build their personal brands.
               </p>
             </div>
 

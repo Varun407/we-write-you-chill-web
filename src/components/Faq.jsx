@@ -8,7 +8,7 @@ export default function Faq({ onOpenBooking }) {
   const faqs = [
     {
       q: 'Who is this for?',
-      a: 'You run a property/finance business — established, busy and not starting from scratch.\n\nYou are incredibly good at your job. But your expertise is not reflected on LinkedIn where you know your future clients and referrals are. You know you should be on LinkedIn. You have real stories and no time to write them. You have no strategy to grow your business on LinkedIn though you have heard success stories from your industry peers. You are patient enough to let it compound. You already understand this, because you know how compounding works.'
+      a: 'You run a property/finance business, established, busy and not starting from scratch.\n\nYou are incredibly good at your job. But your expertise is not reflected on LinkedIn where you know your future clients and referrals are. You know you should be on LinkedIn. You have real stories and no time to write them. You have no strategy to grow your business on LinkedIn though you have heard success stories from your industry peers. You are patient enough to let it compound. You already understand this, because you know how compounding works.'
     },
     {
       q: 'I have been burnt by an agency before. How do I know you can help me?',

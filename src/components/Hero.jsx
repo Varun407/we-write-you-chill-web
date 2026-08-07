@@ -2,7 +2,7 @@ import React from 'react';
 import { Star, ArrowRight, Play, CheckCircle2, TrendingUp, MessageSquare } from 'lucide-react';
 import gayaFounderImg from '../assets/gaya-founder.jpg';
 
-export default function Hero({ onOpenBooking, onOpenEnquiry }) {
+export default function Hero({ onOpenBooking }) {
   const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
 
   return (
@@ -36,7 +36,7 @@ export default function Hero({ onOpenBooking, onOpenEnquiry }) {
 
         {/* Sub Caption */}
         <p className="max-w-2xl mx-auto mt-5 text-base sm:text-lg text-slate-600 font-subheading leading-relaxed">
-          LinkedIn branding, content, outreach and video for property and finance experts. <strong className="text-[#000000] font-bold">You bring the expertise.</strong> We build everything that makes people trust it before they call.
+          LinkedIn branding, content, outreach and video for property and finance experts. <strong className="text-[#000000] font-bold">You bring the expertise.</strong> We build everything that makes people trust you before they call.
         </p>
 
         {/* Call to Action Group */}
@@ -50,13 +50,6 @@ export default function Hero({ onOpenBooking, onOpenEnquiry }) {
             <span>Book 1-on-1 Personal Brand Call</span>
             <ArrowRight className="w-4 h-4 text-[#f4ba43]" />
           </a>
-          
-          <button
-            onClick={onOpenEnquiry}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm sm:text-base font-bold text-slate-800 bg-slate-50 hover:bg-slate-100 border border-slate-300 transition-all shadow-xs cursor-pointer"
-          >
-            <span>Submit Quick Enquiry</span>
-          </button>
         </div>
 
         {/* Feature Pills */}

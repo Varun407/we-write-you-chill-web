@@ -32,7 +32,7 @@ export default function Footer({ onOpenBooking }) {
             </div>
 
             <p className="text-sm text-slate-600 leading-relaxed font-subheading max-w-md">
-              LinkedIn branding, content, outreach and video for property and finance experts. You bring the expertise. We build everything that makes people trust it before they call.
+              LinkedIn branding, content, outreach and video for property and finance experts. You bring the expertise. We build everything that makes people trust you before they call.
             </p>
 
             {/* Social Icons */}

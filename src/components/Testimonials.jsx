@@ -64,11 +64,8 @@ export default function Testimonials() {
           </div>
 
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
-            Real Brokers. Real Realtors. <span className="highlight-swipe">Real Inbound Leads.</span>
+            <span className="highlight-swipe">What working together feels like...</span>
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600 font-subheading">
-            Don't take our word for it — read what Buyer's Agents and Mortgage Brokers say about working with Gaya.
-          </p>
         </div>
 
         {/* Testimonials Grid */}

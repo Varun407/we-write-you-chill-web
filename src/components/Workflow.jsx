@@ -29,7 +29,7 @@ export default function Workflow() {
       num: 3,
       title: 'Content Development & Personal Writing',
       subtitle: 'Using the consumer layer marketing pyramid',
-      description: 'We draft your posts and carousels targeted to different buyer decision stages. You never open a blank page — just review and approve in minutes.',
+      description: 'We draft your posts and carousels targeted to different buyer decision stages. You never open a blank page, just review and approve in minutes.',
       icon: FileText,
       badge: 'Step 03',
       iconBg: 'bg-[#2650a8] text-white',

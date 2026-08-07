@@ -36,7 +36,6 @@ export default function App() {
         {/* 1. Hero Section */}
         <Hero 
           onOpenBooking={handleOpenBooking} 
-          onOpenEnquiry={handleOpenEnquiry} 
         />
         
         {/* 2. Why your LinkedIn isn't working (yet) */}

@@ -56,7 +56,7 @@ export default function Services({ onOpenBooking }) {
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-3.5 h-3.5 text-[#2650a8] shrink-0 mt-0.5" />
-                  <span>Content development & done-for-you writing — never open a blank page</span>
+                  <span>Content development & done-for-you writing, never open a blank page</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-3.5 h-3.5 text-[#2650a8] shrink-0 mt-0.5" />
@@ -64,17 +64,7 @@ export default function Services({ onOpenBooking }) {
                 </li>
               </ul>
 
-              {/* From -> To Shift Box */}
-              <div className="p-3.5 rounded-xl bg-blue-50/50 border border-[#2650a8]/20 mb-6 space-y-2 text-xs">
-                <div>
-                  <span className="font-bold text-slate-900 block mb-0.5">❌ FROM:</span>
-                  <span className="text-slate-600">Posting when you remember, going quiet for 3 weeks, wondering if any of it did anything.</span>
-                </div>
-                <div className="border-t border-slate-200 pt-2">
-                  <span className="font-bold text-[#2650a8] block mb-0.5">✅ TO:</span>
-                  <span className="text-slate-900 font-bold">A network that already knows how you think, so the first call starts at trust.</span>
-                </div>
-              </div>
+
             </div>
 
             <a
@@ -124,7 +114,7 @@ export default function Services({ onOpenBooking }) {
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-3.5 h-3.5 text-[#f4ba43] shrink-0 mt-0.5" />
-                  <span>End goal: Your team runs the whole thing — never buy another course</span>
+                  <span>End goal: Your team runs the whole thing, never buy another course</span>
                 </li>
               </ul>
             </div>
