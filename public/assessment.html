@@ -514,12 +514,12 @@
     }
     .score-card__row {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       gap: 6px;
       margin-bottom: 14px;
     }
     .score-card__n {
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 900;
       letter-spacing: -0.04em;
       line-height: 1;
@@ -528,17 +528,18 @@
     .score-card--mid  .score-card__n { color: var(--score-mid); }
     .score-card--low  .score-card__n { color: var(--score-low); }
     .score-card__d {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 0;
     }
 
     /* Mini donut chart in score card */
     .score-donut {
-      width: 44px; height: 44px;
+      width: 36px; height: 36px;
       margin-left: auto;
       flex-shrink: 0;
+      overflow: visible;
     }
     .donut-track { fill: none; stroke: rgba(30,58,95,0.09); stroke-width: 5; }
     .donut-fill {
@@ -552,11 +553,12 @@
     .donut-fill--low  { stroke: var(--score-low); }
 
     .score-bar-track {
-      height: 5px;
+      height: 6px;
       background: rgba(30,58,95,0.09);
       border-radius: var(--r-pill);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       overflow: hidden;
+      clear: both;
     }
     .score-bar-fill { height: 100%; border-radius: var(--r-pill); }
     .score-card--high .score-bar-fill { background: var(--score-high); }
@@ -1616,7 +1618,7 @@
         <p class="score-card__section">01 &middot; Profile Photo <span class="prov-chip">Provisional</span></p>
         <div class="score-card__row">
           <span class="score-card__n" data-count="5">0</span><span class="score-card__d">/ 10</span>
-          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--mid" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="50"/></svg>
+          <svg class="score-donut" viewBox="0 0 36 36"><g transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--mid" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="50"/></g></svg>
         </div>
         <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="50"></div></div>
         <p class="score-card__diag">Not visible in the export. Scored at the midpoint pending a look at the live profile.</p>
@@ -1626,7 +1628,7 @@
         <p class="score-card__section">02 &middot; Banner <span class="prov-chip">Provisional</span></p>
         <div class="score-card__row">
           <span class="score-card__n" data-count="4">0</span><span class="score-card__d">/ 10</span>
-          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="60"/></svg>
+          <svg class="score-donut" viewBox="0 0 36 36"><g transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="60"/></g></svg>
         </div>
         <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="40"></div></div>
         <p class="score-card__diag">Not visible in the export. A full banner brief is included regardless, since the current one almost certainly carries no offer.</p>
@@ -1636,7 +1638,7 @@
         <p class="score-card__section">03 &middot; Headline <span class="ver-chip">Verified</span></p>
         <div class="score-card__row">
           <span class="score-card__n" data-count="2">0</span><span class="score-card__d">/ 10</span>
-          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="80"/></svg>
+          <svg class="score-donut" viewBox="0 0 36 36"><g transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="80"/></g></svg>
         </div>
         <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="20"></div></div>
         <p class="score-card__diag">"Director at Ease Finance Co." is a job title. It contains no word a borrower would ever type into search.</p>
@@ -1646,7 +1648,7 @@
         <p class="score-card__section">04 &middot; About Section <span class="ver-chip">Verified</span></p>
         <div class="score-card__row">
           <span class="score-card__n" data-count="5">0</span><span class="score-card__d">/ 10</span>
-          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--mid" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="50"/></svg>
+          <svg class="score-donut" viewBox="0 0 36 36"><g transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--mid" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="50"/></g></svg>
         </div>
         <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="50"></div></div>
         <p class="score-card__diag">Genuine voice in places, but it opens with his own title, names no specific buyer, and carries zero numbers.</p>
@@ -1656,7 +1658,7 @@
         <p class="score-card__section">05 &middot; Featured <span class="prov-chip">Provisional</span></p>
         <div class="score-card__row">
           <span class="score-card__n" data-count="2">0</span><span class="score-card__d">/ 10</span>
-          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="80"/></svg>
+          <svg class="score-donut" viewBox="0 0 36 36"><g transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="80"/></g></svg>
         </div>
         <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="20"></div></div>
         <p class="score-card__diag">No lead magnet, calculator or booking link is referenced anywhere in the profile text, which suggests nothing is pinned.</p>
@@ -1666,7 +1668,7 @@
         <p class="score-card__section">06 &middot; Experience <span class="ver-chip">Verified</span></p>
         <div class="score-card__row">
           <span class="score-card__n" data-count="4">0</span><span class="score-card__d">/ 10</span>
-          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="60"/></svg>
+          <svg class="score-donut" viewBox="0 0 36 36"><g transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="60"/></g></svg>
         </div>
         <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="40"></div></div>
         <p class="score-card__diag">Detailed but entirely task based. Two other roles are still marked Present, one of them a marketing agency.</p>
@@ -1676,7 +1678,7 @@
         <p class="score-card__section">07 &middot; Skills <span class="ver-chip">Verified</span></p>
         <div class="score-card__row">
           <span class="score-card__n" data-count="3">0</span><span class="score-card__d">/ 10</span>
-          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="70"/></svg>
+          <svg class="score-donut" viewBox="0 0 36 36"><g transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="70"/></g></svg>
         </div>
         <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="30"></div></div>
         <p class="score-card__diag">Three skills showing. One is a job category, one is off niche, and none match how a borrower searches.</p>
@@ -1686,7 +1688,7 @@
         <p class="score-card__section">08 &middot; Activity <span class="prov-chip">Provisional</span></p>
         <div class="score-card__row">
           <span class="score-card__n" data-count="3">0</span><span class="score-card__d">/ 10</span>
-          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="70"/></svg>
+          <svg class="score-donut" viewBox="0 0 36 36"><g transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="70"/></g></svg>
         </div>
         <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="30"></div></div>
         <p class="score-card__diag">Not visible in the export. A 30 day posting rhythm is included in the Activity tab either way.</p>
@@ -1696,7 +1698,7 @@
         <p class="score-card__section">09 &middot; Niche Density <span class="ver-chip">Verified</span></p>
         <div class="score-card__row">
           <span class="score-card__n" data-count="3">0</span><span class="score-card__d">/ 10</span>
-          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="70"/></svg>
+          <svg class="score-donut" viewBox="0 0 36 36"><g transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="70"/></g></svg>
         </div>
         <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="30"></div></div>
         <p class="score-card__diag">"Everyday Australians", five product lines and a live marketing agency role. A stranger cannot tell what he actually is.</p>
