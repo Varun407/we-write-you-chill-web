@@ -1,0 +1,2667 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Damien Mather | LinkedIn Profile Audit | We Write You Chill</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════════
+       WE WRITE YOU CHILL , LINKEDIN AUDIT SYSTEM
+       Light Edition · Accent: #1E3A5F
+    ═══════════════════════════════════════════════════ */
+    :root {
+      /* Accent , user colour or default */
+      --primary:          #1E3A5F;
+      --primary-dark:     #152B47;
+      --primary-light:    #3A5F8A;
+      --primary-rgb:      30,58,95;
+
+      /* Dark theme surfaces */
+      --bg-page:          #FAF9F7;
+      --bg-card:          #FFFFFF;
+      --bg-card-2:        #F4F2EE;
+      --bg-card-3:        #EDEAE4;
+      --border:           #E3DFD7;
+      --border-bright:    #CFC8BA;
+
+      /* Typography */
+      --text-primary:     #14202E;
+      --text-secondary:   #55606E;
+      --text-muted:       #8B9099;
+
+      /* Score colours */
+      --score-high:       #22C55E;
+      --score-high-bg:    rgba(34,197,94,0.10);
+      --score-mid:        #F59E0B;
+      --score-mid-bg:     rgba(245,158,11,0.10);
+      --score-low:        #EF4444;
+      --score-low-bg:     rgba(239,68,68,0.10);
+
+      /* Font */
+      --font:             'Poppins', sans-serif;
+
+      /* Radius */
+      --r-sm:   8px;
+      --r-md:   16px;
+      --r-lg:   24px;
+      --r-xl:   32px;
+      --r-pill: 9999px;
+
+      /* Shadows */
+      --shadow-card:    0 2px 14px rgba(20,32,46,0.06);
+      --shadow-lift:    0 16px 44px rgba(20,32,46,0.12);
+      --shadow-glow:    0 0 32px rgba(var(--primary-rgb), 0.14);
+      --shadow-primary: 0 6px 20px rgba(var(--primary-rgb), 0.22);
+    }
+
+    /* ═══ RESET ══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font);
+      background: var(--bg-page);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    ::selection { background: rgba(var(--primary-rgb), 0.35); }
+
+    /* ═══ SCROLLBAR ══════════════════════════════════ */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-card); }
+    ::-webkit-scrollbar-thumb { background: rgba(var(--primary-rgb), 0.4); border-radius: 3px; }
+
+    /* ═══════════════════════════════════════════════════
+       COVER PAGE
+    ═══════════════════════════════════════════════════ */
+    .cover {
+      min-height: 100vh;
+      background: var(--bg-page);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 32px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Noise texture overlay */
+    .cover::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      background-size: 256px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Radial glow */
+    .cover::after {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(ellipse at center,
+        rgba(var(--primary-rgb), 0.16) 0%,
+        rgba(var(--primary-rgb), 0.04) 40%,
+        transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .cover__inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+    /* Brand pill */
+    .cover__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(30,58,95,0.04);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--r-pill);
+      padding: 7px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 56px;
+    }
+    .cover__brand-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 8px rgba(var(--primary-rgb), 0.8);
+      flex-shrink: 0;
+    }
+
+    /* SVG Score ring */
+    .cover__ring-wrap {
+      position: relative;
+      width: 240px; height: 240px;
+      margin: 0 auto 48px;
+    }
+    .ring-svg { width: 240px; height: 240px; transform: rotate(-90deg); }
+    .ring-track {
+      fill: none;
+      stroke: rgba(30,58,95,0.09);
+      stroke-width: 12;
+    }
+    .ring-fill {
+      fill: none;
+      stroke: var(--primary);
+      stroke-width: 12;
+      stroke-linecap: round;
+      stroke-dasharray: 659.73; /* 2π × 105 */
+      stroke-dashoffset: calc(659.73 - (659.73 * 34 / 100));
+      filter: drop-shadow(0 0 12px rgba(var(--primary-rgb), 0.7));
+    }
+    .ring-inner {
+      position: absolute; inset: 16px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 2px;
+    }
+    .ring-score {
+      font-size: 64px;
+      font-weight: 900;
+      color: var(--text-primary);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .ring-denom {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    .cover__name {
+      font-size: clamp(36px, 5.5vw, 60px);
+      font-weight: 900;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+    .cover__name em { font-style: normal; color: var(--primary); }
+
+    .cover__subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .cover__badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(30,58,95,0.04);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--r-pill);
+      padding: 10px 22px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .badge--grade { border-color: rgba(var(--primary-rgb), 0.4); }
+    .badge__grade-val {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       STAT STRIP
+    ═══════════════════════════════════════════════════ */
+    .stat-strip {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-strip__inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+    }
+    .stat-item {
+      flex: 1;
+      padding: 24px 16px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-val {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+    }
+    .stat-val span { color: var(--primary); font-size: 16px; }
+    .stat-key {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       STICKY NAVIGATION TABS
+    ═══════════════════════════════════════════════════ */
+    .nav-tabs {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-tabs__inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+      gap: 0;
+    }
+    .nav-tabs__inner::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 20px;
+      height: 52px;
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .tab-btn:hover { color: var(--text-secondary); }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+    .tab-btn__dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+    .tab-btn.active .tab-btn__dot { opacity: 1; }
+
+    /* Tab content panels */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ═══════════════════════════════════════════════════
+       PAGE WRAPPER
+    ═══════════════════════════════════════════════════ */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SECTION HEADERS
+    ═══════════════════════════════════════════════════ */
+    .sec-header { margin-bottom: 40px; }
+    .sec-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .sec-eyebrow::before {
+      content: '';
+      width: 24px; height: 2px;
+      background: var(--primary);
+      border-radius: 1px;
+      display: inline-block;
+    }
+    .sec-title {
+      font-size: clamp(24px, 3.5vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+    .sec-title em { font-style: normal; color: var(--primary); }
+    .sec-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       RADAR CHART (overview)
+    ═══════════════════════════════════════════════════ */
+    .radar-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 40px;
+      margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .radar-svg-wrap { display: flex; justify-content: center; }
+    .radar-svg { width: 100%; max-width: 320px; overflow: visible; }
+    .radar-grid { fill: none; stroke: var(--border-bright); stroke-width: 0.8; }
+    .radar-axis { stroke: var(--border); stroke-width: 0.8; }
+    .radar-area {
+      fill: rgba(var(--primary-rgb), 0.18);
+      stroke: var(--primary);
+      stroke-width: 2;
+      filter: drop-shadow(0 0 8px rgba(var(--primary-rgb), 0.4));
+    }
+    .radar-point { fill: var(--primary); }
+    .radar-label {
+      font-family: var(--font);
+      font-size: 9px;
+      font-weight: 700;
+      fill: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .radar-legend { display: flex; flex-direction: column; gap: 14px; }
+    .radar-legend-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+    .radar-legend-sub {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .legend-bar-track {
+      flex: 1;
+      height: 6px;
+      background: rgba(30,58,95,0.09);
+      border-radius: var(--r-pill);
+      overflow: hidden;
+    }
+    .legend-bar-fill {
+      height: 100%;
+      border-radius: var(--r-pill);
+    }
+    .legend-bar-fill--high { background: var(--score-high); }
+    .legend-bar-fill--mid  { background: var(--score-mid); }
+    .legend-bar-fill--low  { background: var(--score-low); }
+    .legend-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      width: 130px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .legend-score {
+      font-size: 13px;
+      font-weight: 800;
+      width: 32px;
+      text-align: right;
+    }
+    .legend-score--high { color: var(--score-high); }
+    .legend-score--mid  { color: var(--score-mid); }
+    .legend-score--low  { color: var(--score-low); }
+
+    /* ═══════════════════════════════════════════════════
+       SCORE CARDS GRID
+    ═══════════════════════════════════════════════════ */
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .score-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 24px 22px 20px;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .score-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lift);
+    }
+    .score-card--high { border-top: 3px solid var(--score-high); }
+    .score-card--high:hover { border-color: var(--score-high); }
+    .score-card--mid  { border-top: 3px solid var(--score-mid); }
+    .score-card--mid:hover  { border-color: var(--score-mid); }
+    .score-card--low  { border-top: 3px solid var(--score-low); }
+    .score-card--low:hover  { border-color: var(--score-low); }
+
+    /* Subtle number watermark */
+    .score-card::after {
+      content: attr(data-n);
+      position: absolute;
+      right: 12px; bottom: -8px;
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 1;
+      opacity: 0.055;
+      pointer-events: none;
+      letter-spacing: -0.04em;
+    }
+    .score-card--high::after { color: var(--score-high); }
+    .score-card--mid::after  { color: var(--score-mid); }
+    .score-card--low::after  { color: var(--score-low); }
+
+    .score-card__section {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .score-card__row {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .score-card__n {
+      font-size: 36px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .score-card--high .score-card__n { color: var(--score-high); }
+    .score-card--mid  .score-card__n { color: var(--score-mid); }
+    .score-card--low  .score-card__n { color: var(--score-low); }
+    .score-card__d {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    /* Mini donut chart in score card */
+    .score-donut {
+      width: 44px; height: 44px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .donut-track { fill: none; stroke: rgba(30,58,95,0.09); stroke-width: 5; }
+    .donut-fill {
+      fill: none;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-dasharray: 100;
+    }
+    .donut-fill--high { stroke: var(--score-high); }
+    .donut-fill--mid  { stroke: var(--score-mid); }
+    .donut-fill--low  { stroke: var(--score-low); }
+
+    .score-bar-track {
+      height: 5px;
+      background: rgba(30,58,95,0.09);
+      border-radius: var(--r-pill);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .score-bar-fill { height: 100%; border-radius: var(--r-pill); }
+    .score-card--high .score-bar-fill { background: var(--score-high); }
+    .score-card--mid  .score-bar-fill { background: var(--score-mid); }
+    .score-card--low  .score-bar-fill { background: var(--score-low); }
+
+    .score-card__diag {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       BRAND COLOUR PALETTE , FULL CARD DESIGN
+    ═══════════════════════════════════════════════════ */
+    .palette-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .palette-card__head {
+      background: var(--bg-card-2);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 36px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .palette-card__head-text h3 {
+      font-size: 18px; font-weight: 800; color: var(--text-primary);
+      letter-spacing: -0.02em; margin-bottom: 4px;
+    }
+    .palette-card__head-text p { font-size: 13px; color: var(--text-secondary); }
+    .palette-card__badge {
+      background: rgba(var(--primary-rgb),.12);
+      border: 1px solid rgba(var(--primary-rgb),.25);
+      border-radius: var(--r-pill);
+      padding: 6px 16px; font-size: 11px; font-weight: 700;
+      color: var(--primary); white-space: nowrap; flex-shrink: 0;
+    }
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--border);
+    }
+    .color-card {
+      background: var(--bg-card);
+      padding: 0;
+      display: flex; flex-direction: column;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      overflow: hidden;
+    }
+    .color-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); z-index: 2; }
+    .color-card__swatch {
+      height: 120px;
+      position: relative;
+      overflow: hidden;
+    }
+    .color-card__swatch::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.3) 100%);
+    }
+    .color-card__shimmer {
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    .color-card:hover .color-card__shimmer { transform: translateX(100%); }
+    .color-card__info {
+      padding: 16px;
+      display: flex; flex-direction: column; gap: 6px;
+      flex: 1;
+    }
+    .color-card__role {
+      font-size: 9px; font-weight: 800; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-muted);
+    }
+    .color-card__name {
+      font-size: 14px; font-weight: 700; color: var(--text-primary);
+    }
+    .color-card__hex-row {
+      display: flex; align-items: center; gap: 8px; margin-top: 4px;
+    }
+    .color-card__hex {
+      font-family: monospace; font-size: 12px; font-weight: 700;
+      color: var(--text-secondary); letter-spacing: 0.04em;
+      background: rgba(30,58,95,0.05); border: 1px solid var(--border);
+      border-radius: 6px; padding: 3px 8px; flex: 1;
+    }
+    .color-copy-btn {
+      width: 28px; height: 28px; border-radius: 7px; border: 1px solid var(--border);
+      background: rgba(30,58,95,0.05); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted); transition: all 0.18s ease; flex-shrink: 0;
+    }
+    .color-copy-btn:hover { background: rgba(var(--primary-rgb),.15); border-color: rgba(var(--primary-rgb),.4); color: var(--primary); }
+    .color-copy-btn svg { width: 13px; height: 13px; }
+    .color-copy-btn.copied { background: rgba(34,197,94,.15); border-color: rgba(34,197,94,.4); color: #22C55E; }
+    /* Toast */
+    .copy-toast {
+      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px);
+      background: var(--bg-card-3); border: 1px solid var(--border-bright);
+      border-radius: var(--r-pill); padding: 10px 24px;
+      font-size: 13px; font-weight: 600; color: var(--text-primary);
+      box-shadow: var(--shadow-lift); opacity: 0;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none; z-index: 9999; white-space: nowrap;
+    }
+    .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ═══════════════════════════════════════════════════
+       PROBLEM CARDS
+    ═══════════════════════════════════════════════════ */
+    .problems { display: flex; flex-direction: column; gap: 16px; }
+
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .problem-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .problem-card__num-col {
+      background: linear-gradient(180deg, rgba(var(--primary-rgb),0.15) 0%, rgba(var(--primary-rgb),0.05) 100%);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 28px 0;
+    }
+    .problem-n {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .problem-n-label {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .problem-card__body { padding: 28px 32px; }
+    .problem-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .problem-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.78;
+      margin-bottom: 16px;
+    }
+    .problem-cost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--score-low-bg);
+      color: var(--score-low);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: var(--r-pill);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SECTION AUDIT CARDS
+    ═══════════════════════════════════════════════════ */
+    .audit-cards { display: flex; flex-direction: column; gap: 24px; }
+
+    .audit-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      transition: box-shadow 0.2s ease;
+    }
+    .audit-card:hover { box-shadow: var(--shadow-lift); }
+
+    .audit-card__head {
+      background: var(--bg-card-2);
+      border-bottom: 1px solid var(--border);
+      padding: 22px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .audit-card__head-left { display: flex; align-items: center; gap: 12px; }
+    .audit-card__idx {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      background: rgba(30,58,95,0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 3px 8px;
+    }
+    .audit-card__name {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+    .audit-card__score-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 6px 18px;
+      border-radius: var(--r-pill);
+      box-shadow: var(--shadow-primary);
+      flex-shrink: 0;
+    }
+
+    .audit-card__body { padding: 32px; display: flex; flex-direction: column; gap: 20px; }
+
+    /* Content blocks inside audit cards */
+    .block { border-radius: var(--r-md); padding: 20px 22px; }
+
+    .block--current {
+      background: rgba(30,58,95,0.03);
+      border: 1px solid var(--border);
+    }
+    .block--diag {
+      background: rgba(var(--primary-rgb), 0.05);
+      border-left: 3px solid var(--primary);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+    }
+    .block--rewrite {
+      background: var(--bg-card-3);
+      border: 1.5px solid rgba(var(--primary-rgb), 0.35);
+      border-radius: var(--r-lg);
+      position: relative;
+      padding-top: 28px;
+    }
+    .block--tip {
+      background: var(--score-high-bg);
+      border-left: 3px solid var(--score-high);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+    }
+
+    /* Floating label on rewrite block */
+    .block--rewrite::before {
+      content: 'PASTE-READY COPY';
+      position: absolute;
+      top: -1px; left: 20px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      padding: 4px 12px;
+      border-radius: 0 0 var(--r-sm) var(--r-sm);
+    }
+
+    .block__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .block--current .block__label { color: var(--text-muted); }
+    .block--diag    .block__label { color: var(--primary); }
+    .block--rewrite .block__label { color: rgba(var(--primary-rgb), 0.7); }
+    .block--tip     .block__label { color: var(--score-high); }
+
+    .block__text {
+      font-size: 14px;
+      line-height: 1.78;
+      white-space: pre-wrap;
+    }
+    .block--current .block__text { color: var(--text-secondary); font-style: italic; }
+    .block--diag    .block__text { color: var(--text-secondary); }
+    .block--rewrite .block__text { color: var(--text-primary); font-weight: 500; }
+    .block--tip     .block__text { color: rgba(34,197,94,0.9); font-size: 13px; }
+
+    /* ═══════════════════════════════════════════════════
+       BANNER BRIEF
+    ═══════════════════════════════════════════════════ */
+    .banner-brief {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+    }
+    .banner-brief__top {
+      background: var(--bg-card-2);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .banner-brief__top::after {
+      content: '';
+      position: absolute; right: -40px; top: -40px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(var(--primary-rgb),0.12) 0%, transparent 70%);
+    }
+    .banner-brief__top-text h3 {
+      font-size: 20px; font-weight: 800;
+      color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: 4px;
+    }
+    .banner-brief__top-text p { font-size: 13px; color: var(--text-secondary); }
+    .banner-brief__tool {
+      background: rgba(var(--primary-rgb), 0.12);
+      border: 1px solid rgba(var(--primary-rgb), 0.25);
+      border-radius: var(--r-md);
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+      position: relative; z-index: 1;
+    }
+    .banner-brief__rows { padding: 8px 0; }
+    .banner-brief__row {
+      display: grid;
+      grid-template-columns: 156px 1fr;
+      gap: 16px;
+      align-items: baseline;
+      padding: 14px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .banner-brief__row:last-child { border-bottom: none; }
+    .banner-brief__key {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--primary);
+    }
+    .banner-brief__val {
+      font-size: 14px; color: var(--text-secondary); line-height: 1.65;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       NEXT STEPS
+    ═══════════════════════════════════════════════════ */
+    .next-steps { display: flex; flex-direction: column; gap: 12px; }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
+      gap: 18px;
+      align-items: center;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .step-card:hover {
+      transform: translateX(6px);
+      border-color: rgba(var(--primary-rgb), 0.25);
+      box-shadow: var(--shadow-card);
+    }
+    .step-num {
+      width: 48px; height: 48px;
+      background: var(--primary);
+      border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 900; color: #fff;
+      box-shadow: var(--shadow-primary);
+      flex-shrink: 0;
+    }
+    .step-title {
+      font-size: 15px; font-weight: 700;
+      color: var(--text-primary); margin-bottom: 4px;
+    }
+    .step-desc {
+      font-size: 13px; color: var(--text-secondary); line-height: 1.55;
+    }
+    .step-time {
+      background: rgba(30,58,95,0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--r-pill);
+      padding: 5px 12px;
+      font-size: 11px; font-weight: 700;
+      color: var(--text-muted); white-space: nowrap; flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       FINAL CTA
+    ═══════════════════════════════════════════════════ */
+    /* Workshop CTA */
+    .wcta { position:relative;overflow:hidden;margin-top:40px;border-radius:28px;padding:2px;background:linear-gradient(135deg,rgba(var(--primary-rgb),.6),rgba(var(--primary-rgb),.1),rgba(var(--primary-rgb),.4)); }
+    .wcta-inner-wrap { background:linear-gradient(135deg,#14202E 0%,#1E3A5F 50%,#14202E 100%);border-radius:26px;padding:60px 40px;text-align:center;position:relative;overflow:hidden; }
+    .wcta-glow { position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:500px;background:radial-gradient(ellipse,rgba(var(--primary-rgb),.22) 0%,transparent 65%);pointer-events:none;animation:glowPulse 3s ease-in-out infinite; }
+    .wcta-glow2 { position:absolute;bottom:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(var(--primary-rgb),.1) 0%,transparent 70%);pointer-events:none; }
+    @keyframes glowPulse { 0%,100%{opacity:.6}50%{opacity:1} }
+    .wcta-content { position:relative;z-index:1; }
+    .wcta-live-badge { display:inline-flex;align-items:center;gap:8px;background:rgba(var(--primary-rgb),.15);border:1px solid rgba(var(--primary-rgb),.4);border-radius:var(--r-pill);padding:7px 18px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:24px; }
+    .live-dot { width:8px;height:8px;background:#EF4444;border-radius:50%;animation:pulse 1.5s ease-in-out infinite;box-shadow:0 0 8px rgba(239,68,68,.8); }
+    .wcta-title { font-size:clamp(22px,3.5vw,40px);font-weight:900;color:var(--white);letter-spacing:-.03em;line-height:1.1;margin-bottom:16px; }
+    .wcta-title em { font-style:normal;color:var(--primary); }
+    .wcta-desc { font-size:14px;color:rgba(255,255,255,.58);margin-bottom:16px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.75; }
+    .wcta-dm-line { display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:32px;font-size:13px;color:rgba(255,255,255,.6); }
+    .wcta-dm-keyword { font-family:monospace;font-size:14px;font-weight:700;color:var(--white);background:rgba(var(--primary-rgb),.2);border:1px solid rgba(var(--primary-rgb),.4);padding:4px 14px;border-radius:8px;letter-spacing:.04em; }
+    .wcta-btn { display:inline-flex;align-items:center;gap:10px;background:var(--primary);color:var(--white);font-family:var(--font);font-size:15px;font-weight:700;padding:18px 40px;border-radius:var(--r-pill);text-decoration:none;box-shadow:0 8px 40px rgba(var(--primary-rgb),.5);transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden; }
+    .wcta-btn::before { content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);transform:translateX(-100%);transition:transform .5s; }
+    .wcta-btn:hover::before { transform:translateX(100%); }
+    .wcta-btn:hover { transform:translateY(-3px);box-shadow:0 16px 56px rgba(var(--primary-rgb),.65); }
+    .wcta-urgency { margin-top:16px;font-size:11px;color:rgba(255,255,255,.3); }
+    .wcta-spots { display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);border-radius:var(--r-pill);padding:4px 12px;font-size:10px;font-weight:700;color:#F59E0B;margin-top:12px; }
+
+    /* ═══════════════════════════════════════════════════
+       SCROLLING TICKER
+    ═══════════════════════════════════════════════════ */
+    .ticker-wrap { overflow:hidden;background:rgba(var(--primary-rgb),.08);border-top:1px solid rgba(var(--primary-rgb),.2);border-bottom:1px solid rgba(var(--primary-rgb),.2);padding:10px 0;position:relative; }
+    .ticker-wrap::before,.ticker-wrap::after { content:'';position:absolute;top:0;width:80px;height:100%;z-index:2;pointer-events:none; }
+    .ticker-wrap::before { left:0;background:linear-gradient(90deg,var(--bg-page),transparent); }
+    .ticker-wrap::after  { right:0;background:linear-gradient(-90deg,var(--bg-page),transparent); }
+    .ticker-track { display:flex;gap:0;width:max-content;animation:ticker 28s linear infinite; }
+    .ticker-track:hover { animation-play-state:paused; }
+    .ticker-item { display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#55606E;white-space:nowrap; }
+    .ticker-item em { color:var(--primary);font-style:normal; }
+    .ticker-dot { width:4px;height:4px;border-radius:50%;background:rgba(var(--primary-rgb),.6);flex-shrink:0; }
+    @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    /* ═══════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════ */
+    .footer {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .footer__inner { max-width: 960px; margin: 0 auto; }
+    .footer__brand { font-size: 14px; font-weight: 800; color: var(--primary); }
+    .footer__meta { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+    /* ═══════════════════════════════════════════════════
+       ANIMATIONS , PREMIUM SET
+    ═══════════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; }
+      50%       { opacity: 1; }
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(0px) scale(1); opacity: 0.6; }
+      50%  { transform: translateY(-18px) scale(1.04); opacity: 1; }
+      100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+    }
+    @keyframes ringDraw {
+      from { stroke-dashoffset: 659.73; }
+    }
+    @keyframes shimmerSlide {
+      0%   { background-position: -400px 0; }
+      100% { background-position: 400px 0; }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%       { transform: scale(1.15); opacity: 0.7; }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes popIn {
+      0%   { opacity: 0; transform: scale(0.8) translateY(10px); }
+      70%  { transform: scale(1.04) translateY(-2px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes borderGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0); }
+      50%       { box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.15); }
+    }
+
+    .anim-up      { animation: fadeUp  0.7s cubic-bezier(0.16,1,0.3,1) both; }
+    .anim-scale   { animation: scaleIn 0.65s cubic-bezier(0.16,1,0.3,1) both; }
+    .anim-d1 { animation-delay: 0.08s; }
+    .anim-d2 { animation-delay: 0.18s; }
+    .anim-d3 { animation-delay: 0.28s; }
+    .anim-d4 { animation-delay: 0.38s; }
+    .anim-d5 { animation-delay: 0.48s; }
+
+    /* Ring draws itself on load */
+    .ring-fill { animation: ringDraw 1.8s cubic-bezier(0.16,1,0.3,1) 0.6s both; }
+
+    /* Floating particles on cover */
+    .cover-particle {
+      position: absolute; border-radius: 50%;
+      background: radial-gradient(circle, rgba(var(--primary-rgb),0.7), transparent);
+      pointer-events: none; z-index: 0;
+      animation: floatUp var(--dur, 4s) ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+    }
+
+    /* Rewrite block shimmer on hover */
+    .block--rewrite {
+      background: var(--bg-card-3);
+      border: 1.5px solid rgba(var(--primary-rgb), 0.35);
+      border-radius: var(--r-lg);
+      position: relative;
+      padding-top: 28px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .block--rewrite:hover {
+      border-color: rgba(var(--primary-rgb), 0.6);
+      box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.08), var(--shadow-card);
+    }
+
+    /* Score card pop on reveal */
+    .score-card.reveal-pop { animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both; }
+
+    /* Step card slide in */
+    .step-card.reveal-slide { animation: slideInLeft 0.5s cubic-bezier(0.16,1,0.3,1) both; }
+
+    /* Stat value shimmer while counting */
+    .stat-val.counting {
+      background: linear-gradient(90deg, var(--text-primary) 30%, rgba(var(--primary-rgb),0.9) 50%, var(--text-primary) 70%);
+      background-size: 400px 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmerSlide 1.2s linear infinite;
+    }
+
+    /* Problem card border glow */
+    .problem-card { animation: borderGlow 3s ease-in-out infinite; animation-play-state: paused; }
+    .problem-card.visible { animation-play-state: running; }
+
+    /* ═══════════════════════════════════════════════════
+       PRINT
+    ═══════════════════════════════════════════════════ */
+    @media print {
+      .nav-tabs, .stat-strip { display: none; }
+      .tab-panel { display: block !important; }
+      .cover { min-height: auto; padding: 60px; page-break-after: always; }
+      .audit-card { page-break-inside: avoid; }
+      .problem-card { page-break-inside: avoid; }
+    }
+
+    /* ═══════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .score-grid { grid-template-columns: repeat(2, 1fr); }
+      .radar-wrap { grid-template-columns: 1fr; }
+      .radar-svg-wrap { order: 2; }
+      .radar-legend { order: 1; }
+      .step-card { grid-template-columns: 48px 1fr; }
+      .step-time { display: none; }
+      .banner-brief__row { grid-template-columns: 1fr; gap: 4px; padding: 14px 24px; }
+    }
+    @media (max-width: 520px) {
+      .score-grid { grid-template-columns: 1fr; }
+      .problem-card { grid-template-columns: 1fr; }
+      .problem-card__num-col { flex-direction: row; justify-content: flex-start; gap: 12px; padding: 16px 24px; }
+      .stat-strip__inner { flex-wrap: wrap; }
+      .stat-item { min-width: 50%; }
+      .cover__name { font-size: 32px; }
+      .final-cta { padding: 48px 24px; }
+      .audit-card__body { padding: 20px; }
+    }
+  
+    /* ═══ WE WRITE YOU CHILL , LIGHT EDITION ADDITIONS ═══ */
+    .cover { background: linear-gradient(180deg,#FFFFFF 0%,#FAF9F7 100%); }
+    .cover__brand { color:#55606E; background:#FFFFFF; border-color:#E3DFD7; }
+    .badge { background:#FFFFFF; border-color:#E3DFD7; }
+    .ring-track { stroke:#EDEAE4; }
+    .ring-fill { filter:none; }
+    .ring-inner { background:#FFFFFF; box-shadow:0 2px 18px rgba(20,32,46,.06); }
+    .nav-tabs { background:rgba(250,249,247,.94); backdrop-filter:blur(10px); }
+    .radar-grid { stroke:#E3DFD7; }
+    .radar-axis { stroke:#EDEAE4; }
+    .radar-label { fill:#55606E; }
+    .radar-area { fill:rgba(30,58,95,.14); stroke:#1E3A5F; }
+    .radar-point { fill:#C9A961; stroke:#FFFFFF; }
+    .legend-bar-track, .score-bar-track { background:#EDEAE4; }
+    .donut-track { stroke:#EDEAE4; }
+    .stat-strip { background:#FFFFFF; }
+    .audit-card, .score-card, .problem-card, .step-card, .banner-brief, .palette-card { background:#FFFFFF; }
+    .block--current { background:#F4F2EE; }
+    .block--rewrite { border-left-color:#C9A961; }
+    .footer { background:#FFFFFF; }
+    .cover-particle { background:rgba(201,169,97,.5); }
+
+    /* Scope / provenance note */
+    .scope-note {
+      background:#FFFFFF; border:1px solid #E3DFD7; border-left:4px solid #C9A961;
+      border-radius:var(--r-md); padding:20px 24px; margin-bottom:28px; box-shadow:var(--shadow-card);
+    }
+    .scope-note__label {
+      font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+      color:#9A8446; margin-bottom:8px;
+    }
+    .scope-note__text { font-size:13.5px; line-height:1.75; color:var(--text-secondary); }
+
+    /* Verified / provisional chips */
+    .ver-chip, .prov-chip {
+      display:inline-block; margin-left:6px; padding:2px 8px; border-radius:var(--r-pill);
+      font-size:9px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; vertical-align:middle;
+    }
+    .ver-chip  { background:rgba(34,197,94,.12);  color:#15803D; }
+    .prov-chip { background:rgba(201,169,97,.18); color:#8A7335; }
+
+    /* Copy blocks */
+    .copy-block { position:relative; background:#F4F2EE; border:1px solid #E3DFD7; border-radius:var(--r-md); padding:20px 22px 20px; margin-top:6px; }
+    .copy-block__text { white-space:pre-wrap; font-size:14px; line-height:1.8; color:var(--text-primary); }
+    .copy-btn {
+      position:absolute; top:12px; right:12px; background:var(--primary); color:#fff;
+      border:none; border-radius:var(--r-pill); padding:6px 16px; font-family:var(--font);
+      font-size:11px; font-weight:700; letter-spacing:.04em; cursor:pointer; transition:all .2s;
+    }
+    .copy-btn:hover { background:var(--primary-dark); transform:translateY(-1px); }
+    .copy-btn.copied { background:#22C55E; }
+    .opt-note { font-size:13px; line-height:1.7; color:var(--text-secondary); margin:10px 0 20px; }
+    .opt-note strong { color:var(--text-primary); }
+    .opt-note.warn {
+      background:rgba(201,169,97,.10); border:1px solid rgba(201,169,97,.35);
+      border-radius:var(--r-sm); padding:14px 16px; margin-top:14px;
+    }
+    @media (max-width:640px) {
+      .copy-btn { position:static; display:block; margin-bottom:12px; }
+    }
+
+  
+    /* ═══ LEFT SIDEBAR NAVIGATION ═══════════════════ */
+    .shell {
+      display: grid;
+      grid-template-columns: 268px minmax(0, 1fr);
+      gap: 0;
+      max-width: 1320px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .shell__main { min-width: 0; border-left: 1px solid var(--border); }
+
+    .nav-tabs {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border-bottom: none;
+      padding: 44px 20px 44px 24px;
+      max-height: 100vh;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+    .nav-tabs::-webkit-scrollbar { display: none; }
+    .nav-tabs__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      max-width: none;
+      padding: 0;
+      margin: 0;
+      overflow: visible;
+    }
+    .nav-tabs__heading {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0 14px 12px;
+    }
+    .tab-btn {
+      width: 100%;
+      justify-content: flex-start;
+      gap: 10px;
+      height: auto;
+      padding: 11px 14px;
+      font-size: 12.5px;
+      text-align: left;
+      border-bottom: none;
+      border-left: 2px solid transparent;
+      border-radius: 0 8px 8px 0;
+      transition: background .18s, color .18s, border-color .18s;
+    }
+    .tab-btn:hover { background: rgba(30,58,95,.045); color: var(--text-primary); }
+    .tab-btn.active {
+      background: rgba(30,58,95,.075);
+      color: var(--primary);
+      border-bottom-color: transparent;
+      border-left-color: var(--primary);
+      font-weight: 700;
+    }
+    .nav-score {
+      margin-left: auto;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: var(--r-pill);
+      line-height: 1.5;
+    }
+    .nav-score--high { background: rgba(34,197,94,.14);  color: #15803D; }
+    .nav-score--mid  { background: rgba(245,158,11,.16); color: #A16207; }
+    .nav-score--low  { background: rgba(239,68,68,.12);  color: #B91C1C; }
+
+    .page { max-width: 900px; margin: 0; padding: 52px 40px 100px; }
+
+    @media (max-width: 980px) {
+      .shell { grid-template-columns: 1fr; }
+      .shell__main { border-left: none; }
+      .nav-tabs {
+        padding: 0;
+        max-height: none;
+        overflow-y: visible;
+        background: rgba(250,249,247,.96);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-tabs__inner {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0 16px;
+        gap: 0;
+      }
+      .nav-tabs__inner::-webkit-scrollbar { display: none; }
+      .nav-tabs__heading { display: none; }
+      .tab-btn {
+        width: auto;
+        height: 50px;
+        border-left: none;
+        border-radius: 0;
+        border-bottom: 2px solid transparent;
+        padding: 0 16px;
+      }
+      .tab-btn.active { background: none; border-left-color: transparent; border-bottom-color: var(--primary); }
+      .nav-score { margin-left: 4px; }
+      .page { padding: 44px 24px 90px; max-width: none; }
+    }
+    @media print {
+      .shell { display: block; }
+      .shell__main { border-left: none; }
+    }
+
+  
+
+  
+    /* ═══ CLOSING PANEL ═════════════════════════════ */
+    /* Template styled this with var(--white), undefined in the light
+       edition, so the text rendered as dark ink on a navy panel. */
+    .wcta { background: linear-gradient(135deg, rgba(201,169,97,.55), rgba(201,169,97,.12), rgba(201,169,97,.4)); }
+    .wcta-inner-wrap { padding: 56px 40px; }
+    .wcta-title    { color: #FFFFFF; }
+    .wcta-title em { color: #C9A961; font-style: normal; }
+    .wcta-desc     { color: rgba(255,255,255,.74); }
+    .wcta-desc--last { margin-bottom: 0; }
+    .wcta-live-badge {
+      color: #C9A961;
+      background: rgba(201,169,97,.14);
+      border-color: rgba(201,169,97,.42);
+    }
+    .live-dot   { background: #C9A961; box-shadow: 0 0 8px rgba(201,169,97,.9); }
+    .wcta-glow  { background: radial-gradient(ellipse, rgba(201,169,97,.20) 0%, transparent 65%); }
+    .wcta-glow2 { background: radial-gradient(circle, rgba(201,169,97,.10) 0%, transparent 70%); }
+
+  
+    /* ═══ HOW I PROVIDE SUPPORT ═════════════════════ */
+    .sup-block-title {
+      font-size: 20px; font-weight: 800; color: var(--primary);
+      letter-spacing: -.01em; margin: 0 0 22px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .sup-block-title:not(:first-of-type) { margin-top: 56px; }
+
+    .sup-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+    .sup-card {
+      background: #FFFFFF; border: 1px solid var(--border);
+      border-left: 3px solid #C9A961; border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      padding: 18px 20px; box-shadow: var(--shadow-card);
+    }
+    .sup-card__label {
+      font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase;
+      color: #8A7335; margin-bottom: 8px;
+    }
+    .sup-card__quote { font-size: 15.5px; line-height: 1.6; color: var(--primary); font-weight: 600; }
+
+    .sup-offers { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; }
+    .sup-offer {
+      display: flex; flex-direction: column;
+      background: #FFFFFF; border: 1px solid var(--border);
+      border-radius: var(--r-md); padding: 28px 26px 28px;
+    }
+    .sup-offer--rec { border: 1.5px solid var(--primary); box-shadow: 0 4px 26px rgba(30,58,95,.10); }
+    .sup-badge {
+      align-self: flex-start; background: var(--primary); color: #fff;
+      font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase;
+      padding: 6px 12px; border-radius: var(--r-sm); margin-bottom: 16px;
+    }
+    .sup-badge--ghost { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+    .sup-offer__name { font-size: 24px; font-weight: 800; color: var(--primary); letter-spacing: -.02em; margin: 0 0 6px; }
+    .sup-offer__focus { font-size: 14px; font-weight: 700; color: #9A8446; margin: 0 0 18px; }
+    .sup-meta { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 12px 0; margin-bottom: 18px; }
+    .sup-meta__row { display: flex; justify-content: space-between; gap: 12px; font-size: 13.5px; padding: 4px 0; }
+    .sup-meta__row span:first-child { color: var(--text-muted); }
+    .sup-meta__row span:last-child { color: var(--primary); font-weight: 700; text-align: right; }
+    .sup-list { list-style: none; margin: 0 0 22px; padding: 0; }
+    .sup-list li { position: relative; padding-left: 20px; margin-bottom: 9px; font-size: 14.5px; line-height: 1.6; color: var(--text-secondary); }
+    .sup-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; background: #C9A961; border-radius: 50%; }
+    .sup-shift { margin-top: auto; background: #FBF6EA; border: 1px solid rgba(201,169,97,.3); border-radius: var(--r-sm); padding: 16px 18px; }
+    .sup-shift__label { font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #8A7335; margin-bottom: 8px; }
+    .sup-shift__from { font-size: 14px; line-height: 1.55; color: var(--text-muted); }
+    .sup-shift__arrow { color: #C9A961; font-weight: 800; margin: 5px 0; }
+    .sup-shift__to { font-size: 14px; line-height: 1.55; color: var(--primary); font-weight: 700; }
+
+    .sup-ledger__head {
+      display: grid; grid-template-columns: 1fr 1.15fr;
+      font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase;
+      color: var(--text-muted); border-bottom: 2px solid var(--primary); padding-bottom: 8px;
+    }
+    .sup-ledger__head span:last-child { padding-left: 26px; }
+    .sup-row { display: grid; grid-template-columns: 1fr 1.15fr; border-bottom: 1px solid var(--border); }
+    .sup-row__lhs { padding: 20px 26px 20px 0; font-size: 15.5px; line-height: 1.55; color: var(--primary); font-weight: 600; }
+    .sup-row__rhs { padding: 20px 0 20px 26px; border-left: 2px solid #C9A961; font-size: 14.5px; line-height: 1.75; color: var(--text-secondary); }
+    .sup-row__rhs strong { color: var(--primary); font-weight: 700; }
+
+    .sup-note { background: #F4F2EE; border-radius: var(--r-md); padding: 24px 26px; margin-top: 44px; }
+    .sup-note h5 { font-size: 17px; font-weight: 800; color: var(--primary); margin: 0 0 8px; }
+    .sup-note p { margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--text-secondary); }
+
+    .sup-cta {
+      margin-top: 28px; background: var(--primary); border-top: 3px solid #C9A961;
+      border-radius: var(--r-md); padding: 38px 32px; text-align: center;
+    }
+    .sup-cta h5 { font-size: 23px; font-weight: 800; color: #FFFFFF; margin: 0 0 8px; letter-spacing: -.02em; }
+    .sup-cta p { margin: 0 0 24px; font-size: 15px; color: rgba(255,255,255,.72); }
+    .sup-cta a {
+      display: inline-block; background: #C9A961; color: #14202E; text-decoration: none;
+      font-weight: 800; font-size: 14.5px; padding: 14px 32px; border-radius: var(--r-pill);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .sup-cta a:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,169,97,.35); }
+
+    @media (max-width: 860px) {
+      .sup-grid, .sup-offers { grid-template-columns: 1fr; }
+      .sup-ledger__head { display: none; }
+      .sup-row { grid-template-columns: 1fr; }
+      .sup-row__lhs { padding: 18px 0 10px; }
+      .sup-row__rhs { padding: 0 0 20px 18px; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- ══════════════ COVER ══════════════ -->
+<section class="cover">
+  <div class="cover-particle" style="width:6px;height:6px;top:20%;left:15%;--dur:5s;--delay:0s;"></div>
+  <div class="cover-particle" style="width:4px;height:4px;top:35%;left:80%;--dur:6.5s;--delay:1s;"></div>
+  <div class="cover-particle" style="width:8px;height:8px;top:70%;left:25%;--dur:4.5s;--delay:2s;"></div>
+  <div class="cover-particle" style="width:5px;height:5px;top:60%;left:70%;--dur:7s;--delay:0.5s;"></div>
+  <div class="cover-particle" style="width:3px;height:3px;top:85%;left:50%;--dur:5.5s;--delay:1.5s;"></div>
+  <div class="cover__inner">
+    <p class="cover__brand anim-up anim-d1">
+      <span class="cover__brand-dot"></span>
+      We Write You Chill &nbsp;&middot;&nbsp; LinkedIn Profile Audit
+    </p>
+
+    <div class="cover__ring-wrap anim-scale anim-d2">
+      <svg class="ring-svg" viewBox="0 0 240 240">
+        <circle class="ring-track" cx="120" cy="120" r="105"/>
+        <circle class="ring-fill"  cx="120" cy="120" r="105"/>
+      </svg>
+      <div class="ring-inner">
+        <span class="ring-score">34</span>
+        <span class="ring-denom">OUT OF 100</span>
+      </div>
+    </div>
+
+    <h1 class="cover__name anim-up anim-d3">
+      Damien's <em>LinkedIn</em><br>Audit Report
+    </h1>
+    <p class="cover__subtitle anim-up anim-d4">
+      Ease Finance Co. &nbsp;&middot;&nbsp; Fitzroy, Melbourne &nbsp;&middot;&nbsp; Analysed 28 July 2026
+    </p>
+
+    <div class="cover__badges anim-up anim-d5">
+      <span class="badge">Scored 34 / 100</span>
+      <span class="badge">9 Sections Audited</span>
+      <span class="badge">Rewritten Copy Included</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ STAT STRIP ══════════════ -->
+<div class="stat-strip">
+  <div class="stat-strip__inner">
+    <div class="stat-item" data-count-to="34">
+      <span class="stat-val">0<span>/100</span></span>
+      <span class="stat-key">Overall Score</span>
+    </div>
+    <div class="stat-item" data-count-to="5">
+      <span class="stat-val">0<span>/10</span></span>
+      <span class="stat-key">Strongest Section</span>
+    </div>
+    <div class="stat-item" data-count-to="2">
+      <span class="stat-val">0<span>/10</span></span>
+      <span class="stat-key">Biggest Gap</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-val">3</span>
+      <span class="stat-key">Critical Issues</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ TICKER ══════════════ -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item"><em>9 Sections Audited</em><span class="ticker-dot"></span></span>
+    <span class="ticker-item">Headline Rewrites<span class="ticker-dot"></span></span>
+    <span class="ticker-item"><em>Full About Section Rewrite</em><span class="ticker-dot"></span></span>
+    <span class="ticker-item">Banner Design Brief<span class="ticker-dot"></span></span>
+    <span class="ticker-item"><em>Experience Section Rewrite</em><span class="ticker-dot"></span></span>
+    <span class="ticker-item">Skills and Search Keywords<span class="ticker-dot"></span></span>
+    <span class="ticker-item"><em>30 Day Content Rhythm</em><span class="ticker-dot"></span></span>
+    <span class="ticker-item">Step by Step Action Plan<span class="ticker-dot"></span></span>
+    <span class="ticker-item"><em>We Write You Chill</em><span class="ticker-dot"></span></span>
+    <span class="ticker-item"><em>9 Sections Audited</em><span class="ticker-dot"></span></span>
+    <span class="ticker-item">Headline Rewrites<span class="ticker-dot"></span></span>
+    <span class="ticker-item"><em>Full About Section Rewrite</em><span class="ticker-dot"></span></span>
+    <span class="ticker-item">Banner Design Brief<span class="ticker-dot"></span></span>
+    <span class="ticker-item"><em>Experience Section Rewrite</em><span class="ticker-dot"></span></span>
+    <span class="ticker-item">Skills and Search Keywords<span class="ticker-dot"></span></span>
+    <span class="ticker-item"><em>30 Day Content Rhythm</em><span class="ticker-dot"></span></span>
+    <span class="ticker-item">Step by Step Action Plan<span class="ticker-dot"></span></span>
+    <span class="ticker-item"><em>We Write You Chill</em><span class="ticker-dot"></span></span>
+  </div>
+</div>
+
+<!-- ══════════════ STICKY TAB NAV ══════════════ -->
+<div class="shell">
+<nav class="nav-tabs">
+  <div class="nav-tabs__inner">
+    <p class="nav-tabs__heading">Report Sections</p>
+    <button class="tab-btn active" onclick="switchTab('dashboard', this)"><span class="tab-btn__dot"></span>Score Dashboard</button>
+    <button class="tab-btn" onclick="switchTab('problems', this)"><span class="tab-btn__dot"></span>Top 3 Issues</button>
+    <button class="tab-btn" onclick="switchTab('photo', this)"><span class="tab-btn__dot"></span>Profile Photo<span class="nav-score nav-score--mid">5</span></button>
+    <button class="tab-btn" onclick="switchTab('banner', this)"><span class="tab-btn__dot"></span>Banner<span class="nav-score nav-score--low">4</span></button>
+    <button class="tab-btn" onclick="switchTab('headline', this)"><span class="tab-btn__dot"></span>Headline<span class="nav-score nav-score--low">2</span></button>
+    <button class="tab-btn" onclick="switchTab('about', this)"><span class="tab-btn__dot"></span>About Section<span class="nav-score nav-score--mid">5</span></button>
+    <button class="tab-btn" onclick="switchTab('featured', this)"><span class="tab-btn__dot"></span>Featured<span class="nav-score nav-score--low">2</span></button>
+    <button class="tab-btn" onclick="switchTab('experience', this)"><span class="tab-btn__dot"></span>Experience<span class="nav-score nav-score--low">4</span></button>
+    <button class="tab-btn" onclick="switchTab('skills', this)"><span class="tab-btn__dot"></span>Skills<span class="nav-score nav-score--low">3</span></button>
+    <button class="tab-btn" onclick="switchTab('activity', this)"><span class="tab-btn__dot"></span>Activity<span class="nav-score nav-score--low">3</span></button>
+    <button class="tab-btn" onclick="switchTab('niche', this)"><span class="tab-btn__dot"></span>Niche Density<span class="nav-score nav-score--low">3</span></button>
+    <button class="tab-btn" onclick="switchTab('nextsteps', this)"><span class="tab-btn__dot"></span>Next Steps</button>
+    <button class="tab-btn" onclick="switchTab('support', this)"><span class="tab-btn__dot"></span>How I Provide Support</button>
+  </div>
+</nav>
+
+<main class="shell__main">
+
+<!-- ══════════════ TAB: DASHBOARD ══════════════ -->
+<div id="tab-dashboard" class="tab-panel active">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-eyebrow">Score Breakdown</span>
+      <h2 class="sec-title">Your <em>Profile Dashboard</em></h2>
+      <p class="sec-desc">Every section scored out of 10. Colour coded so you know exactly where to start.</p>
+    </div>
+
+    <div class="scope-note">
+      <p class="scope-note__label">How this audit was built</p>
+      <p class="scope-note__text">This audit was run from Damien's exported LinkedIn profile, which contains the headline, About section, full work history, education and top three skills. That covers six of the nine sections in full. The profile photo, banner, Featured section and posting activity are not included in a profile export, so those four are scored provisionally against what a fourteen month old solo brokerage typically has in place. Open the live profile and adjust those four scores if what you see differs. Everything marked Verified below came straight from the export.</p>
+    </div>
+
+    <div class="radar-wrap">
+      <div class="radar-svg-wrap">
+        <svg class="radar-svg" viewBox="0 0 320 320">
+          <polygon class="radar-grid" points="160.0,42.0 235.8,69.6 276.2,139.5 262.2,219.0 200.4,270.9 119.6,270.9 57.8,219.0 43.8,139.5 84.2,69.6"/>
+          <polygon class="radar-grid" points="160.0,65.6 220.7,87.7 253.0,143.6 241.8,207.2 192.3,248.7 127.7,248.7 78.2,207.2 67.0,143.6 99.3,87.7"/>
+          <polygon class="radar-grid" points="160.0,89.2 205.5,105.8 229.7,147.7 221.3,195.4 184.2,226.5 135.8,226.5 98.7,195.4 90.3,147.7 114.5,105.8"/>
+          <polygon class="radar-grid" points="160.0,112.8 190.3,123.8 206.5,151.8 200.9,183.6 176.1,204.4 143.9,204.4 119.1,183.6 113.5,151.8 129.7,123.8"/>
+          <polygon class="radar-grid" points="160.0,136.4 175.2,141.9 183.2,155.9 180.4,171.8 168.1,182.2 151.9,182.2 139.6,171.8 136.8,155.9 144.8,141.9"/>
+          <line class="radar-axis" x1="160" y1="160" x2="160.0" y2="42.0"/>
+          <line class="radar-axis" x1="160" y1="160" x2="235.8" y2="69.6"/>
+          <line class="radar-axis" x1="160" y1="160" x2="276.2" y2="139.5"/>
+          <line class="radar-axis" x1="160" y1="160" x2="262.2" y2="219.0"/>
+          <line class="radar-axis" x1="160" y1="160" x2="200.4" y2="270.9"/>
+          <line class="radar-axis" x1="160" y1="160" x2="119.6" y2="270.9"/>
+          <line class="radar-axis" x1="160" y1="160" x2="57.8" y2="219.0"/>
+          <line class="radar-axis" x1="160" y1="160" x2="43.8" y2="139.5"/>
+          <line class="radar-axis" x1="160" y1="160" x2="84.2" y2="69.6"/>
+          <polygon class="radar-area" points="160.0,101.0 190.3,123.8 183.2,155.9 211.1,189.5 168.1,182.2 143.9,204.4 129.3,177.7 125.1,153.9 137.2,132.9"/>
+          <circle class="radar-point" cx="160.0" cy="101.0" r="4"/>
+          <circle class="radar-point" cx="190.3" cy="123.8" r="4"/>
+          <circle class="radar-point" cx="183.2" cy="155.9" r="4"/>
+          <circle class="radar-point" cx="211.1" cy="189.5" r="4"/>
+          <circle class="radar-point" cx="168.1" cy="182.2" r="4"/>
+          <circle class="radar-point" cx="143.9" cy="204.4" r="4"/>
+          <circle class="radar-point" cx="129.3" cy="177.7" r="4"/>
+          <circle class="radar-point" cx="125.1" cy="153.9" r="4"/>
+          <circle class="radar-point" cx="137.2" cy="132.9" r="4"/>
+          <text class="radar-label" x="160.0" y="23.0" text-anchor="middle">Photo</text>
+          <text class="radar-label" x="250.0" y="55.8" text-anchor="start">Banner</text>
+          <text class="radar-label" x="297.9" y="138.7" text-anchor="start">Headline</text>
+          <text class="radar-label" x="281.2" y="233.0" text-anchor="start">About</text>
+          <text class="radar-label" x="207.9" y="294.6" text-anchor="start">Featured</text>
+          <text class="radar-label" x="112.1" y="294.6" text-anchor="end">Experience</text>
+          <text class="radar-label" x="38.8" y="233.0" text-anchor="end">Skills</text>
+          <text class="radar-label" x="22.1" y="138.7" text-anchor="end">Activity</text>
+          <text class="radar-label" x="70.0" y="55.8" text-anchor="end">Niche</text>
+        </svg>
+      </div>
+
+      <div class="radar-legend">
+        <p class="radar-legend-title">Section Scores</p>
+        <p class="radar-legend-sub">Scored on ICP clarity, conversion power and credibility signals. The shape shows you the truth quickly. Nothing on this profile is pulling in the same direction yet.</p>
+
+        <div class="legend-row"><span class="legend-label">Profile Photo</span><div class="legend-bar-track"><div class="legend-bar-fill legend-bar-fill--mid" style="width:0%" data-w="50"></div></div><span class="legend-score legend-score--mid">5/10</span></div>
+        <div class="legend-row"><span class="legend-label">Banner</span><div class="legend-bar-track"><div class="legend-bar-fill legend-bar-fill--low" style="width:0%" data-w="40"></div></div><span class="legend-score legend-score--low">4/10</span></div>
+        <div class="legend-row"><span class="legend-label">Headline</span><div class="legend-bar-track"><div class="legend-bar-fill legend-bar-fill--low" style="width:0%" data-w="20"></div></div><span class="legend-score legend-score--low">2/10</span></div>
+        <div class="legend-row"><span class="legend-label">About Section</span><div class="legend-bar-track"><div class="legend-bar-fill legend-bar-fill--mid" style="width:0%" data-w="50"></div></div><span class="legend-score legend-score--mid">5/10</span></div>
+        <div class="legend-row"><span class="legend-label">Featured</span><div class="legend-bar-track"><div class="legend-bar-fill legend-bar-fill--low" style="width:0%" data-w="20"></div></div><span class="legend-score legend-score--low">2/10</span></div>
+        <div class="legend-row"><span class="legend-label">Experience</span><div class="legend-bar-track"><div class="legend-bar-fill legend-bar-fill--low" style="width:0%" data-w="40"></div></div><span class="legend-score legend-score--low">4/10</span></div>
+        <div class="legend-row"><span class="legend-label">Skills</span><div class="legend-bar-track"><div class="legend-bar-fill legend-bar-fill--low" style="width:0%" data-w="30"></div></div><span class="legend-score legend-score--low">3/10</span></div>
+        <div class="legend-row"><span class="legend-label">Activity</span><div class="legend-bar-track"><div class="legend-bar-fill legend-bar-fill--low" style="width:0%" data-w="30"></div></div><span class="legend-score legend-score--low">3/10</span></div>
+        <div class="legend-row"><span class="legend-label">Niche Density</span><div class="legend-bar-track"><div class="legend-bar-fill legend-bar-fill--low" style="width:0%" data-w="30"></div></div><span class="legend-score legend-score--low">3/10</span></div>
+      </div>
+    </div>
+
+    <div class="score-grid">
+      <div class="score-card score-card--mid" data-n="5">
+        <p class="score-card__section">01 &middot; Profile Photo <span class="prov-chip">Provisional</span></p>
+        <div class="score-card__row">
+          <span class="score-card__n" data-count="5">0</span><span class="score-card__d">/ 10</span>
+          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--mid" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="50"/></svg>
+        </div>
+        <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="50"></div></div>
+        <p class="score-card__diag">Not visible in the export. Scored at the midpoint pending a look at the live profile.</p>
+      </div>
+
+      <div class="score-card score-card--low" data-n="4">
+        <p class="score-card__section">02 &middot; Banner <span class="prov-chip">Provisional</span></p>
+        <div class="score-card__row">
+          <span class="score-card__n" data-count="4">0</span><span class="score-card__d">/ 10</span>
+          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="60"/></svg>
+        </div>
+        <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="40"></div></div>
+        <p class="score-card__diag">Not visible in the export. A full banner brief is included regardless, since the current one almost certainly carries no offer.</p>
+      </div>
+
+      <div class="score-card score-card--low" data-n="2">
+        <p class="score-card__section">03 &middot; Headline <span class="ver-chip">Verified</span></p>
+        <div class="score-card__row">
+          <span class="score-card__n" data-count="2">0</span><span class="score-card__d">/ 10</span>
+          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="80"/></svg>
+        </div>
+        <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="20"></div></div>
+        <p class="score-card__diag">"Director at Ease Finance Co." is a job title. It contains no word a borrower would ever type into search.</p>
+      </div>
+
+      <div class="score-card score-card--mid" data-n="5">
+        <p class="score-card__section">04 &middot; About Section <span class="ver-chip">Verified</span></p>
+        <div class="score-card__row">
+          <span class="score-card__n" data-count="5">0</span><span class="score-card__d">/ 10</span>
+          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--mid" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="50"/></svg>
+        </div>
+        <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="50"></div></div>
+        <p class="score-card__diag">Genuine voice in places, but it opens with his own title, names no specific buyer, and carries zero numbers.</p>
+      </div>
+
+      <div class="score-card score-card--low" data-n="2">
+        <p class="score-card__section">05 &middot; Featured <span class="prov-chip">Provisional</span></p>
+        <div class="score-card__row">
+          <span class="score-card__n" data-count="2">0</span><span class="score-card__d">/ 10</span>
+          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="80"/></svg>
+        </div>
+        <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="20"></div></div>
+        <p class="score-card__diag">No lead magnet, calculator or booking link is referenced anywhere in the profile text, which suggests nothing is pinned.</p>
+      </div>
+
+      <div class="score-card score-card--low" data-n="4">
+        <p class="score-card__section">06 &middot; Experience <span class="ver-chip">Verified</span></p>
+        <div class="score-card__row">
+          <span class="score-card__n" data-count="4">0</span><span class="score-card__d">/ 10</span>
+          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="60"/></svg>
+        </div>
+        <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="40"></div></div>
+        <p class="score-card__diag">Detailed but entirely task based. Two other roles are still marked Present, one of them a marketing agency.</p>
+      </div>
+
+      <div class="score-card score-card--low" data-n="3">
+        <p class="score-card__section">07 &middot; Skills <span class="ver-chip">Verified</span></p>
+        <div class="score-card__row">
+          <span class="score-card__n" data-count="3">0</span><span class="score-card__d">/ 10</span>
+          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="70"/></svg>
+        </div>
+        <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="30"></div></div>
+        <p class="score-card__diag">Three skills showing. One is a job category, one is off niche, and none match how a borrower searches.</p>
+      </div>
+
+      <div class="score-card score-card--low" data-n="3">
+        <p class="score-card__section">08 &middot; Activity <span class="prov-chip">Provisional</span></p>
+        <div class="score-card__row">
+          <span class="score-card__n" data-count="3">0</span><span class="score-card__d">/ 10</span>
+          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="70"/></svg>
+        </div>
+        <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="30"></div></div>
+        <p class="score-card__diag">Not visible in the export. A 30 day posting rhythm is included in the Activity tab either way.</p>
+      </div>
+
+      <div class="score-card score-card--low" data-n="3">
+        <p class="score-card__section">09 &middot; Niche Density <span class="ver-chip">Verified</span></p>
+        <div class="score-card__row">
+          <span class="score-card__n" data-count="3">0</span><span class="score-card__d">/ 10</span>
+          <svg class="score-donut" viewBox="0 0 36 36" transform="rotate(-90 18 18)"><circle class="donut-track" cx="18" cy="18" r="15.9"/><circle class="donut-fill donut-fill--low" cx="18" cy="18" r="15.9" stroke-dashoffset="100" data-offset="70"/></svg>
+        </div>
+        <div class="score-bar-track"><div class="score-bar-fill" style="width:0%" data-w="30"></div></div>
+        <p class="score-card__diag">"Everyday Australians", five product lines and a live marketing agency role. A stranger cannot tell what he actually is.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ TAB: PROBLEMS ══════════════ -->
+<div id="tab-problems" class="tab-panel">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-eyebrow">Critical Issues</span>
+      <h2 class="sec-title">The 3 Things <em>Costing Him Leads</em></h2>
+      <p class="sec-desc">Fix these first. Each one is a direct reason the right borrowers are not reaching out.</p>
+    </div>
+    <div class="problems">
+
+      <div class="problem-card">
+        <div class="problem-card__num-col"><span class="problem-n">01</span><span class="problem-n-label">Issue</span></div>
+        <div class="problem-card__body">
+          <p class="problem-title">The headline is a job title, so he is invisible in the one place buyers look first</p>
+          <p class="problem-text">"Director at Ease Finance Co." tells LinkedIn nothing and tells a borrower nothing. The words "mortgage broker" do not appear in it. Neither does "home loan", "refinance", "SMSF" or "Melbourne". LinkedIn weights the headline heavily when it decides who shows up in a search, and it is also the only line that travels with him into every comment section, every connection request and every notification. Right now that line is doing the work of a business card in a room full of people who have never heard of his business.</p>
+          <span class="problem-cost">Lost opportunity: every search for a Melbourne broker that he should be ranking for and is not</span>
+        </div>
+      </div>
+
+      <div class="problem-card">
+        <div class="problem-card__num-col"><span class="problem-n">02</span><span class="problem-n-label">Issue</span></div>
+        <div class="problem-card__body">
+          <p class="problem-title">Three jobs are still marked Present, across two unrelated industries</p>
+          <p class="problem-text">Ease Finance Co. sits at the top as Director. Directly beneath it, Leading Edge Marketing is still showing as Chief Executive Officer, running for eleven years and eleven months with no end date. The About section says he runs the business solo, which contradicts what the work history shows. Someone deciding whether to hand over payslips, bank statements and tax returns is making a trust call in about nine seconds, and the profile currently answers "is this person actually a broker" with a maybe.</p>
+          <span class="problem-cost">Lost opportunity: the exact visitors who were close to enquiring and quietly decided not to</span>
+        </div>
+      </div>
+
+      <div class="problem-card">
+        <div class="problem-card__num-col"><span class="problem-n">03</span><span class="problem-n-label">Issue</span></div>
+        <div class="problem-card__body">
+          <p class="problem-title">His single strongest credibility asset is buried on page three</p>
+          <p class="problem-text">He spent a year at ANZ as QA Manager for Mortgage File Compliance, reviewing loan files before they settled. Almost no broker in Melbourne can say that. It is the difference between "I will help you get a loan" and "I used to be the person inside the bank who found the reason your application would fail". That story is sitting at the bottom of the profile with no description attached to it, while the top of the profile says he helps everyday Australians. The generic line is in the shop window and the gold is in the storeroom.</p>
+          <span class="problem-cost">Lost opportunity: the only positioning available to him that no competing broker can copy</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ TAB: PROFILE PHOTO ══════════════ -->
+<div id="tab-photo" class="tab-panel">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-eyebrow">Section 01</span>
+      <h2 class="sec-title">Profile <em>Photo</em></h2>
+    </div>
+    <div class="audit-cards">
+      <div class="audit-card">
+        <div class="audit-card__head">
+          <div class="audit-card__head-left"><span class="audit-card__idx">01</span><span class="audit-card__name">Profile Photo</span></div>
+          <span class="audit-card__score-badge">5 / 10</span>
+        </div>
+        <div class="audit-card__body">
+          <div class="block block--current">
+            <p class="block__label">Current State &nbsp;&middot;&nbsp; Provisional</p>
+            <p class="block__text">A LinkedIn profile export does not include the photo file, so this one has not been inspected. It is scored at the midpoint and the standard below tells you exactly what to check against when you open the live profile.</p>
+          </div>
+          <div class="block block--diag">
+            <p class="block__label">What to check</p>
+            <p class="block__text">Three things decide whether a broker photo works. Is the face large enough to read at 48 pixels, because that is the size it appears at in a feed. Is the expression warm rather than corporate, because borrowers are choosing a person to be honest with about money. And does the background have any colour in it at all, since a grey or white wall makes every headshot look like the same headshot. If the photo is a logo, a group shot, or anything taken before 2020, that alone drops this to a 3.</p>
+          </div>
+          <div class="block block--rewrite">
+            <p class="block__label">Shot direction</p>
+            <p class="block__text">Shoot outdoors in Fitzroy in the hour before sunset with the sun behind him and a brick or shopfront wall six to eight metres back so it blurs out. Frame from mid chest up with the face filling roughly sixty percent of the square crop. Collared shirt, no tie, sleeves rolled. Half smile with the eyes doing the work, looking straight down the lens rather than off to the side. Shoot forty frames and pick the one where he looks like he is about to say something, not the one where he looks composed.</p>
+          </div>
+          <div class="block block--tip">
+            <p class="block__label">Quick win, today, no photographer</p>
+            <p class="block__text">Stand next to a window with the light on his face, get someone to shoot portrait mode on a recent iPhone from about a metre and a half back at eye height, and crop it square with the eyes sitting on the top third line. That beats ninety percent of broker headshots and costs nothing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ TAB: BANNER ══════════════ -->
+<div id="tab-banner" class="tab-panel">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-eyebrow">Section 02</span>
+      <h2 class="sec-title">Banner / <em>Cover Image</em></h2>
+    </div>
+    <div class="audit-cards">
+      <div class="audit-card">
+        <div class="audit-card__head">
+          <div class="audit-card__head-left"><span class="audit-card__idx">02</span><span class="audit-card__name">Banner</span></div>
+          <span class="audit-card__score-badge">4 / 10</span>
+        </div>
+        <div class="audit-card__body">
+          <div class="block block--current">
+            <p class="block__label">Current State &nbsp;&middot;&nbsp; Provisional</p>
+            <p class="block__text">Not visible in the export. Scored at 4 on the basis that a fourteen month old solo brokerage typically has either the default blue, a stock skyline, or a logo on a gradient. If the current banner carries a written offer and a way to contact him, raise this to a 7 and skip the brief below.</p>
+          </div>
+          <div class="block block--diag">
+            <p class="block__label">Why the banner matters more for a broker than almost any other trade</p>
+            <p class="block__text">The banner is the largest piece of real estate on the profile and it is the only part he fully controls as a design. For a broker it does a specific job that the headline cannot, which is to answer "what can you actually get done for me" with something concrete like a loan type, a lender panel size, or a promise about turnaround. A logo on a gradient answers none of that. It is decoration in the one spot that could be doing sales.</p>
+          </div>
+          <div class="block block--rewrite">
+            <p class="block__label">Banner copy, ready to hand to a designer</p>
+            <div class="copy-block">
+              <div class="copy-block__text" id="cb-banner">Headline: Loans structured properly the first time.
+
+Supporting line: Home, SMSF and commercial finance for self employed Australians.
+
+Credibility strip: Former ANZ mortgage compliance | 40+ lender panel | Melbourne
+
+CTA: Book a 15 minute call | easefinance.com.au</div>
+              <button class="copy-btn" onclick="copyText(this,'cb-banner')">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px;">
+      <div class="sec-header" style="padding-top: 0;">
+        <span class="sec-eyebrow">Design Brief</span>
+        <h2 class="sec-title" style="font-size: 24px;">Canva <em>Build Guide</em></h2>
+      </div>
+      <div class="banner-brief">
+        <div class="banner-brief__top">
+          <div class="banner-brief__top-text">
+            <h3>Banner Specification</h3>
+            <p>1584 &times; 396 px &middot; PNG export &middot; Safe zone: centre 1200 &times; 300 px</p>
+          </div>
+          <span class="banner-brief__tool">Build in Canva, free</span>
+        </div>
+        <div class="banner-brief__rows">
+          <div class="banner-brief__row"><span class="banner-brief__key">Background</span><span class="banner-brief__val">Solid deep ink, around #16202B, with a single soft warm glow bleeding in from the right. Match to the Ease Finance logo colours if they differ.</span></div>
+          <div class="banner-brief__row"><span class="banner-brief__key">Primary Headline</span><span class="banner-brief__val">Loans structured properly the first time.</span></div>
+          <div class="banner-brief__row"><span class="banner-brief__key">Supporting Line</span><span class="banner-brief__val">Home, SMSF and commercial finance for self employed Australians.</span></div>
+          <div class="banner-brief__row"><span class="banner-brief__key">Social Proof</span><span class="banner-brief__val">Former ANZ mortgage compliance &middot; 40+ lenders &middot; Melbourne. Swap the lender number for his real panel size.</span></div>
+          <div class="banner-brief__row"><span class="banner-brief__key">CTA Element</span><span class="banner-brief__val">Right aligned pill button reading "Book a 15 min call", with the website URL underneath in small caps. Sits inside the right third of the safe zone so the profile photo never covers it.</span></div>
+          <div class="banner-brief__row"><span class="banner-brief__key">Typography</span><span class="banner-brief__val">Headline at 64 to 72 px in a heavy geometric sans. Supporting line at 28 px regular. Credibility strip at 18 px, letter spaced, sixty percent opacity.</span></div>
+          <div class="banner-brief__row"><span class="banner-brief__key">Layout note</span><span class="banner-brief__val">Keep the bottom left quarter completely empty. On desktop the profile photo sits there and will cover anything placed in it.</span></div>
+          <div class="banner-brief__row"><span class="banner-brief__key">Remove</span><span class="banner-brief__val">Any stock photo of a house, a handshake, a calculator or a city skyline. Every broker in Melbourne has one and they all read as filler.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ TAB: HEADLINE ══════════════ -->
+<div id="tab-headline" class="tab-panel">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-eyebrow">Section 03</span>
+      <h2 class="sec-title">The <em>Headline</em></h2>
+      <p class="sec-desc">Biggest single gap on the profile, and the fastest thing to fix.</p>
+    </div>
+    <div class="audit-cards">
+      <div class="audit-card">
+        <div class="audit-card__head">
+          <div class="audit-card__head-left"><span class="audit-card__idx">03</span><span class="audit-card__name">Headline</span></div>
+          <span class="audit-card__score-badge">2 / 10</span>
+        </div>
+        <div class="audit-card__body">
+          <div class="block block--current">
+            <p class="block__label">Current Headline &nbsp;&middot;&nbsp; Verified</p>
+            <p class="block__text">Director at Ease Finance Co.</p>
+          </div>
+          <div class="block block--diag">
+            <p class="block__label">Diagnosis</p>
+            <p class="block__text">This is LinkedIn's automatic default. It is what the platform writes for you when you add a job and never change the line. It names his title and his company, both of which matter to him and neither of which matters to a borrower who has never heard of either. There is no product, no buyer, no location and no outcome in it. He has 220 characters available and he is using 28 of them. The headline also follows him everywhere on the platform, so every comment he leaves under a property post is currently introducing him as a director of a company nobody recognises rather than as a broker who solves a specific problem.</p>
+          </div>
+          <div class="block block--rewrite">
+            <p class="block__label">Three options. Pick one and paste it.</p>
+            <div class="copy-block">
+              <div class="copy-block__text" id="cb-h-a">Helping self employed Australians and investors get the loan the bank said no to | Home, SMSF and commercial finance | Former ANZ mortgage compliance | Melbourne</div>
+              <button class="copy-btn" onclick="copyText(this,'cb-h-a')">Copy A</button>
+            </div>
+            <p class="opt-note"><strong>Option A, outcome led.</strong> Leads with the result. Strongest for cold search because it opens with the exact situation a declined borrower is in.</p>
+
+            <div class="copy-block">
+              <div class="copy-block__text" id="cb-h-b">Most home loans get declined on structure, not income | I structure yours properly the first time | Mortgage broker for self employed buyers and investors | Melbourne</div>
+              <button class="copy-btn" onclick="copyText(this,'cb-h-b')">Copy B</button>
+            </div>
+            <p class="opt-note"><strong>Option B, problem led.</strong> Strongest for content, because it plants an idea people will argue with in the comments. Best choice if he starts posting.</p>
+
+            <div class="copy-block">
+              <div class="copy-block__text" id="cb-h-c">Former ANZ mortgage compliance, now a broker | Home, SMSF and commercial lending for self employed Australians | Ease Finance Co. | Fitzroy, Melbourne</div>
+              <button class="copy-btn" onclick="copyText(this,'cb-h-c')">Copy C</button>
+            </div>
+            <p class="opt-note"><strong>Option C, authority led.</strong> Strongest for referral traffic, where someone has already been told about him and is checking he is legitimate.</p>
+          </div>
+          <div class="block block--tip">
+            <p class="block__label">Why these work, and the one decision he has to make</p>
+            <p class="block__text">All three follow the same shape. Who it is for, what changes for them, and one thing that makes him different, in that order. All three put searchable terms in the first sixty characters, which is roughly what shows before LinkedIn truncates the line on mobile. The decision underneath all of this is who he is actually for. His current profile says everyday Australians, which is not a market, it is a population. Self employed borrowers and SMSF investors are the sharpest wedge available to him because those are the files banks decline on structure, which is exactly what he spent a year at ANZ looking at. If he would rather lead with first home buyers, swap the phrase "self employed Australians and investors" for "first home buyers in Melbourne's inner north" and keep everything else identical.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ TAB: ABOUT ══════════════ -->
+<div id="tab-about" class="tab-panel">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-eyebrow">Section 04</span>
+      <h2 class="sec-title">About <em>Section</em></h2>
+    </div>
+    <div class="audit-cards">
+      <div class="audit-card">
+        <div class="audit-card__head">
+          <div class="audit-card__head-left"><span class="audit-card__idx">04</span><span class="audit-card__name">About Section</span></div>
+          <span class="audit-card__score-badge">5 / 10</span>
+        </div>
+        <div class="audit-card__body">
+          <div class="block block--current">
+            <p class="block__label">Current opening &nbsp;&middot;&nbsp; Verified</p>
+            <p class="block__text">"I'm the Director and Head of Finance at Ease Finance Co., a boutique brokerage built on a simple belief: finance should feel easier. I help everyday Australians secure the right loan, whether it's buying their first home, refinancing for a better deal, growing a property portfolio, or expanding a business."</p>
+          </div>
+          <div class="block block--diag">
+            <p class="block__label">Diagnosis</p>
+            <p class="block__text">There is a real person in here, which puts it ahead of most broker profiles. "No handballing. No jargon." is a genuine line and "you deal directly with the decision maker" is a genuine advantage. The problem is the shape. It opens with his own title, which is the weakest possible first line because the reader already knows his title from the headline above it. It then lists five product lines, which reads as a menu rather than an answer. "Everyday Australians" tells a self employed borrower nothing about whether he can help with their specific situation, and that borrower is the one with the hardest file and the most reason to pay for expertise. There is not a single number anywhere. No settlement figure, no client count, no approval rate, no lender panel size, nothing a stranger can weigh. And it closes with "let's chat", which is a feeling rather than an instruction. There is no link, no calendar, no keyword, nothing to click.</p>
+          </div>
+          <div class="block block--rewrite">
+            <p class="block__label">Rewritten About, ready to paste</p>
+            <div class="copy-block">
+              <div class="copy-block__text" id="cb-about">Most home loans do not get declined because someone earns too little.
+
+They get declined because the file was put together badly.
+
+I spent a year inside ANZ reviewing mortgage files for compliance before they went to settlement. I saw the same handful of mistakes over and over. Income structured the wrong way. A credit enquiry nobody bothered to explain. An application sent to a lender who was never going to approve that borrower in the first place.
+
+Then I spent the next twenty years running my own businesses, which is where I learned what it actually feels like to walk into a bank holding a tax return instead of a payslip.
+
+Now I run Ease Finance Co. and I do one thing. I put the file together properly the first time, and I send it to the lender who is actually likely to say yes.
+
+That covers home loans, refinancing, SMSF property lending and commercial finance. Most of the people I work with are self employed or buying through a company or a fund, because that is where the structure genuinely matters and where the big four tend to lose interest.
+
+In the last [NUMBER] months I have settled [$ AMOUNT] across [NUMBER] clients. [NUMBER] of them had already been knocked back somewhere else.
+
+You deal with me the whole way through. There is no processing team and no junior who inherits your file after the first meeting. I run this solo on purpose.
+
+If a bank has already said no, or you want someone to check the structure before you apply, book a 15 minute call at [BOOKING LINK] and I will tell you straight whether it is doable.</div>
+              <button class="copy-btn" onclick="copyText(this,'cb-about')">Copy</button>
+            </div>
+            <p class="opt-note warn"><strong>Four things to fill in before this goes live.</strong> The three bracketed numbers and the booking link are deliberately blank. I will not invent settlement figures for a real broker's public profile, and neither should anyone else. If he does not want to publish a dollar figure, the safest swap is a client count and an approval line, for example: "Since May 2025 I have settled loans for [NUMBER] clients, and [NUMBER] of those had already been declined elsewhere." Also check the "twenty years running my own businesses" line against his own view of it. It is drawn from Megabyte Solutions in 2005 through to Leading Edge Marketing and Prime Digital, but he should be the one who signs off on the number.</p>
+          </div>
+          <div class="block block--tip">
+            <p class="block__label">The formula underneath it</p>
+            <p class="block__text">Line one breaks a belief the reader is holding, which is that approval is about income. Lines two through four mirror the exact experience a self employed borrower has already had, so they feel understood before they are sold anything. The ANZ story is the bridge, because it converts a fourteen month old brokerage into twenty years of relevant credibility. The numbers make it weighable. The solo line turns his smallest weakness into the reason to choose him. And the close gives one specific action with a time cost attached, which is far easier to say yes to than "let's chat".</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ TAB: FEATURED ══════════════ -->
+<div id="tab-featured" class="tab-panel">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-eyebrow">Section 05</span>
+      <h2 class="sec-title">Featured <em>Section</em></h2>
+    </div>
+    <div class="audit-cards">
+      <div class="audit-card">
+        <div class="audit-card__head">
+          <div class="audit-card__head-left"><span class="audit-card__idx">05</span><span class="audit-card__name">Featured</span></div>
+          <span class="audit-card__score-badge">2 / 10</span>
+        </div>
+        <div class="audit-card__body">
+          <div class="block block--current">
+            <p class="block__label">Current State &nbsp;&middot;&nbsp; Provisional</p>
+            <p class="block__text">Featured items do not appear in a profile export. Scored at 2 because no lead magnet, calculator, guide or booking link is referenced anywhere in the About section or the work history, which usually means nothing is pinned. Confirm on the live profile.</p>
+          </div>
+          <div class="block block--diag">
+            <p class="block__label">Diagnosis</p>
+            <p class="block__text">The Featured section is the only part of a LinkedIn profile that can capture someone who is interested but not ready. A borrower who is nine months out from buying will never book a call, but they will download something. Without a Featured row, every one of those visitors leaves with nothing and he has no way of knowing they were ever there. For a broker this is the difference between a profile that generates enquiries and a profile that generates a pipeline.</p>
+          </div>
+          <div class="block block--rewrite">
+            <p class="block__label">Three slots, in this order</p>
+            <div class="copy-block">
+              <div class="copy-block__text" id="cb-featured">SLOT 1 | Lead magnet, PDF
+Title: The 9 Reasons Self Employed Borrowers Get Declined (And How to Fix Each One Before You Apply)
+Why: names the exact fear, promises a fix, and only the right person clicks it. Eight to ten pages is plenty. He can write it from memory in an afternoon because it is literally what he reviewed at ANZ.
+
+SLOT 2 | Proof, pinned post
+Title: Knocked back by two banks. Approved in eleven days.
+Why: one real client story, no name, structured as what went wrong, what he changed, what happened. This is the slot that converts referral traffic.
+
+SLOT 3 | Booking link
+Title: Find out in 15 minutes whether your loan is actually doable
+Why: outcome framed and time bounded. "Book a consultation" is a commitment. "Find out in 15 minutes" is a favour.</div>
+              <button class="copy-btn" onclick="copyText(this,'cb-featured')">Copy</button>
+            </div>
+          </div>
+          <div class="block block--tip">
+            <p class="block__label">How to add it</p>
+            <p class="block__text">Edit profile, scroll to Add profile section, choose Recommended, then Add featured. Links pull their own preview image, so make sure whatever the link points at has a decent thumbnail or it will render as a grey box. If the PDF is not written yet, put the booking link in slot one today and move it down when the guide is ready. An empty Featured section scores worse than an imperfect one.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ TAB: EXPERIENCE ══════════════ -->
+<div id="tab-experience" class="tab-panel">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-eyebrow">Section 06</span>
+      <h2 class="sec-title">Experience <em>Section</em></h2>
+    </div>
+    <div class="audit-cards">
+      <div class="audit-card">
+        <div class="audit-card__head">
+          <div class="audit-card__head-left"><span class="audit-card__idx">06</span><span class="audit-card__name">Experience</span></div>
+          <span class="audit-card__score-badge">4 / 10</span>
+        </div>
+        <div class="audit-card__body">
+          <div class="block block--current">
+            <p class="block__label">Current State &nbsp;&middot;&nbsp; Verified</p>
+            <p class="block__text">Ease Finance Co., Director, May 2025 to Present, with a long description built around a list of loan types he specialises in. Leading Edge Marketing, Chief Executive Officer, September 2014 to Present, no description. Prime Digital Marketing, Director, January 2019 to May 2025, no description. AroFlo Software, Software Developer, 2010 to 2013. Megabyte Solutions, IT Consultant, Copenhagen, 2005 to 2010. ANZ, QA Manager Mortgage File Compliance and Mortgage File Compliance Officer, 2004 to 2005, no descriptions.</p>
+          </div>
+          <div class="block block--diag">
+            <p class="block__label">Diagnosis</p>
+            <p class="block__text">The Ease Finance entry is longer and more considered than most brokers bother with, and that effort is going into the wrong thing. It describes what he offers rather than what has happened for anyone. There is no timeframe, no settlement figure, no client outcome, no lender panel size and no approval story. It reads like a services page, and services pages do not build trust the way results do. Underneath that, the bigger structural problem is that Leading Edge Marketing has no end date, so LinkedIn is displaying an eleven year run as a current marketing CEO directly below the broking business. And the two ANZ roles, which are the most valuable lines on the entire profile for a broker, have no description attached to them at all. They are dates on a page.</p>
+          </div>
+          <div class="block block--rewrite">
+            <p class="block__label">Fix 1 &nbsp;&middot;&nbsp; The structural change, do this before any rewriting</p>
+            <p class="block__text">Open Leading Edge Marketing and add an end date, or if it genuinely still trades, retitle it so the relationship is obvious, for example "Leading Edge Marketing, Founder, non operating". A visitor should be able to scan the work history and land on one answer about what he does now. At the moment they land on two.</p>
+          </div>
+          <div class="block block--rewrite">
+            <p class="block__label">Fix 2 &nbsp;&middot;&nbsp; Rewritten Ease Finance Co. description</p>
+            <div class="copy-block">
+              <div class="copy-block__text" id="cb-exp1">I founded Ease Finance Co. in May 2025 to do one thing properly. Structure loans so they get approved the first time they are submitted.
+
+Since then I have settled [$ AMOUNT] across [NUMBER] clients, and [NUMBER] of those files had already been declined by another broker or a bank before they reached me. The reason was almost never income. It was structure.
+
+Where I do my best work:
+
+Self employed and business owner borrowers, where the last two years of tax returns tell a messier story than a payslip does.
+
+SMSF property lending, where most brokers stop at the first lender who says no and there are usually three more who will say yes.
+
+Commercial, equipment and asset finance for businesses that have outgrown their bank manager.
+
+First home buyers and refinances, where the win is usually finding the [NUMBER] basis points nobody else looked for.
+
+I run this solo, deliberately. You get the same person from the first phone call through to settlement, and I do the lender negotiation myself rather than handing your file to a processing team.</div>
+              <button class="copy-btn" onclick="copyText(this,'cb-exp1')">Copy</button>
+            </div>
+            <p class="opt-note warn">Same rule as the About section. Fill the bracketed numbers with real figures or delete those sentences entirely. A vague claim is survivable. An invented one is not.</p>
+          </div>
+          <div class="block block--rewrite">
+            <p class="block__label">Fix 3 &nbsp;&middot;&nbsp; ANZ, the entry that is currently blank and should not be</p>
+            <div class="copy-block">
+              <div class="copy-block__text" id="cb-exp2">Reviewed residential mortgage files for compliance and quality before they went to settlement, and managed the QA function for the team doing it.
+
+This is the year that shaped how I broke. I spent it reading other people's applications and finding the reasons they would fall over. Missing explanations, income structured the wrong way, files sent to a lender that was never going to fund them. Two decades later that is still the first thing I check on every file I write.</div>
+              <button class="copy-btn" onclick="copyText(this,'cb-exp2')">Copy</button>
+            </div>
+          </div>
+          <div class="block block--tip">
+            <p class="block__label">Leave these alone</p>
+            <p class="block__text">The La Trobe computer science degree and the AroFlo software role are worth keeping exactly as they are. They quietly explain why a broker has decent systems, and they make the Kaplan diploma read as a deliberate career move rather than a career change. No description needed on either.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ TAB: SKILLS ══════════════ -->
+<div id="tab-skills" class="tab-panel">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-eyebrow">Section 07</span>
+      <h2 class="sec-title">Skills <em>and Search</em></h2>
+    </div>
+    <div class="audit-cards">
+      <div class="audit-card">
+        <div class="audit-card__head">
+          <div class="audit-card__head-left"><span class="audit-card__idx">07</span><span class="audit-card__name">Skills</span></div>
+          <span class="audit-card__score-badge">3 / 10</span>
+        </div>
+        <div class="audit-card__body">
+          <div class="block block--current">
+            <p class="block__label">Current Top Skills &nbsp;&middot;&nbsp; Verified</p>
+            <p class="block__text">Finance broking. Mortgage Brokers. Digital Strategy.</p>
+          </div>
+          <div class="block block--diag">
+            <p class="block__label">Diagnosis</p>
+            <p class="block__text">"Mortgage Brokers" is the plural of a job, not a skill, and it is the term other brokers search when they are looking for each other rather than the term a borrower searches when they need one. "Digital Strategy" is a leftover from the agency years and it actively works against him, because skills are one of the signals LinkedIn uses to decide what kind of professional he is and who to show him to. "Finance broking" is the only one earning its place. Three skills is also thin. LinkedIn allows fifty and the top three are the only ones displayed, so there is no reason not to fill the rest out for the search index.</p>
+          </div>
+          <div class="block block--rewrite">
+            <p class="block__label">Recommended top 3, in this order</p>
+            <div class="copy-block">
+              <div class="copy-block__text" id="cb-skills">1. Mortgage Lending
+The highest volume term borrowers and referrers actually search. This is the one that has to sit first.
+
+2. Loan Structuring
+Names the specific problem he solves, matches the new headline and About section, and almost nobody else in Melbourne broking has it pinned.
+
+3. Commercial Lending
+Broad enough for discovery, high value enough to attract the right enquiries, and it separates him from brokers who only do residential.
+
+Then add these underneath for the search index without displaying them:
+Refinancing, Self-Managed Superannuation Funds (SMSF), Investment Properties, Credit Analysis, First Home Buyers, Asset Finance, Equipment Finance, Financial Services, Small Business Lending, Regulatory Compliance
+
+Remove from the top three: Digital Strategy and Mortgage Brokers.</div>
+              <button class="copy-btn" onclick="copyText(this,'cb-skills')">Copy</button>
+            </div>
+          </div>
+          <div class="block block--tip">
+            <p class="block__label">How to reorder, and the endorsement move</p>
+            <p class="block__text">Go to Edit profile, open the Skills section, use the pin icon to set the top three, then drag the rest into place. Endorsements are the tiebreaker in search, so message ten past clients or referral partners this week and ask them to endorse Mortgage Lending specifically rather than "any of them". Ten endorsements on one skill outranks two endorsements each across five.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ TAB: ACTIVITY ══════════════ -->
+<div id="tab-activity" class="tab-panel">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-eyebrow">Section 08</span>
+      <h2 class="sec-title">Content <em>Activity</em></h2>
+    </div>
+    <div class="audit-cards">
+      <div class="audit-card">
+        <div class="audit-card__head">
+          <div class="audit-card__head-left"><span class="audit-card__idx">08</span><span class="audit-card__name">Content Activity</span></div>
+          <span class="audit-card__score-badge">3 / 10</span>
+        </div>
+        <div class="audit-card__body">
+          <div class="block block--current">
+            <p class="block__label">Current State &nbsp;&middot;&nbsp; Provisional</p>
+            <p class="block__text">Posting history does not appear in a profile export. Scored at 3 on the basis that nothing in the profile copy references content, a newsletter or a following. Check the Activity tab on the live profile and adjust.</p>
+          </div>
+          <div class="block block--diag">
+            <p class="block__label">The real point</p>
+            <p class="block__text">A fixed profile earns him the people who already found him. Content is what brings people who have never heard of him. For a solo broker in the first two years, the profile is the conversion asset and the posting is the distribution, and neither works without the other. The advantage he has over almost every other broker posting on LinkedIn right now is that he has actual stories. He sat inside a bank and read the files. That is content nobody can copy, and it does not require him to have a marketing opinion about anything.</p>
+          </div>
+          <div class="block block--rewrite">
+            <p class="block__label">30 day rhythm, three posts a week</p>
+            <div class="copy-block">
+              <div class="copy-block__text" id="cb-content">MONDAY | The teardown
+Take one real reason a file gets declined and explain it in plain English. Structure it as: here is what the borrower thought the problem was, here is what it actually was, here is what to do instead. Twelve of these exist in his head already from the ANZ year. Soft close: "If you are not sure how yours is structured, ask me before you apply."
+
+WEDNESDAY | The client story
+One file, no names. What they came in with, what two lenders said, what he changed, what happened. Keep the numbers real and keep them specific, because a rounded number reads as invented. Soft close: none. Let this one just sit there and do its job.
+
+FRIDAY | The opinion
+One thing he thinks the industry gets wrong. Comparison rates. Pre approvals that are not really approvals. Why the cheapest rate is often the wrong loan. This is the post that gets argued with, and arguing is distribution. Soft close: a question, not a pitch.
+
+Rules for all three:
+Write like he talks. The "no handballing, no jargon" line from his current About is the voice, he just has not used it anywhere else yet.
+No carousels for the first month. Text only. Get the writing right before adding design.
+Reply to every comment within the first two hours. That is worth more than the post itself.
+One month is twelve posts. That is enough to know whether it works.</div>
+              <button class="copy-btn" onclick="copyText(this,'cb-content')">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ TAB: NICHE DENSITY ══════════════ -->
+<div id="tab-niche" class="tab-panel">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-eyebrow">Section 09</span>
+      <h2 class="sec-title">Niche <em>Density</em></h2>
+    </div>
+    <div class="audit-cards">
+      <div class="audit-card">
+        <div class="audit-card__head">
+          <div class="audit-card__head-left"><span class="audit-card__idx">09</span><span class="audit-card__name">Niche Density</span></div>
+          <span class="audit-card__score-badge">3 / 10</span>
+        </div>
+        <div class="audit-card__body">
+          <div class="block block--current">
+            <p class="block__label">Current State &nbsp;&middot;&nbsp; Verified</p>
+            <p class="block__text">The headline names a company. The About section names "everyday Australians" and then lists five product lines. The Experience section lists the same five again in more detail. The skills include Digital Strategy. The work history shows a marketing CEO role still running. Five different parts of the profile are answering the question "who is this for" and no two of them agree.</p>
+          </div>
+          <div class="block block--diag">
+            <p class="block__label">Diagnosis</p>
+            <p class="block__text">Everyday Australians is not a niche, it is the whole country, and copy written for everyone lands on nobody. The specific cost here is that the hardest and most profitable files, self employed borrowers and SMSF purchases, are exactly the ones where the borrower shops around for someone who obviously specialises. That borrower reads "everyday Australians" and quietly assumes he does simple PAYG loans. Meanwhile the marketing agency role sitting live in his history sends a second, worse signal, which is uncertainty about what he actually does for a living. Neither of these is a copywriting problem. They are a decision problem, and the decision has not been made yet.</p>
+          </div>
+          <div class="block block--rewrite">
+            <p class="block__label">Threading one message through the whole profile</p>
+            <p class="block__text">Start by picking the buyer. On the evidence available, self employed and business owner borrowers plus SMSF property investors is the strongest available position, because it is the only one where his ANZ compliance year and his twenty years of running businesses both become directly relevant. Then run the same language through every section in order. The headline names that buyer and the outcome. The banner repeats the outcome and adds a way to contact him. The About section opens on the structure problem those buyers have and closes on a booking link. The Featured row leads with a guide written specifically for them. The Ease Finance description puts self employed and SMSF work at the top rather than buried in a list. The top three skills are Mortgage Lending, Loan Structuring and Commercial Lending. And the marketing role gets an end date so nothing contradicts anything else. Five product lines can still be mentioned. They just stop being the headline act.</p>
+          </div>
+          <div class="block block--tip">
+            <p class="block__label">The 5 second test</p>
+            <p class="block__text">Show the profile to someone who has never met him and ask two questions. Who is this person for, and what do they do. If both answers do not come back inside five seconds, the density work is not finished yet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ TAB: NEXT STEPS ══════════════ -->
+<div id="tab-nextsteps" class="tab-panel">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-eyebrow">Implementation Plan</span>
+      <h2 class="sec-title">What to <em>Fix First</em></h2>
+      <p class="sec-desc">Ordered by impact per minute spent. The first three take under half an hour together and move the score more than everything below them combined.</p>
+    </div>
+
+    <div class="next-steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div>
+          <p class="step-title">Replace the headline</p>
+          <p class="step-desc">Pick option A, B or C from the Headline tab and paste it in. This is the single highest return change on the profile and it is a copy and paste.</p>
+        </div>
+        <span class="step-time">2 min</span>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div>
+          <p class="step-title">End date the Leading Edge Marketing role</p>
+          <p class="step-desc">Add an end date, or retitle it so it is clearly not the day job. Until this is done, every other fix is competing with a live marketing CEO title sitting directly under the brokerage.</p>
+        </div>
+        <span class="step-time">3 min</span>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div>
+          <p class="step-title">Reorder the top three skills</p>
+          <p class="step-desc">Pin Mortgage Lending, Loan Structuring and Commercial Lending. Unpin Digital Strategy. Then add the ten supporting skills from the Skills tab for the search index.</p>
+        </div>
+        <span class="step-time">10 min</span>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div>
+          <p class="step-title">Paste the new About section</p>
+          <p class="step-desc">Fill the four bracketed fields with real numbers and a real booking link first. If the numbers are not ready, delete that sentence rather than guessing at it, and add it back when they are.</p>
+        </div>
+        <span class="step-time">20 min</span>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div>
+          <p class="step-title">Rewrite the Ease Finance and ANZ entries</p>
+          <p class="step-desc">Both are written and ready in the Experience tab. The ANZ description matters more than it looks. It is the line that turns a fourteen month old brokerage into twenty years of relevant history.</p>
+        </div>
+        <span class="step-time">25 min</span>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">6</div>
+        <div>
+          <p class="step-title">Put a booking link in Featured today</p>
+          <p class="step-desc">Do not wait for the lead magnet. Add the booking link now with the title from the Featured tab, then move it to slot three when the guide is written.</p>
+        </div>
+        <span class="step-time">5 min</span>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">7</div>
+        <div>
+          <p class="step-title">Brief the banner</p>
+          <p class="step-desc">Hand the Canva build guide to a designer, or build it in Canva directly. Everything needed is specified, including the empty zone the profile photo will cover.</p>
+        </div>
+        <span class="step-time">45 min</span>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">8</div>
+        <div>
+          <p class="step-title">Write the nine declines guide</p>
+          <p class="step-desc">Eight to ten pages, one reason per page, written from what he already saw at ANZ. This is the asset that turns profile visits into a list rather than a bounce.</p>
+        </div>
+        <span class="step-time">3 to 4 hrs</span>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">9</div>
+        <div>
+          <p class="step-title">Start the 30 day posting rhythm</p>
+          <p class="step-desc">Three posts a week for four weeks using the Monday, Wednesday, Friday structure. Twelve posts is enough to know whether it is working, and none of it needs design.</p>
+        </div>
+        <span class="step-time">30 days</span>
+      </div>
+    </div>
+
+    <div class="wcta">
+      <div class="wcta-inner-wrap">
+        <div class="wcta-glow"></div>
+        <div class="wcta-glow2"></div>
+        <div class="wcta-content">
+          <div class="wcta-live-badge"><span class="live-dot"></span>We Write You Chill</div>
+          <h2 class="wcta-title">Want the profile <em>done for you</em>,<br>not just diagnosed?</h2>
+          <p class="wcta-desc wcta-desc--last">This report tells you what to change. If you would rather it was simply handled, that is what we do. Done for you LinkedIn positioning, profile copy and content for service based business owners who would rather be working than writing.</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+<!-- ══════════════ TAB: HOW I PROVIDE SUPPORT ══════════════ -->
+<div id="tab-support" class="tab-panel">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-eyebrow">Working Together</span>
+      <h2 class="sec-title">How I <em>Provide Support</em></h2>
+      <p class="sec-desc">There are two ways to work together. They solve different problems, and the right one depends on how much time you have and whether you want content alone or content plus outreach. Based on what this audit found, one of them is a clear fit.</p>
+    </div>
+
+    <h3 class="sup-block-title">What you told me</h3>
+    <div class="sup-grid">
+      <div class="sup-card">
+        <div class="sup-card__label">Most frustrating right now</div>
+        <div class="sup-card__quote">"I don't have a system, it's all reactive."</div>
+      </div>
+      <div class="sup-card">
+        <div class="sup-card__label">Desired outcome</div>
+        <div class="sup-card__quote">"I want to build my reputation over time, where opportunities come from trust I've built with my network."</div>
+      </div>
+      <div class="sup-card">
+        <div class="sup-card__label">Also wanted</div>
+        <div class="sup-card__quote">"Spend minimal time on LinkedIn and still stay visible."</div>
+      </div>
+      <div class="sup-card">
+        <div class="sup-card__label">Tried so far, and the cost</div>
+        <div class="sup-card__quote">"I've not tried anything." The impact of no strategy: "missed opportunities."</div>
+      </div>
+    </div>
+
+    <h3 class="sup-block-title">The two ways to work together</h3>
+    <div class="sup-offers">
+
+      <div class="sup-offer sup-offer--rec">
+        <span class="sup-badge">Recommended for you</span>
+        <h4 class="sup-offer__name">Done-For-You</h4>
+        <p class="sup-offer__focus">Brand and content, built for you</p>
+        <div class="sup-meta">
+          <div class="sup-meta__row"><span>Engagement</span><span>3 months</span></div>
+          <div class="sup-meta__row"><span>Your time</span><span>45 mins every 4 weeks</span></div>
+          <div class="sup-meta__row"><span>Focus</span><span>Content</span></div>
+        </div>
+        <ul class="sup-list">
+          <li>Profile redesign: banner, headline, about, experience</li>
+          <li>ICP clarity session</li>
+          <li>Brand voice guide</li>
+          <li>Content strategy</li>
+          <li>12 done-for-you posts, written and ready</li>
+          <li>Visual designs</li>
+          <li>Monthly report</li>
+        </ul>
+        <div class="sup-shift">
+          <div class="sup-shift__label">The shift</div>
+          <div class="sup-shift__from">A profile that reads like a services page, updated whenever there is a spare hour.</div>
+          <div class="sup-shift__arrow">&darr;</div>
+          <div class="sup-shift__to">A profile that positions you as the broker who used to audit the bank's own files, and content going out on schedule without LinkedIn becoming another job.</div>
+        </div>
+      </div>
+
+      <div class="sup-offer">
+        <span class="sup-badge sup-badge--ghost">Option two</span>
+        <h4 class="sup-offer__name">Done-By-Your-Team</h4>
+        <p class="sup-offer__focus">Content, connection and conversation</p>
+        <div class="sup-meta">
+          <div class="sup-meta__row"><span>Programme</span><span>12 weeks</span></div>
+          <div class="sup-meta__row"><span>Your team's time</span><span>30 to 45 mins daily</span></div>
+          <div class="sup-meta__row"><span>Focus</span><span>Content and outreach</span></div>
+        </div>
+        <ul class="sup-list">
+          <li>Profile redesign, ICP session, voice guide and strategy, built together</li>
+          <li>Training materials so your team writes the content</li>
+          <li>Outreach system set up, partly automated (external tools required)</li>
+          <li>Follow-up training, where trust actually gets built</li>
+          <li>Bi-weekly 30 minute training sessions</li>
+        </ul>
+        <div class="sup-shift">
+          <div class="sup-shift__label">The shift</div>
+          <div class="sup-shift__from">Waiting for the right borrowers to find you.</div>
+          <div class="sup-shift__arrow">&darr;</div>
+          <div class="sup-shift__to">Your team running content, connections and follow-up as a daily system you own in-house.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 class="sup-block-title">Why Done-For-You is my recommendation</h3>
+    <div class="sup-ledger">
+      <div class="sup-ledger__head">
+        <span>You said</span>
+        <span>What resolves it</span>
+      </div>
+
+      <div class="sup-row">
+        <div class="sup-row__lhs">"I don't have a system, it's all reactive."</div>
+        <div class="sup-row__rhs">Reactive is what happens when every post starts with a decision. The <strong>content strategy and brand voice guide</strong> remove the decision, because the pillars and the angles are set before you sit down. Your profile has the same problem in a fixed form. Five product lines, no through line, and a headline LinkedIn wrote for you. The <strong>profile redesign</strong> is the system applied to the parts that never change.</div>
+      </div>
+
+      <div class="sup-row">
+        <div class="sup-row__lhs">"Spend minimal time on LinkedIn and still stay visible."</div>
+        <div class="sup-row__rhs">This is the whole design of the package, and for you it is the deciding factor between the two. <strong>45 minutes every four weeks</strong> is your entire commitment. Done-By-Your-Team needs someone with 30 to 45 minutes a day, and since you run the business solo, that person would be you. I still need your input, your stories and your client wins, because that is what stops the content sounding like everyone else. The writing, the design and the reporting sit with me.</div>
+      </div>
+
+      <div class="sup-row">
+        <div class="sup-row__lhs">"I want to build my reputation over time, where opportunities come from trust I've built with my network."</div>
+        <div class="sup-row__rhs">Reputation compounds through consistent, useful content in front of people who already half know you. <strong>12 posts across three months</strong>, mapped to your ICP, is how that gets built and stays built. You already have the raw material. A year inside ANZ reading mortgage files for compliance is a story almost no other broker in Melbourne can tell, and right now it is sitting on page three of your profile with no description attached to it.</div>
+      </div>
+
+      <div class="sup-row">
+        <div class="sup-row__lhs">"I've not tried anything."</div>
+        <div class="sup-row__rhs">This is the strongest reason to start here rather than with outreach. Starting from zero means there is no baseline and no rhythm yet. <strong>Done-For-You builds the foundation first</strong>, so you find out what your audience responds to before deciding whether to scale it in-house. It also means nothing has to be undone.</div>
+      </div>
+
+      <div class="sup-row">
+        <div class="sup-row__lhs">The impact of no strategy: "missed opportunities."</div>
+        <div class="sup-row__rhs">This audit scored the profile at <strong>34 out of 100</strong>. Every month it stays there is a month people looked you up, found a job title and a service list, and did not get in touch. You will never know who they were. The <strong>monthly report</strong> makes the opportunities you start capturing visible instead of theoretical.</div>
+      </div>
+    </div>
+
+    <div class="sup-note">
+      <h5>What this does not do, and when to revisit</h5>
+      <p>Done-For-You builds reputation with the network you already have. It does not go out and find you new people, and it does not run your sales conversations. That is deliberate. Once the profile converts and content is running consistently, outreach becomes the obvious next lever, and Done-By-Your-Team is where that lives. That conversation makes sense at the end of the three months, and only if you have brought someone in who can commit the daily time.</p>
+    </div>
+
+    <div class="sup-cta">
+      <h5>Ready to make it a system</h5>
+      <p>Let's talk through what the first three months look like for you.</p>
+      <a href="https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand" target="_blank" rel="noopener">Book a call</a>
+    </div>
+
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__brand">We Write You Chill</p>
+    <p class="footer__meta">LinkedIn Profile Audit &nbsp;&middot;&nbsp; Damien Mather, Ease Finance Co. &nbsp;&middot;&nbsp; 28 July 2026</p>
+  </div>
+</footer>
+
+
+<script>
+  /* ══════════════════════════════════════════════════
+     WE WRITE YOU CHILL , ANIMATION ENGINE
+  ══════════════════════════════════════════════════ */
+
+  /* ── COPY UTILITIES ────────────────────────────── */
+  const toast = document.createElement('div');
+  toast.className = 'copy-toast';
+  document.body.appendChild(toast);
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(() => toast.classList.remove('show'), 2000);
+  }
+
+  function copyHex(btn, hex) {
+    navigator.clipboard.writeText(hex).then(() => {
+      btn.classList.add('copied');
+      btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>`;
+      showToast('Copied ' + hex);
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>`;
+      }, 2000);
+    });
+  }
+
+  function copyText(btn, id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.innerText.trim()).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      showToast('Copy ready , paste into LinkedIn');
+      setTimeout(() => btn.textContent = orig, 2000);
+    });
+  }
+
+  /* ── TAB NAVIGATION ────────────────────────────── */
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+    const top = document.querySelector('.cover').offsetHeight + (document.querySelector('.stat-strip')?.offsetHeight || 0);
+    window.scrollTo({ top, behavior: 'smooth' });
+    if (id === 'dashboard') { setTimeout(animDashboard, 80); }
+  }
+
+  /* ── EASING ────────────────────────────────────── */
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  const easeOut = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+
+  /* ── COUNT UP UTILITY ──────────────────────────── */
+  function countUp(el, target, duration, suffix) {
+    const start = performance.now();
+    el.classList.add('counting');
+    (function tick(now) {
+      const p = Math.min((now - start) / duration, 1);
+      el.textContent = Math.round(easeOut(p) * target) + (suffix || '');
+      if (p < 1) requestAnimationFrame(tick);
+      else { el.textContent = target + (suffix || ''); el.classList.remove('counting'); }
+    })(performance.now());
+  }
+
+  /* ── RING ANIMATION ────────────────────────────── */
+  const SCORE_VAL = 34;
+  const CIRC = 659.73;
+
+  function animRing() {
+    const rf = document.querySelector('.ring-fill');
+    const num = document.querySelector('.ring-score');
+    if (!rf || !num) return;
+    const targetOffset = CIRC - (CIRC * SCORE_VAL / 100);
+    rf.style.transition = 'stroke-dashoffset 2s cubic-bezier(0.16,1,0.3,1)';
+    rf.style.strokeDashoffset = targetOffset;
+    countUp(num, SCORE_VAL, 2000);
+  }
+
+  function animStatCounters() {
+    document.querySelectorAll('[data-count-to]').forEach((el, i) => {
+      const target = +el.dataset.countTo;
+      setTimeout(() => countUp(el.firstElementChild || el, target, 1600), i * 120 + 400);
+    });
+  }
+
+  /* ── DASHBOARD ANIMATIONS ──────────────────────── */
+  function animDashboard() {
+    /* Radar */
+    const rp = document.querySelector('.radar-area');
+    if (rp) {
+      rp.style.transition = 'opacity 0.6s ease';
+      rp.style.fillOpacity = '1';
+      setTimeout(() => document.querySelectorAll('.radar-point').forEach((d,i) =>
+        setTimeout(() => { d.style.opacity = '1'; d.style.transform = 'scale(1)'; }, i*80+300)), 300);
+    }
+    document.querySelectorAll('.legend-bar-fill[data-w]').forEach((el, i) =>
+      setTimeout(() => el.style.width = el.dataset.w + '%', i * 80 + 200));
+
+    /* Score cards , staggered popIn */
+    document.querySelectorAll('.score-card').forEach((el, i) => {
+      setTimeout(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0) scale(1)';
+        /* Count the score number */
+        const ne = el.querySelector('[data-count]');
+        if (ne) countUp(ne, +ne.dataset.count, 1000);
+        /* Fill bar */
+        const be = el.querySelector('.score-bar-fill[data-w]');
+        if (be) setTimeout(() => be.style.width = be.dataset.w + '%', 100);
+        /* Donut */
+        const de = el.querySelector('.donut-fill[data-offset]');
+        if (de) setTimeout(() => de.style.strokeDashoffset = de.dataset.offset, 150);
+      }, i * 70 + 100);
+    });
+  }
+
+  function animSteps() {
+    document.querySelectorAll('.step-card').forEach((el, i) =>
+      setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateX(0)'; }, i * 90 + 100));
+  }
+  function animProblems() {
+    document.querySelectorAll('.problem-card').forEach((el, i) =>
+      setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; el.classList.add('visible'); }, i * 120 + 100));
+  }
+  function animAudit() {
+    document.querySelectorAll('.audit-card').forEach((el, i) =>
+      setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, i * 100 + 100));
+  }
+
+  /* ── SCROLL-REVEAL OBSERVER ────────────────────── */
+  /* Stat strip triggers ring + counters */
+  const stripObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animRing(); animStatCounters(); stripObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  if (document.querySelector('.stat-strip')) stripObs.observe(document.querySelector('.stat-strip'));
+
+  /* Generic reveal: cards, banners, palettes, CTAs */
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const delay = +(el.dataset.revealDelay || 0);
+      setTimeout(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0) translateX(0) scale(1)';
+        el.classList.add('visible');
+        /* Trigger sub-animations */
+        el.querySelectorAll('.score-bar-fill[data-w]').forEach(b =>
+          setTimeout(() => b.style.width = b.dataset.w + '%', delay + 100));
+        el.querySelectorAll('.donut-fill[data-offset]').forEach(d =>
+          setTimeout(() => d.style.strokeDashoffset = d.dataset.offset, delay + 120));
+        el.querySelectorAll('[data-count]').forEach(ne =>
+          setTimeout(() => countUp(ne, +ne.dataset.count, 1100), delay + 60));
+        el.querySelectorAll('.legend-bar-fill[data-w]').forEach(b =>
+          setTimeout(() => b.style.width = b.dataset.w + '%', delay + 140));
+      }, delay);
+      revealObs.unobserve(el);
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+
+  /* ── SET INITIAL HIDDEN STATE & OBSERVE ────────── */
+  document.querySelectorAll('.score-card').forEach((el, i) => {
+    el.style.cssText += 'opacity:0;transform:translateY(24px) scale(0.97);transition:opacity .5s ease,transform .5s cubic-bezier(0.34,1.56,0.64,1);';
+    el.dataset.revealDelay = i * 55;
+    revealObs.observe(el);
+  });
+  document.querySelectorAll('.problem-card').forEach((el, i) => {
+    el.style.cssText += 'opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;';
+    el.dataset.revealDelay = i * 90;
+    revealObs.observe(el);
+  });
+  document.querySelectorAll('.audit-card').forEach((el, i) => {
+    el.style.cssText += 'opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;';
+    el.dataset.revealDelay = i * 65;
+    revealObs.observe(el);
+  });
+  document.querySelectorAll('.step-card').forEach((el, i) => {
+    el.style.cssText += 'opacity:0;transform:translateX(-20px);transition:opacity .5s ease,transform .5s ease;';
+    el.dataset.revealDelay = i * 80;
+    revealObs.observe(el);
+  });
+  document.querySelectorAll('.banner-brief,.wcta,.palette-card,.color-card').forEach((el, i) => {
+    el.style.cssText += 'opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease;';
+    el.dataset.revealDelay = i * 40;
+    revealObs.observe(el);
+  });
+
+  /* Radar initial state */
+  document.querySelectorAll('.radar-area').forEach(el => { el.style.fillOpacity = '0'; });
+  document.querySelectorAll('.radar-point').forEach(el => {
+    el.style.opacity = '0'; el.style.transform = 'scale(0)';
+    el.style.transition = 'opacity 0.4s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1)';
+  });
+
+  /* Boot dashboard on initial load */
+  setTimeout(animDashboard, 350);
+</script>
+</body>
+</html>
