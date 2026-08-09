@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Heart, CheckCircle, ExternalLink, Sparkles } from 'lucide-react';
+import TiltCard from './TiltCard';
 import gayaFounderImg from '../assets/gaya-founder.jpg';
 
 export default function AboutFounder({ onOpenBooking }) {
@@ -31,7 +32,10 @@ export default function AboutFounder({ onOpenBooking }) {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden bg-white border border-slate-200 p-2.5 shadow-2xl group">
+            <TiltCard 
+              tiltStrength={6}
+              className="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden bg-white border border-slate-200 p-2.5 shadow-2xl group"
+            >
               <div className="aspect-[4/5] w-full rounded-2xl overflow-hidden relative">
                 <img
                   src={gayaFounderImg}
@@ -41,7 +45,7 @@ export default function AboutFounder({ onOpenBooking }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
 
                 {/* Floating Profile Info Card */}
-                <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between">
+                <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between z-20">
                   <div>
                     <div className="flex items-center gap-2">
                       <h4 className="font-heading font-extrabold text-base text-[#000000]">Gaya</h4>
@@ -58,14 +62,14 @@ export default function AboutFounder({ onOpenBooking }) {
                     href={gayaLinkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl bg-[#2650a8] text-white hover:bg-[#1d4088] transition-colors shadow-sm"
+                    className="p-2.5 rounded-xl bg-[#2650a8] text-white hover:bg-[#1d4088] transition-colors shadow-sm cursor-pointer"
                     aria-label="Gaya's LinkedIn Profile"
                   >
                     <ExternalLink className="w-4 h-4 text-[#f4ba43]" />
                   </motion.a>
                 </div>
               </div>
-            </div>
+            </TiltCard>
 
             {/* Quote Badge Below Image */}
             <motion.div 
