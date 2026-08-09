@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Heart, CheckCircle, ExternalLink, Sparkles } from 'lucide-react';
+import { ArrowRight, Heart, CheckCircle, ExternalLink } from 'lucide-react';
 import gayaFounderImg from '../assets/gaya-founder.jpg';
 
 export default function AboutFounder({ onOpenBooking }) {
@@ -34,17 +34,17 @@ export default function AboutFounder({ onOpenBooking }) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
 
-                {/* Floating Profile Info Card */}
-                <div className="absolute bottom-4 left-3 right-3 sm:left-4 sm:right-4 p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between gap-2.5 z-20">
+                {/* Floating Profile Info Card with Guaranteed Single Line Title */}
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-3 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between gap-2 z-20">
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-1.5 mb-0.5">
-                      <h4 className="font-heading font-extrabold text-sm sm:text-base text-[#000000]">Gaya</h4>
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] sm:text-[10px] font-extrabold shrink-0">
+                      <h4 className="font-heading font-extrabold text-sm sm:text-base text-[#000000] leading-none">Gaya</h4>
+                      <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-bold shrink-0">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                        Active Strategist
+                        Active
                       </span>
                     </div>
-                    <p className="text-[10px] sm:text-[11.5px] text-[#2650a8] font-semibold whitespace-nowrap overflow-hidden text-ellipsis">
+                    <p className="text-[10.5px] sm:text-[11.5px] text-[#2650a8] font-semibold whitespace-nowrap leading-tight">
                       LinkedIn Personal Branding Strategist
                     </p>
                   </div>
@@ -52,10 +52,10 @@ export default function AboutFounder({ onOpenBooking }) {
                     href={gayaLinkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 sm:p-2.5 rounded-xl bg-[#2650a8] text-white hover:bg-[#1d4088] transition-colors shadow-sm cursor-pointer shrink-0"
+                    className="p-2 rounded-xl bg-[#2650a8] text-white hover:bg-[#1d4088] transition-colors shadow-sm cursor-pointer shrink-0 flex items-center justify-center"
                     aria-label="Gaya's LinkedIn Profile"
                   >
-                    <ExternalLink className="w-4 h-4 text-[#f4ba43]" />
+                    <ExternalLink className="w-3.5 h-3.5 text-[#f4ba43]" />
                   </a>
                 </div>
               </div>
@@ -91,7 +91,7 @@ export default function AboutFounder({ onOpenBooking }) {
             </span>
 
             <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
-              Gaya — <span className="highlight-swipe">LinkedIn Personal Branding Strategist</span>
+              Gaya — <span className="highlight-swipe whitespace-nowrap">LinkedIn Personal Branding Strategist</span>
             </h2>
 
             <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-subheading font-medium">
