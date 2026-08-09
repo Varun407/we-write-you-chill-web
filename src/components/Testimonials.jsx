@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Quote, ExternalLink, Image as ImageIcon, Sparkles, X } from 'lucide-react';
 import gayaFounderImg from '../assets/gaya-founder.jpg';
 import adarshImg from '../assets/testimonial-adarsh.png';
@@ -52,13 +53,42 @@ export default function Testimonials() {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+
   return (
-    <section id="reviews" className="py-20 bg-white relative z-10">
+    <section id="reviews" className="py-24 bg-white relative z-10 overflow-hidden">
+      
+      {/* Decorative ambient background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-[#f4ba43]/8 rounded-full blur-[140px] pointer-events-none"></div>
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f4ba43]/15 border border-[#f4ba43]/40 text-[#b45309] mb-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f4ba43]/15 border border-[#f4ba43]/40 text-[#b45309] mb-3 shadow-xs">
             <Star className="w-3.5 h-3.5 fill-current text-[#f4ba43]" />
             <span className="text-xs font-bold uppercase tracking-wider">Verified Client Feedback</span>
           </div>
@@ -66,14 +96,22 @@ export default function Testimonials() {
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
             <span className="highlight-swipe">What working together feels like...</span>
           </h2>
-        </div>
+        </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
           {testimonials.map((item, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#2650a8]/30 transition-all duration-300 flex flex-col justify-between relative group overflow-hidden"
+              variants={cardVariants}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="light-card-hover p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between relative group overflow-hidden"
             >
               <div>
                 {/* Header Profile Info */}
@@ -90,31 +128,31 @@ export default function Testimonials() {
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-0.5 text-[#f4ba43]">
+                  <div className="flex items-center gap-1 text-[#f4ba43]">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                      <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
                 </div>
 
                 {/* Metric Pill */}
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#2650a8]/10 text-[#2650a8] border border-[#2650a8]/20 text-[11px] font-bold mb-4">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#2650a8]/10 text-[#2650a8] border border-[#2650a8]/20 text-xs font-bold mb-5 shadow-xs">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>{item.metrics}</span>
                 </div>
 
                 {/* Quote Text */}
-                <div className="relative mb-5">
-                  <Quote className="w-6 h-6 text-slate-200 absolute -top-2 -left-2 pointer-events-none" />
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic pl-3.5 border-l-2 border-[#2650a8] font-medium">
+                <div className="relative mb-6">
+                  <Quote className="w-8 h-8 text-slate-200 absolute -top-3 -left-2 pointer-events-none opacity-60" />
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic pl-4 border-l-2 border-[#2650a8] font-medium">
                     "{item.quote}"
                   </p>
                 </div>
 
                 {/* Highlights */}
-                <div className="flex flex-wrap gap-1.5 mb-5">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {item.highlights.map((hl, hIdx) => (
-                    <span key={hIdx} className="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200">
+                    <span key={hIdx} className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200">
                       ✓ {hl}
                     </span>
                   ))}
@@ -122,41 +160,56 @@ export default function Testimonials() {
               </div>
 
               {/* View Original LinkedIn Screenshot Button */}
-              <button
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => setSelectedImage(item.screenshot)}
-                className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3.5 rounded-xl text-xs font-bold text-slate-800 bg-slate-50 hover:bg-[#2650a8] hover:text-white border border-slate-200 transition-all cursor-pointer shadow-xs"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-slate-800 bg-slate-50 hover:bg-[#2650a8] hover:text-white border border-slate-200 hover:border-[#2650a8] transition-all cursor-pointer shadow-xs group/btn"
               >
-                <ImageIcon className="w-3.5 h-3.5 text-[#2650a8] group-hover:text-white" />
+                <ImageIcon className="w-4 h-4 text-[#2650a8] group-hover:text-white" />
                 <span>View Original LinkedIn Recommendation</span>
-                <ExternalLink className="w-3 h-3 ml-auto opacity-70" />
-              </button>
-            </div>
+                <ExternalLink className="w-3.5 h-3.5 ml-auto opacity-70 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
+              </motion.button>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
 
-      {/* Image Modal Lightbox */}
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="relative max-w-4xl w-full bg-white p-3 rounded-2xl border border-slate-300 shadow-2xl">
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-900 text-white hover:bg-black cursor-pointer shadow-lg"
+      {/* Image Modal Lightbox with AnimatePresence */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="relative max-w-4xl w-full bg-white p-3 sm:p-4 rounded-3xl border border-slate-300 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X className="w-5 h-5" />
-            </button>
-            <img 
-              src={selectedImage} 
-              alt="LinkedIn Recommendation Screenshot" 
-              className="w-full h-auto max-h-[85vh] object-contain rounded-xl border border-slate-200"
-            />
-          </div>
-        </div>
-      )}
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 z-10 p-2.5 rounded-full bg-slate-900 text-white hover:bg-black cursor-pointer shadow-lg hover:scale-105 transition-all"
+                aria-label="Close image modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <img 
+                src={selectedImage} 
+                alt="LinkedIn Recommendation Screenshot" 
+                className="w-full h-auto max-h-[85vh] object-contain rounded-2xl border border-slate-200 shadow-inner"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </section>
   );

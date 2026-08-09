@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
 
 export default function Faq({ onOpenBooking }) {
@@ -37,21 +38,31 @@ export default function Faq({ onOpenBooking }) {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-[#f8fafc] relative z-10 border-t border-slate-200">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-24 bg-[#f8fafc] relative z-10 border-t border-slate-200 overflow-hidden">
+      
+      {/* Decorative ambient backdrop */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#2650a8]/4 rounded-full blur-[140px] pointer-events-none"></div>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/20 inline-block mb-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/25 inline-block mb-4 shadow-xs">
             Frequently Asked Questions
           </span>
-          <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#000000] tracking-tight leading-tight">
+          <h2 className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-[#000000] tracking-tight leading-tight">
             Clear Answers. <span className="highlight-swipe">Zero Fluff.</span>
           </h2>
           <p className="mt-4 text-base text-slate-600 font-subheading">
             Everything you need to know about working with Gaya and We Write You Chill.
           </p>
-        </div>
+        </motion.div>
 
         {/* FAQ Accordion List */}
         <div className="space-y-4">
@@ -59,45 +70,86 @@ export default function Faq({ onOpenBooking }) {
             const isOpen = openIdx === idx;
 
             return (
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
                 key={idx}
-                className="rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden transition-all duration-200"
+                className={`rounded-2xl bg-white border transition-all duration-300 overflow-hidden ${
+                  isOpen 
+                    ? 'border-[#2650a8]/40 shadow-md ring-1 ring-[#2650a8]/10' 
+                    : 'border-slate-200 shadow-sm hover:border-slate-300'
+                }`}
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? -1 : idx)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-heading font-bold text-lg text-[#000000] hover:text-[#2650a8] transition-colors cursor-pointer"
+                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-heading font-bold text-base sm:text-lg text-[#000000] hover:text-[#2650a8] transition-colors cursor-pointer"
                 >
-                  <span className="flex items-center gap-3">
-                    <HelpCircle className="w-5 h-5 text-[#2650a8] shrink-0" />
+                  <span className="flex items-center gap-3.5">
+                    <div className={`p-2 rounded-xl transition-colors ${isOpen ? 'bg-[#2650a8] text-white' : 'bg-slate-100 text-[#2650a8]'}`}>
+                      <HelpCircle className="w-5 h-5" />
+                    </div>
                     <span>{faq.q}</span>
                   </span>
-                  <ChevronDown className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#2650a8]' : ''}`} />
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.25, ease: 'easeInOut' }}
+                    className="shrink-0"
+                  >
+                    <ChevronDown className={`w-5 h-5 ${isOpen ? 'text-[#2650a8]' : 'text-slate-400'}`} />
+                  </motion.div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-6 pb-6 pt-2 text-sm text-slate-700 leading-relaxed border-t border-slate-100 whitespace-pre-line animate-in fade-in duration-200 font-medium">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="content"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6 pt-2 text-sm text-slate-700 leading-relaxed border-t border-slate-100 whitespace-pre-line font-medium">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Bottom Callout */}
-        <div className="mt-12 p-8 rounded-3xl bg-white border border-slate-200 text-center shadow-md">
-          <h3 className="font-heading font-bold text-xl text-[#000000] mb-2">Still not sure which option suits you?</h3>
-          <p className="text-sm text-slate-600 mb-6">Book a call. We will work it out on the call, and you will walk away with the free assessment plan either way.</p>
-          <a
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5 }}
+          className="mt-14 p-8 rounded-3xl bg-white border border-slate-200 text-center shadow-lg relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-60 h-60 bg-[#2650a8]/5 rounded-full blur-[60px] pointer-events-none"></div>
+
+          <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#000000] mb-2 relative z-10">
+            Still not sure which option suits you?
+          </h3>
+          <p className="text-sm text-slate-600 mb-6 max-w-lg mx-auto relative z-10">
+            Book a call. We will work it out on the call, and you will walk away with the free assessment plan either way.
+          </p>
+          <motion.a
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.98 }}
             href={zoomBookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-lg shadow-[#2650a8]/20 transition-all cursor-pointer"
+            className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-xl shadow-[#2650a8]/25 transition-all cursor-pointer relative z-10"
           >
             <span>Book Personal Brand Call</span>
             <ArrowRight className="w-4 h-4 text-[#f4ba43]" />
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
 
       </div>
     </section>

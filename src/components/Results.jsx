@@ -1,5 +1,7 @@
 import React from 'react';
-import { ExternalLink, FileText, CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ExternalLink, FileText, CheckCircle, TrendingUp, Users, Award } from 'lucide-react';
+import AnimatedCounter from './AnimatedCounter';
 
 export default function Results() {
   const getAssessmentUrl = () => {
@@ -47,13 +49,42 @@ export default function Results() {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+
   return (
-    <section id="results" className="py-20 bg-white relative z-10 border-t border-slate-200">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="results" className="py-24 bg-white relative z-10 border-t border-slate-200 overflow-hidden">
+      
+      {/* Decorative ambient background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#2650a8]/4 rounded-full blur-[140px] pointer-events-none"></div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3 py-1 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/20 inline-block mb-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto mb-14"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/25 inline-block mb-3 shadow-xs">
             Proven Track Record
           </span>
 
@@ -64,39 +95,86 @@ export default function Results() {
           <p className="mt-3 text-sm sm:text-base text-slate-600 font-subheading">
             Gaya has built personal brands for more than <strong className="text-[#000000] font-bold">25 clients</strong> across Australia. Here is what happens when compounding kicks in.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Top 3 Quick Stats Bar */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-12">
-          <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 text-center shadow-xs">
-            <div className="font-heading font-extrabold text-3xl text-[#2650a8] mb-0.5">25+</div>
-            <div className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">Clients Worked With</div>
-            <div className="text-xs text-slate-500 mt-0.5 font-medium">Property & Finance Industry Experts</div>
-          </div>
+        {/* Top 3 Quick Stats Bar with Live Animated Counters */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14"
+        >
+          <motion.div 
+            variants={itemVariants}
+            whileHover={{ y: -4 }}
+            className="p-6 rounded-2xl bg-gradient-to-b from-white to-slate-50 border border-slate-200 text-center shadow-sm hover:shadow-md hover:border-[#2650a8]/40 transition-all"
+          >
+            <div className="flex justify-center mb-2">
+              <div className="p-2.5 rounded-xl bg-[#2650a8]/10 text-[#2650a8]">
+                <Users className="w-5 h-5" />
+              </div>
+            </div>
+            <div className="font-heading font-extrabold text-3xl sm:text-4xl text-[#2650a8] mb-1">
+              <AnimatedCounter value="25" suffix="+" duration={1.5} />
+            </div>
+            <div className="text-[11px] font-extrabold text-slate-800 uppercase tracking-wider">Clients Worked With</div>
+            <div className="text-xs text-slate-500 mt-1 font-medium">Property & Finance Industry Experts</div>
+          </motion.div>
 
-          <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 text-center shadow-xs">
-            <div className="font-heading font-extrabold text-3xl text-[#f4ba43] mb-0.5">40% Avg</div>
-            <div className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">Acceptance Rate</div>
-            <div className="text-xs text-slate-500 mt-0.5 font-medium">200 Connection Requests / Week</div>
-          </div>
+          <motion.div 
+            variants={itemVariants}
+            whileHover={{ y: -4 }}
+            className="p-6 rounded-2xl bg-gradient-to-b from-white to-slate-50 border border-slate-200 text-center shadow-sm hover:shadow-md hover:border-[#f4ba43]/60 transition-all"
+          >
+            <div className="flex justify-center mb-2">
+              <div className="p-2.5 rounded-xl bg-[#f4ba43]/20 text-[#b45309]">
+                <TrendingUp className="w-5 h-5" />
+              </div>
+            </div>
+            <div className="font-heading font-extrabold text-3xl sm:text-4xl text-[#b45309] mb-1">
+              <AnimatedCounter value="40" suffix="% Avg" duration={1.5} />
+            </div>
+            <div className="text-[11px] font-extrabold text-slate-800 uppercase tracking-wider">Acceptance Rate</div>
+            <div className="text-xs text-slate-500 mt-1 font-medium">200 Connection Requests / Week</div>
+          </motion.div>
 
-          <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 text-center shadow-xs">
-            <div className="font-heading font-extrabold text-3xl text-[#2650a8] mb-0.5">100%</div>
-            <div className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">Posting Consistency</div>
-            <div className="text-xs text-slate-500 mt-0.5 font-medium">Full length of every engagement</div>
-          </div>
-        </div>
+          <motion.div 
+            variants={itemVariants}
+            whileHover={{ y: -4 }}
+            className="p-6 rounded-2xl bg-gradient-to-b from-white to-slate-50 border border-slate-200 text-center shadow-sm hover:shadow-md hover:border-[#2650a8]/40 transition-all"
+          >
+            <div className="flex justify-center mb-2">
+              <div className="p-2.5 rounded-xl bg-[#2650a8]/10 text-[#2650a8]">
+                <Award className="w-5 h-5" />
+              </div>
+            </div>
+            <div className="font-heading font-extrabold text-3xl sm:text-4xl text-[#2650a8] mb-1">
+              <AnimatedCounter value="100" suffix="%" duration={1.5} />
+            </div>
+            <div className="text-[11px] font-extrabold text-slate-800 uppercase tracking-wider">Posting Consistency</div>
+            <div className="text-xs text-slate-500 mt-1 font-medium">Full length of every engagement</div>
+          </motion.div>
+        </motion.div>
 
         {/* Case Studies Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14"
+        >
           {caseStudies.map((cs, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#2650a8]/30 transition-all duration-300 flex flex-col justify-between group"
+              variants={itemVariants}
+              whileHover={{ y: -6 }}
+              className="light-card-hover p-7 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between group relative overflow-hidden"
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#2650a8]/10 text-[#2650a8] border border-[#2650a8]/20">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#2650a8]/10 text-[#2650a8] border border-[#2650a8]/25 shadow-xs">
                     {cs.badge}
                   </span>
                 </div>
@@ -105,53 +183,63 @@ export default function Results() {
                   {cs.person}
                 </h3>
                 <p className="text-xs font-semibold text-[#2650a8]">{cs.role}</p>
-                <p className="text-[11px] text-slate-500 mb-4 font-medium">{cs.company}</p>
+                <p className="text-[11px] text-slate-500 mb-5 font-medium">{cs.company}</p>
 
-                <ul className="space-y-2.5 mb-6">
+                <ul className="space-y-3 mb-6">
                   {cs.results.map((res, rIdx) => (
-                    <li key={rIdx} className="flex items-start gap-2 text-xs text-slate-700 font-semibold leading-relaxed">
-                      <CheckCircle className="w-3.5 h-3.5 text-[#f4ba43] shrink-0 mt-0.5" />
+                    <li key={rIdx} className="flex items-start gap-2.5 text-xs text-slate-700 font-semibold leading-relaxed">
+                      <CheckCircle className="w-4 h-4 text-[#f4ba43] shrink-0 mt-0.5" />
                       <span>{res}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <a
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 href={cs.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3.5 rounded-xl text-xs font-bold text-slate-800 bg-slate-50 hover:bg-[#2650a8] hover:text-white border border-slate-200 transition-all cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-slate-800 bg-slate-50 hover:bg-[#2650a8] hover:text-white border border-slate-200 hover:border-[#2650a8] transition-all cursor-pointer shadow-xs group/btn"
               >
                 <span>View LinkedIn Profile</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            </div>
+                <ExternalLink className="w-3.5 h-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
+              </motion.a>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Free Assessment Lead Magnet Showcase */}
-        <div className="p-6 rounded-2xl bg-gradient-to-r from-slate-50 to-[#2650a8]/5 border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-5 shadow-xs">
-          <div className="flex items-start gap-3.5">
-            <div className="p-2.5 rounded-xl bg-[#2650a8] text-white shrink-0">
-              <FileText className="w-5 h-5 text-[#f4ba43]" />
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="p-7 rounded-2xl bg-gradient-to-r from-slate-50 via-white to-[#2650a8]/5 border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm hover:shadow-md transition-shadow"
+        >
+          <div className="flex items-start gap-4">
+            <div className="p-3 rounded-2xl bg-[#2650a8] text-white shrink-0 shadow-md">
+              <FileText className="w-6 h-6 text-[#f4ba43]" />
             </div>
             <div>
-              <h4 className="font-heading font-bold text-base text-[#000000]">Example LinkedIn Profile & Strategy Assessment</h4>
-              <p className="text-xs text-slate-600 font-medium mt-0.5">See the exact assessment plan Gaya provides for clients before onboarding.</p>
+              <h4 className="font-heading font-bold text-lg text-[#000000]">Example LinkedIn Profile & Strategy Assessment</h4>
+              <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1">See the exact assessment plan Gaya provides for clients before onboarding.</p>
             </div>
           </div>
 
-          <a
+          <motion.a
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.98 }}
             href={getAssessmentUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-sm transition-all"
+            className="btn-shimmer shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-md shadow-[#2650a8]/20 transition-all cursor-pointer"
           >
             <span>View Sample Client Assessment</span>
-            <ExternalLink className="w-3.5 h-3.5 text-[#f4ba43]" />
-          </a>
-        </div>
+            <ExternalLink className="w-4 h-4 text-[#f4ba43]" />
+          </motion.a>
+        </motion.div>
 
       </div>
     </section>

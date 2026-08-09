@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { UserCheck, Compass, FileText, Share2, Rocket, ArrowRight } from 'lucide-react';
 
 export default function Workflow() {
@@ -13,7 +14,7 @@ export default function Workflow() {
       icon: UserCheck,
       badge: 'Step 01',
       iconBg: 'bg-[#2650a8] text-white',
-      badgeClass: 'bg-[#2650a8]/10 text-[#2650a8] border-[#2650a8]/20'
+      badgeClass: 'bg-[#2650a8]/10 text-[#2650a8] border-[#2650a8]/25'
     },
     {
       num: 2,
@@ -33,7 +34,7 @@ export default function Workflow() {
       icon: FileText,
       badge: 'Step 03',
       iconBg: 'bg-[#2650a8] text-white',
-      badgeClass: 'bg-[#2650a8]/10 text-[#2650a8] border-[#2650a8]/20'
+      badgeClass: 'bg-[#2650a8]/10 text-[#2650a8] border-[#2650a8]/25'
     },
     {
       num: 4,
@@ -58,13 +59,23 @@ export default function Workflow() {
   ];
 
   return (
-    <section id="workflow" className="py-20 bg-[#f8fafc] relative z-10 border-t border-slate-200">
+    <section id="workflow" className="py-24 bg-[#f8fafc] relative z-10 border-t border-slate-200 overflow-hidden">
       
+      {/* Ambient background glows */}
+      <div className="absolute top-1/4 right-5 w-96 h-96 bg-[#2650a8]/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 left-5 w-96 h-96 bg-[#f4ba43]/10 rounded-full blur-[120px] pointer-events-none"></div>
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3 py-1 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/20 inline-block mb-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto mb-20"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/25 inline-block mb-3 shadow-xs">
             The Content - Connection - Conversation Framework
           </span>
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
@@ -73,75 +84,93 @@ export default function Workflow() {
           <p className="mt-3 text-sm sm:text-base text-slate-600 font-subheading">
             A clear, documented workflow designed specifically for busy property and finance professionals.
           </p>
-        </div>
+        </motion.div>
 
         {/* Workflow Timeline Steps */}
-        <div className="relative space-y-6 md:space-y-10">
+        <div className="relative space-y-8 md:space-y-12">
           
-          {/* Connecting Line */}
-          <div className="hidden md:block absolute left-1/2 top-8 bottom-8 w-0.5 bg-slate-300 -translate-x-1/2 z-0"></div>
+          {/* Connecting Line with Gradient */}
+          <div className="hidden md:block absolute left-1/2 top-10 bottom-10 w-0.5 bg-gradient-to-b from-[#2650a8] via-[#f4ba43] to-emerald-500 -translate-x-1/2 z-0 opacity-60"></div>
 
           {steps.map((step, index) => {
             const Icon = step.icon;
             const isEven = index % 2 === 0;
 
             return (
-              <div 
+              <motion.div 
                 key={step.num}
+                initial={{ opacity: 0, x: isEven ? -40 : 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 className={`relative z-10 flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''} gap-6 md:gap-10`}
               >
                 
                 {/* Step Card Content */}
                 <div className="w-full md:w-1/2">
-                  <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#2650a8]/30 transition-all duration-300 relative overflow-hidden group">
+                  <motion.div 
+                    whileHover={{ y: -5 }}
+                    className="light-card-hover p-7 rounded-3xl bg-white border border-slate-200 shadow-sm relative overflow-hidden group"
+                  >
                     
-                    <div className="flex items-center justify-between mb-3">
-                      <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${step.badgeClass}`}>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className={`text-[11px] font-bold px-3 py-1 rounded-full border shadow-xs ${step.badgeClass}`}>
                         {step.badge}
                       </span>
-                      <span className="font-heading font-black text-2xl text-slate-300 group-hover:text-[#2650a8] transition-colors">
+                      <span className="font-heading font-black text-3xl text-slate-200 group-hover:text-[#2650a8] transition-colors">
                         0{step.num}
                       </span>
                     </div>
 
-                    <h3 className="font-heading font-bold text-xl text-[#000000] mb-1 group-hover:text-[#2650a8] transition-colors">
+                    <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#000000] mb-1 group-hover:text-[#2650a8] transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-xs font-semibold text-[#2650a8] uppercase tracking-wider mb-3">
+                    <p className="text-xs font-bold text-[#2650a8] uppercase tracking-wider mb-3">
                       {step.subtitle}
                     </p>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
                       {step.description}
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Step Circle Indicator */}
-                <div className="shrink-0 w-14 h-14 rounded-xl bg-white border border-slate-200 flex items-center justify-center shadow-md z-20 group-hover:scale-105 transition-transform">
-                  <div className={`p-2.5 rounded-lg ${step.iconBg} shadow-sm`}>
-                    <Icon className="w-5 h-5" />
+                <motion.div 
+                  whileHover={{ scale: 1.15, rotate: 5 }}
+                  className="shrink-0 w-16 h-16 rounded-2xl bg-white border-2 border-slate-200 flex items-center justify-center shadow-lg z-20"
+                >
+                  <div className={`p-3 rounded-xl ${step.iconBg} shadow-md`}>
+                    <Icon className="w-6 h-6" />
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Spacer for 2-column alternating layout */}
                 <div className="hidden md:block w-1/2"></div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Workflow CTA */}
-        <div className="mt-12 text-center">
-          <a
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5 }}
+          className="mt-16 text-center"
+        >
+          <motion.a
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.98 }}
             href={zoomBookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm sm:text-base font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-lg shadow-[#2650a8]/20 transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+            className="btn-shimmer inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm sm:text-base font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-xl shadow-[#2650a8]/25 transition-all duration-300 cursor-pointer"
           >
             <span>Book Your Free Assessment Call</span>
-            <ArrowRight className="w-4 h-4 text-[#f4ba43]" />
-          </a>
-        </div>
+            <ArrowRight className="w-4 h-4 text-[#f4ba43] transition-transform duration-200 group-hover:translate-x-1" />
+          </motion.a>
+        </motion.div>
 
       </div>
     </section>

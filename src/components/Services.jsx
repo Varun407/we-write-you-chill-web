@@ -1,16 +1,47 @@
 import React from 'react';
-import { Check, ArrowRight, Users, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Check, ArrowRight, Users, Clock, Video, Sparkles } from 'lucide-react';
 
 export default function Services({ onOpenBooking }) {
   const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+
   return (
-    <section id="services" className="py-20 bg-white relative z-10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-24 bg-white relative z-10 overflow-hidden">
+      
+      {/* Decorative ambient background */}
+      <div className="absolute top-1/3 left-0 w-80 h-80 bg-[#2650a8]/5 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-1/3 right-0 w-80 h-80 bg-[#f4ba43]/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3 py-1 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/20 inline-block mb-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/25 inline-block mb-3 shadow-xs">
             Our Programs & Packages
           </span>
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
@@ -19,168 +50,194 @@ export default function Services({ onOpenBooking }) {
           <p className="mt-3 text-sm sm:text-base text-slate-600 font-subheading font-medium">
             Whether you want it fully done for you, trained in-house, or need complete video production.
           </p>
-        </div>
+        </motion.div>
 
         {/* 3 Main Package Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch"
+        >
           
-          {/* Package 1 */}
-          <div className="p-7 rounded-2xl bg-white border-2 border-[#2650a8] shadow-lg flex flex-col justify-between relative group">
-            <div className="absolute -top-3 right-5 px-3 py-0.5 rounded-full bg-[#2650a8] text-white text-[10px] font-extrabold uppercase tracking-wider shadow-xs">
-              Most Popular
+          {/* Package 1 - Featured / Most Popular */}
+          <motion.div 
+            variants={cardVariants}
+            whileHover={{ y: -8, transition: { duration: 0.25 } }}
+            className="p-8 pt-9 rounded-3xl bg-white border-2 border-[#2650a8] shadow-xl flex flex-col justify-between relative group"
+          >
+            {/* Ambient subtle glow inside card */}
+            <div className="absolute top-0 right-0 w-48 h-48 bg-[#2650a8]/8 rounded-full blur-[50px] pointer-events-none rounded-tr-3xl"></div>
+
+            <div className="absolute -top-3.5 right-6 px-4 py-1 rounded-full bg-gradient-to-r from-[#2650a8] to-[#1e4290] text-white text-[11px] font-extrabold uppercase tracking-wider shadow-md flex items-center gap-1.5 z-20 border border-white/40">
+              <Sparkles className="w-3.5 h-3.5 text-[#f4ba43]" />
+              <span>Most Popular</span>
             </div>
 
             <div>
-              <div className="text-[11px] font-extrabold text-[#2650a8] uppercase tracking-wider mb-1.5">Option 01</div>
-              <h3 className="font-heading font-black text-xl text-[#000000] mb-2">
+              <div className="text-[11px] font-extrabold text-[#2650a8] uppercase tracking-wider mb-2">Option 01</div>
+              <h3 className="font-heading font-black text-2xl text-[#000000] mb-2 leading-tight">
                 Done-For-You LinkedIn Personal Branding
               </h3>
-              <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-5">
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-6">
                 We build the system around you.
               </p>
 
-              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 mb-5 text-xs text-slate-700 font-medium space-y-1.5">
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 mb-6 text-xs text-slate-700 font-medium space-y-1.5 shadow-xs">
                 <div className="flex items-center gap-1.5 text-amber-700 font-bold">
-                  <Clock className="w-3.5 h-3.5 text-[#f4ba43]" />
+                  <Clock className="w-4 h-4 text-[#f4ba43]" />
                   <span>Time Commitment: 45 Mins / Month</span>
                 </div>
-                <p className="text-slate-600 leading-normal">
+                <p className="text-slate-600 leading-relaxed">
                   45 minutes of your time every 4 weeks to produce a full month's worth of high-converting content.
                 </p>
               </div>
 
-              <ul className="space-y-2.5 mb-6 text-xs text-slate-700 font-semibold">
-                <li className="flex items-start gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#2650a8] shrink-0 mt-0.5" />
+              <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-slate-700 font-semibold">
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-[#2650a8] shrink-0 mt-0.5" />
                   <span>Content strategy built on your expertise, not generic prompts</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#2650a8] shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-[#2650a8] shrink-0 mt-0.5" />
                   <span>Content development & done-for-you writing, never open a blank page</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#2650a8] shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-[#2650a8] shrink-0 mt-0.5" />
                   <span>Monthly post analytics showing what landed and what needs to change</span>
                 </li>
               </ul>
-
-
             </div>
 
-            <a
+            <motion.a
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               href={zoomBookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] transition-all cursor-pointer shadow-sm"
+              className="btn-shimmer w-full inline-flex items-center justify-center gap-2.5 py-3.5 px-5 rounded-2xl text-xs sm:text-sm font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] transition-all cursor-pointer shadow-md shadow-[#2650a8]/25"
             >
               <span>Apply for Done-For-You Package</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#f4ba43]" />
-            </a>
-          </div>
+              <ArrowRight className="w-4 h-4 text-[#f4ba43] transition-transform duration-200 group-hover:translate-x-1" />
+            </motion.a>
+          </motion.div>
 
-          {/* Package 2 */}
-          <div className="p-7 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#2650a8]/40 transition-all duration-300 flex flex-col justify-between group">
+          {/* Package 2 - Done-With-You */}
+          <motion.div 
+            variants={cardVariants}
+            whileHover={{ y: -8, transition: { duration: 0.25 } }}
+            className="light-card-hover p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between group relative overflow-hidden"
+          >
             <div>
-              <div className="text-[11px] font-extrabold text-[#f4ba43] uppercase tracking-wider mb-1.5">Option 02</div>
-              <h3 className="font-heading font-black text-xl text-[#000000] mb-2">
+              <div className="text-[11px] font-extrabold text-[#b45309] uppercase tracking-wider mb-2">Option 02</div>
+              <h3 className="font-heading font-black text-2xl text-[#000000] mb-2 leading-tight">
                 Done-With-You Training
               </h3>
-              <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-5">
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-6">
                 For the expert who wants the skill in-house
               </p>
 
-              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 mb-5 text-xs text-slate-700 font-medium space-y-1.5">
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 mb-6 text-xs text-slate-700 font-medium space-y-1.5 shadow-xs">
                 <div className="flex items-center gap-1.5 text-slate-900 font-bold">
-                  <Users className="w-3.5 h-3.5 text-[#2650a8]" />
+                  <Users className="w-4 h-4 text-[#2650a8]" />
                   <span>12-Week In-House Team Programme</span>
                 </div>
-                <p className="text-slate-600 leading-normal">
+                <p className="text-slate-600 leading-relaxed">
                   Ideal for your team member or VA. We build your Content-Connection-Conversation system together.
                 </p>
               </div>
 
-              <ul className="space-y-2.5 mb-6 text-xs text-slate-700 font-semibold">
-                <li className="flex items-start gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#f4ba43] shrink-0 mt-0.5" />
+              <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-slate-700 font-semibold">
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-[#f4ba43] shrink-0 mt-0.5" />
                   <span>Bi-weekly 1-on-1 Zoom sessions with Gaya & support in between</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#f4ba43] shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-[#f4ba43] shrink-0 mt-0.5" />
                   <span>Custom content materials, templates & writing feedback</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#f4ba43] shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-[#f4ba43] shrink-0 mt-0.5" />
                   <span>Outreach system setup: how to run it, follow up, & nurture leads</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#f4ba43] shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-[#f4ba43] shrink-0 mt-0.5" />
                   <span>End goal: Your team runs the whole thing, never buy another course</span>
                 </li>
               </ul>
             </div>
 
-            <a
+            <motion.a
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               href={zoomBookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-slate-800 bg-slate-50 hover:bg-[#2650a8] hover:text-white border border-slate-200 transition-all cursor-pointer shadow-xs"
+              className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl text-xs sm:text-sm font-bold text-slate-800 bg-slate-50 hover:bg-[#2650a8] hover:text-white border border-slate-200 hover:border-[#2650a8] transition-all cursor-pointer shadow-xs group/btn"
             >
               <span>Apply for 12-Week Programme</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
+            </motion.a>
+          </motion.div>
 
-          {/* Package 3 */}
-          <div className="p-7 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#2650a8]/40 transition-all duration-300 flex flex-col justify-between group">
+          {/* Package 3 - Video System */}
+          <motion.div 
+            variants={cardVariants}
+            whileHover={{ y: -8, transition: { duration: 0.25 } }}
+            className="light-card-hover p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between group relative overflow-hidden"
+          >
             <div>
-              <div className="text-[11px] font-extrabold text-emerald-600 uppercase tracking-wider mb-1.5">Option 03</div>
-              <h3 className="font-heading font-black text-xl text-[#000000] mb-2">
+              <div className="text-[11px] font-extrabold text-emerald-600 uppercase tracking-wider mb-2">Option 03</div>
+              <h3 className="font-heading font-black text-2xl text-[#000000] mb-2 leading-tight">
                 Video Content System
               </h3>
-              <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-5">
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-6">
                 Overcoming camera anxiety & video deletion loops
               </p>
 
               {/* Video Frustration Box */}
-              <div className="p-3.5 rounded-xl bg-amber-50/60 border border-[#f4ba43]/40 mb-5 text-xs space-y-1 text-slate-700 font-medium">
-                <span className="font-bold text-slate-900 block">Every time you sit down to record:</span>
+              <div className="p-4 rounded-2xl bg-amber-50/70 border border-[#f4ba43]/40 mb-6 text-xs space-y-1 text-slate-700 font-medium shadow-xs">
+                <span className="font-bold text-slate-900 block mb-1">Every time you sit down to record:</span>
                 <p>• You adjust your shirt → Then your hair</p>
                 <p>• You start again → Hear your own voice → Delete it</p>
-                <p className="font-bold text-rose-700 pt-0.5">Result: Nothing gets posted. Again.</p>
+                <p className="font-bold text-rose-700 pt-1">Result: Nothing gets posted. Again.</p>
               </div>
 
-              <ul className="space-y-2.5 mb-6 text-xs text-slate-700 font-semibold">
-                <li className="flex items-start gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#2650a8] shrink-0 mt-0.5" />
+              <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-slate-700 font-semibold">
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-[#2650a8] shrink-0 mt-0.5" />
                   <span>Topic ideas & high-converting video scripting</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#2650a8] shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-[#2650a8] shrink-0 mt-0.5" />
                   <span>Guided online recording sessions (1.5 hours per batch)</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#2650a8] shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-[#2650a8] shrink-0 mt-0.5" />
                   <span>Professional video editing & post captions</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-3.5 h-3.5 text-[#2650a8] shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-[#2650a8] shrink-0 mt-0.5" />
                   <span>32%+ proven increase in video views & engagement</span>
                 </li>
               </ul>
             </div>
 
-            <a
+            <motion.a
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               href={zoomBookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-slate-800 bg-slate-50 hover:bg-[#2650a8] hover:text-white border border-slate-200 transition-all cursor-pointer shadow-xs"
+              className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl text-xs sm:text-sm font-bold text-slate-800 bg-slate-50 hover:bg-[#2650a8] hover:text-white border border-slate-200 hover:border-[#2650a8] transition-all cursor-pointer shadow-xs group/btn"
             >
               <span>Get Started with Video System</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
+            </motion.a>
+          </motion.div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>
