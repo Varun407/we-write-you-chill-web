@@ -87,6 +87,31 @@ h1, h2, h3, .font-heading {
   -webkit-text-fill-color: transparent;
 }
 
+/* Text Shimmer Effect */
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #2650a8 0%,
+    #3b82f6 25%,
+    #f4ba43 50%,
+    #3b82f6 75%,
+    #2650a8 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 4s linear infinite;
+}
+
+@keyframes textShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
 .highlight-swipe {
   position: relative;
   display: inline-block;
@@ -131,6 +156,30 @@ h1, h2, h3, .font-heading {
 
 .btn-shimmer:hover::after {
   animation: shimmerSweep 1.2s ease-in-out infinite;
+}
+
+/* Glowing Animated Border */
+.animated-gradient-border {
+  position: relative;
+  background: white;
+  border-radius: 1.5rem;
+}
+
+.animated-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(1.5rem + 2px);
+  background: linear-gradient(60deg, #2650a8, #f4ba43, #3b82f6, #2650a8);
+  background-size: 300% 300%;
+  animation: borderRotate 4s ease infinite;
+  z-index: -1;
+}
+
+@keyframes borderRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Keyframe animations */

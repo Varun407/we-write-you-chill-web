@@ -210,31 +210,34 @@ export default function Results() {
           ))}
         </motion.div>
 
-        {/* Free Assessment Lead Magnet Showcase */}
+        {/* Free Assessment Lead Magnet Showcase with Glowing Animated Gradient Border */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
-          className="p-7 rounded-2xl bg-gradient-to-r from-slate-50 via-white to-[#2650a8]/5 border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm hover:shadow-md transition-shadow"
+          className="animated-gradient-border p-7 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-200/80"
         >
           <div className="flex items-start gap-4">
-            <div className="p-3 rounded-2xl bg-[#2650a8] text-white shrink-0 shadow-md">
+            <div className="p-3.5 rounded-2xl bg-[#2650a8] text-white shrink-0 shadow-md">
               <FileText className="w-6 h-6 text-[#f4ba43]" />
             </div>
             <div>
-              <h4 className="font-heading font-bold text-lg text-[#000000]">Example LinkedIn Profile & Strategy Assessment</h4>
-              <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1">See the exact assessment plan Gaya provides for clients before onboarding.</p>
+              <div className="flex items-center gap-2 mb-1">
+                <h4 className="font-heading font-extrabold text-lg text-[#000000]">Example LinkedIn Profile & Strategy Assessment</h4>
+                <span className="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#f4ba43]/20 text-[#b45309] text-[10px] font-extrabold uppercase">Free Blueprint</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">See the exact assessment plan Gaya provides for clients before onboarding.</p>
             </div>
           </div>
 
           <motion.a
-            whileHover={{ scale: 1.04 }}
+            whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.98 }}
             href={getAssessmentUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-shimmer shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-md shadow-[#2650a8]/20 transition-all cursor-pointer"
+            className="btn-shimmer shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-lg shadow-[#2650a8]/25 transition-all cursor-pointer"
           >
             <span>View Sample Client Assessment</span>
             <ExternalLink className="w-4 h-4 text-[#f4ba43]" />

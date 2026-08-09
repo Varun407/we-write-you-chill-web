@@ -45,16 +45,18 @@ export default function AboutFounder({ onOpenBooking }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
 
                 {/* Floating Profile Info Card */}
-                <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between z-20">
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h4 className="font-heading font-extrabold text-base text-[#000000]">Gaya</h4>
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-extrabold">
+                <div className="absolute bottom-4 left-3 right-3 sm:left-4 sm:right-4 p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between gap-2.5 z-20">
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <h4 className="font-heading font-extrabold text-sm sm:text-base text-[#000000]">Gaya</h4>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] sm:text-[10px] font-extrabold shrink-0">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                         Active Strategist
                       </span>
                     </div>
-                    <p className="text-[11px] text-[#2650a8] font-semibold mt-0.5">LinkedIn Personal Branding Strategist</p>
+                    <p className="text-[10px] sm:text-[11.5px] text-[#2650a8] font-semibold whitespace-nowrap overflow-hidden text-ellipsis">
+                      LinkedIn Personal Branding Strategist
+                    </p>
                   </div>
                   <motion.a
                     whileHover={{ scale: 1.1 }}
@@ -62,7 +64,7 @@ export default function AboutFounder({ onOpenBooking }) {
                     href={gayaLinkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl bg-[#2650a8] text-white hover:bg-[#1d4088] transition-colors shadow-sm cursor-pointer"
+                    className="p-2 sm:p-2.5 rounded-xl bg-[#2650a8] text-white hover:bg-[#1d4088] transition-colors shadow-sm cursor-pointer shrink-0"
                     aria-label="Gaya's LinkedIn Profile"
                   >
                     <ExternalLink className="w-4 h-4 text-[#f4ba43]" />
