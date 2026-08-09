@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { UserCheck, Compass, FileText, Share2, Rocket, ArrowRight } from 'lucide-react';
-import TiltCard from './TiltCard';
 
 export default function Workflow() {
   const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
@@ -109,10 +108,7 @@ export default function Workflow() {
                 
                 {/* Step Card Content */}
                 <div className="w-full md:w-1/2">
-                  <TiltCard 
-                    tiltStrength={5}
-                    className="light-card-hover p-7 rounded-3xl bg-white border border-slate-200 shadow-sm relative overflow-hidden group"
-                  >
+                  <div className="light-card-hover p-7 rounded-3xl bg-white border border-slate-200 shadow-sm relative overflow-hidden group">
                     
                     <div className="flex items-center justify-between mb-4">
                       <span className={`text-[11px] font-bold px-3 py-1 rounded-full border shadow-xs ${step.badgeClass}`}>
@@ -132,7 +128,7 @@ export default function Workflow() {
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
                       {step.description}
                     </p>
-                  </TiltCard>
+                  </div>
                 </div>
 
                 {/* Step Circle Indicator */}

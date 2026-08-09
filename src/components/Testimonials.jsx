@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Quote, ExternalLink, Image as ImageIcon, Sparkles, X } from 'lucide-react';
-import TiltCard from './TiltCard';
 import gayaFounderImg from '../assets/gaya-founder.jpg';
 import adarshImg from '../assets/testimonial-adarsh.png';
 import jathuImg from '../assets/testimonial-jathu.png';
@@ -108,74 +107,66 @@ export default function Testimonials() {
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           {testimonials.map((item, idx) => (
-            <motion.div
+            <div
               key={idx}
-              variants={cardVariants}
-              className="flex"
+              className="light-card-hover p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between relative group w-full"
             >
-              <TiltCard
-                tiltStrength={5}
-                className="light-card-hover p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between relative group w-full"
-              >
-                <div>
-                  {/* Header Profile Info */}
-                  <div className="flex items-start justify-between gap-4 mb-4">
-                    <div>
-                      <h3 className="font-heading font-bold text-lg text-[#000000] group-hover:text-[#2650a8] transition-colors">
-                        {item.name}
-                      </h3>
-                      <p className="text-xs font-semibold text-[#2650a8]">
-                        {item.title}
-                      </p>
-                      <p className="text-xs text-slate-500 font-medium">
-                        {item.company}
-                      </p>
-                    </div>
-
-                    <div className="flex items-center gap-1 text-[#f4ba43]">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Metric Pill */}
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#2650a8]/10 text-[#2650a8] border border-[#2650a8]/20 text-xs font-bold mb-5 shadow-xs">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>{item.metrics}</span>
-                  </div>
-
-                  {/* Quote Text */}
-                  <div className="relative mb-6">
-                    <Quote className="w-8 h-8 text-slate-200 absolute -top-3 -left-2 pointer-events-none opacity-60" />
-                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic pl-4 border-l-2 border-[#2650a8] font-medium">
-                      "{item.quote}"
+              <div>
+                {/* Header Profile Info */}
+                <div className="flex items-start justify-between gap-4 mb-4">
+                  <div>
+                    <h3 className="font-heading font-bold text-lg text-[#000000] group-hover:text-[#2650a8] transition-colors">
+                      {item.name}
+                    </h3>
+                    <p className="text-xs font-semibold text-[#2650a8]">
+                      {item.title}
+                    </p>
+                    <p className="text-xs text-slate-500 font-medium">
+                      {item.company}
                     </p>
                   </div>
 
-                  {/* Highlights */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {item.highlights.map((hl, hIdx) => (
-                      <span key={hIdx} className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200">
-                        ✓ {hl}
-                      </span>
+                  <div className="flex items-center gap-1 text-[#f4ba43]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
                 </div>
 
-                {/* View Original LinkedIn Screenshot Button */}
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setSelectedImage(item.screenshot)}
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-slate-800 bg-slate-50 hover:bg-[#2650a8] hover:text-white border border-slate-200 hover:border-[#2650a8] transition-all cursor-pointer shadow-xs group/btn"
-                >
-                  <ImageIcon className="w-4 h-4 text-[#2650a8] group-hover:text-white" />
-                  <span>View Original LinkedIn Recommendation</span>
-                  <ExternalLink className="w-3.5 h-3.5 ml-auto opacity-70 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
-                </motion.button>
-              </TiltCard>
-            </motion.div>
+                {/* Metric Pill */}
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#2650a8]/10 text-[#2650a8] border border-[#2650a8]/20 text-xs font-bold mb-5 shadow-xs">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>{item.metrics}</span>
+                </div>
+
+                {/* Quote Text */}
+                <div className="relative mb-6">
+                  <Quote className="w-8 h-8 text-slate-200 absolute -top-3 -left-2 pointer-events-none opacity-60" />
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic pl-4 border-l-2 border-[#2650a8] font-medium">
+                    "{item.quote}"
+                  </p>
+                </div>
+
+                {/* Highlights */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {item.highlights.map((hl, hIdx) => (
+                    <span key={hIdx} className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200">
+                      ✓ {hl}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* View Original LinkedIn Screenshot Button */}
+              <button
+                onClick={() => setSelectedImage(item.screenshot)}
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-slate-800 bg-slate-50 hover:bg-[#2650a8] hover:text-white border border-slate-200 hover:border-[#2650a8] transition-all cursor-pointer shadow-xs group/btn"
+              >
+                <ImageIcon className="w-4 h-4 text-[#2650a8] group-hover:text-white" />
+                <span>View Original LinkedIn Recommendation</span>
+                <ExternalLink className="w-3.5 h-3.5 ml-auto opacity-70 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
+              </button>
+            </div>
           ))}
         </motion.div>
 

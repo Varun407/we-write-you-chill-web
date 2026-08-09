@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Heart, CheckCircle, ExternalLink, Sparkles } from 'lucide-react';
-import TiltCard from './TiltCard';
 import gayaFounderImg from '../assets/gaya-founder.jpg';
 
 export default function AboutFounder({ onOpenBooking }) {
@@ -25,22 +24,13 @@ export default function AboutFounder({ onOpenBooking }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
           {/* Image Column */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative"
-          >
-            <TiltCard 
-              tiltStrength={6}
-              className="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden bg-white border border-slate-200 p-2.5 shadow-2xl group"
-            >
+          <div className="lg:col-span-5 relative">
+            <div className="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden bg-white border border-slate-200 p-2.5 shadow-2xl group">
               <div className="aspect-[4/5] w-full rounded-2xl overflow-hidden relative">
                 <img
                   src={gayaFounderImg}
                   alt="Gayathiri (Gaya) - Founder of We Write You Chill"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
 
@@ -50,7 +40,7 @@ export default function AboutFounder({ onOpenBooking }) {
                     <div className="flex items-center gap-1.5 mb-0.5">
                       <h4 className="font-heading font-extrabold text-sm sm:text-base text-[#000000]">Gaya</h4>
                       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] sm:text-[10px] font-extrabold shrink-0">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                         Active Strategist
                       </span>
                     </div>
@@ -58,9 +48,7 @@ export default function AboutFounder({ onOpenBooking }) {
                       LinkedIn Personal Branding Strategist
                     </p>
                   </div>
-                  <motion.a
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+                  <a
                     href={gayaLinkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -68,10 +56,10 @@ export default function AboutFounder({ onOpenBooking }) {
                     aria-label="Gaya's LinkedIn Profile"
                   >
                     <ExternalLink className="w-4 h-4 text-[#f4ba43]" />
-                  </motion.a>
+                  </a>
                 </div>
               </div>
-            </TiltCard>
+            </div>
 
             {/* Quote Badge Below Image */}
             <motion.div 
@@ -88,7 +76,7 @@ export default function AboutFounder({ onOpenBooking }) {
                 "Posting every single day since Sept 30, 2023. Built on real compounding, not fast food marketing."
               </p>
             </motion.div>
-          </motion.div>
+          </div>
 
           {/* Text Column */}
           <motion.div 
