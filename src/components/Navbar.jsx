@@ -39,24 +39,23 @@ export default function Navbar({ onOpenBooking }) {
         style={{ scaleX }}
       />
 
-      <motion.header 
+      <motion.header
         initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'light-nav py-3 shadow-sm' : 'bg-white/85 backdrop-blur-md py-4 border-b border-slate-100'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'light-nav py-3 shadow-sm' : 'bg-white/85 backdrop-blur-md py-4 border-b border-slate-100'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            
+
             {/* Logo */}
             <a href="#" className="flex items-center gap-3 group">
-              <motion.img 
+              <motion.img
                 whileHover={{ scale: 1.05, rotate: [0, -2, 2, 0] }}
                 transition={{ duration: 0.3 }}
-                src={logoImg} 
-                alt="We Write You Chill Logo" 
+                src={logoImg}
+                alt="We Write You Chill Logo"
                 className="h-10 w-auto object-contain"
               />
               <div className="flex flex-col">
@@ -93,6 +92,10 @@ export default function Navbar({ onOpenBooking }) {
                 onClick={onOpenBooking}
                 className="btn-shimmer group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-sm font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-lg shadow-[#2650a8]/20 transition-all duration-300 cursor-pointer"
               >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f4ba43] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f4ba43]"></span>
+                </span>
                 <Calendar className="w-4 h-4 text-[#f4ba43]" />
                 <span>Book Strategy Call</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 text-[#f4ba43]" />
@@ -114,7 +117,7 @@ export default function Navbar({ onOpenBooking }) {
         {/* Mobile Drawer with AnimatePresence */}
         <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}

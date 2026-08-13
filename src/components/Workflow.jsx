@@ -59,70 +59,79 @@ export default function Workflow() {
   ];
 
   return (
-    <section id="workflow" className="py-24 bg-[#f8fafc] relative z-10 border-t border-slate-200 overflow-hidden">
-      
-      {/* Ambient background glows */}
-      <div className="absolute top-1/4 right-5 w-96 h-96 bg-[#2650a8]/5 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 left-5 w-96 h-96 bg-[#f4ba43]/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <section id="workflow" className="snap-section min-h-[auto] md:min-h-screen py-14 sm:py-24 bg-slate-50/70 border-t border-slate-200 relative z-10 overflow-hidden flex flex-col justify-center">
+
+      {/* Decorative background glows */}
+      <div className="absolute top-1/4 right-0 w-60 sm:w-96 h-60 sm:h-96 bg-[#2650a8]/5 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse-glow"></div>
+      <div className="absolute bottom-1/4 left-0 w-60 sm:w-96 h-60 sm:h-96 bg-[#f4ba43]/10 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '2.5s' }}></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Header */}
-        <motion.div 
+
+        {/* Section Header */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-20"
+          className="text-center max-w-2xl mx-auto mb-10 sm:mb-16"
         >
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/25 inline-block mb-3 shadow-xs">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#2650a8] px-4 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/25 inline-block mb-3 shadow-xs">
             The Content - Connection - Conversation Framework
           </span>
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
             How The 5-Step System <span className="highlight-swipe">Builds Client Trust</span>
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600 font-subheading">
+          <p className="mt-3 text-xs sm:text-base text-slate-600 font-subheading">
             A clear, documented workflow designed specifically for busy property and finance professionals.
           </p>
         </motion.div>
 
         {/* Workflow Timeline Steps */}
-        <div className="relative space-y-8 md:space-y-12">
-          
-          {/* Connecting Line with Gradient */}
-          <div className="hidden md:block absolute left-1/2 top-10 bottom-10 w-0.5 bg-gradient-to-b from-[#2650a8] via-[#f4ba43] to-emerald-500 -translate-x-1/2 z-0 opacity-60"></div>
+        <div className="relative space-y-6 md:space-y-12">
+
+          {/* Connecting Line with Gradient & Flowing Animated Light Beam */}
+          <div className="hidden md:block absolute left-1/2 top-8 bottom-8 w-1 bg-gradient-to-b from-[#2650a8] via-[#f4ba43] to-emerald-500 -translate-x-1/2 z-0 rounded-full opacity-40">
+            {/* Flowing animated light beam */}
+            <div className="absolute left-0 right-0 w-full h-24 bg-gradient-to-b from-transparent via-[#f4ba43] to-white rounded-full shadow-[0_0_12px_#f4ba43] animate-timeline-flow pointer-events-none"></div>
+          </div>
 
           {steps.map((step, index) => {
             const Icon = step.icon;
             const isEven = index % 2 === 0;
+            const delayClass = index % 3 === 0 ? 'cyclic-delay-1' : index % 3 === 1 ? 'cyclic-delay-2' : 'cyclic-delay-3';
 
             return (
-              <motion.div 
+              <motion.div
                 key={step.num}
-                initial={{ opacity: 0, x: isEven ? -40 : 40 }}
+                initial={{ opacity: 0, x: isEven ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative z-10 flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''} gap-6 md:gap-10`}
+                className={`relative z-10 flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''} gap-4 md:gap-10`}
               >
-                
-                {/* Step Card Content */}
+
+                {/* Step Card Content with Cyclic Glow */}
                 <div className="w-full md:w-1/2">
-                  <div className="light-card-hover p-7 rounded-3xl bg-white border border-slate-200 shadow-sm relative overflow-hidden group">
-                    
-                    <div className="flex items-center justify-between mb-4">
-                      <span className={`text-[11px] font-bold px-3 py-1 rounded-full border shadow-xs ${step.badgeClass}`}>
-                        {step.badge}
-                      </span>
-                      <span className="font-heading font-black text-3xl text-slate-200 group-hover:text-[#2650a8] transition-colors">
+                  <div className={`cyclic-card ${delayClass} p-5 sm:p-7 rounded-2xl sm:rounded-3xl relative overflow-hidden group`}>
+
+                    <div className="flex items-center justify-between mb-3.5 sm:mb-4">
+                      <div className="flex items-center gap-2">
+                        <div className={`md:hidden p-2 rounded-xl ${step.iconBg} shadow-xs`}>
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <span className={`text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full border shadow-xs ${step.badgeClass}`}>
+                          {step.badge}
+                        </span>
+                      </div>
+                      <span className="font-heading font-black text-2xl sm:text-3xl text-slate-200 group-hover:text-[#2650a8] transition-colors">
                         0{step.num}
                       </span>
                     </div>
 
-                    <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#000000] mb-1 group-hover:text-[#2650a8] transition-colors">
+                    <h3 className="font-heading font-bold text-lg sm:text-2xl text-[#000000] mb-1 group-hover:text-[#2650a8] transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-xs font-bold text-[#2650a8] uppercase tracking-wider mb-3">
+                    <p className="text-[11px] sm:text-xs font-bold text-[#2650a8] uppercase tracking-wider mb-2.5 sm:mb-3">
                       {step.subtitle}
                     </p>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
@@ -131,10 +140,10 @@ export default function Workflow() {
                   </div>
                 </div>
 
-                {/* Step Circle Indicator */}
-                <motion.div 
-                  whileHover={{ scale: 1.15, rotate: 5 }}
-                  className="shrink-0 w-16 h-16 rounded-2xl bg-white border-2 border-slate-200 flex items-center justify-center shadow-lg z-20"
+                {/* Desktop Step Circle Indicator with Cyclic Glow */}
+                <motion.div
+                  whileHover={{ scale: 1.15, rotate: 6 }}
+                  className={`hidden md:flex shrink-0 w-16 h-16 rounded-2xl cyclic-card ${delayClass} items-center justify-center shadow-lg z-20`}
                 >
                   <div className={`p-3 rounded-xl ${step.iconBg} shadow-md`}>
                     <Icon className="w-6 h-6" />
@@ -149,12 +158,12 @@ export default function Workflow() {
         </div>
 
         {/* Workflow CTA */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5 }}
-          className="mt-16 text-center"
+          className="mt-10 sm:mt-16 text-center px-4"
         >
           <motion.a
             whileHover={{ scale: 1.04, y: -2 }}
@@ -162,7 +171,7 @@ export default function Workflow() {
             href={zoomBookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-shimmer inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm sm:text-base font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-xl shadow-[#2650a8]/25 transition-all duration-300 cursor-pointer"
+            className="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full text-xs sm:text-base font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-xl shadow-[#2650a8]/25 transition-all duration-300 cursor-pointer"
           >
             <span>Book Your Free Assessment Call</span>
             <ArrowRight className="w-4 h-4 text-[#f4ba43] transition-transform duration-200 group-hover:translate-x-1" />

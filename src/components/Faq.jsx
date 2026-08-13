@@ -38,36 +38,38 @@ export default function Faq({ onOpenBooking }) {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-[#f8fafc] relative z-10 border-t border-slate-200 overflow-hidden">
-      
+    <section id="faq" className="snap-section min-h-[auto] md:min-h-screen py-14 sm:py-24 bg-slate-50/80 border-t border-slate-200 relative z-10 overflow-hidden flex flex-col justify-center">
+
       {/* Decorative ambient backdrop */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#2650a8]/4 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-1/3 left-10 w-60 sm:w-96 h-60 sm:h-96 bg-[#2650a8]/5 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse-glow"></div>
+      <div className="absolute bottom-1/3 right-10 w-60 sm:w-96 h-60 sm:h-96 bg-[#f4ba43]/10 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '3s' }}></div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/25 inline-block mb-4 shadow-xs">
+          <span className="cyclic-card cyclic-delay-1 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full inline-block mb-3 sm:mb-4 shadow-xs">
             Frequently Asked Questions
           </span>
-          <h2 className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-[#000000] tracking-tight leading-tight">
+          <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-5xl text-[#000000] tracking-tight leading-tight">
             Clear Answers. <span className="highlight-swipe">Zero Fluff.</span>
           </h2>
-          <p className="mt-4 text-base text-slate-600 font-subheading">
+          <p className="mt-3 sm:mt-4 text-xs sm:text-base text-slate-600 font-subheading">
             Everything you need to know about working with Gaya and We Write You Chill.
           </p>
         </motion.div>
 
-        {/* FAQ Accordion List */}
-        <div className="space-y-4">
+        {/* FAQ Accordion List with Cyclic Glowing Borders */}
+        <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
+            const delayClass = idx % 3 === 0 ? 'cyclic-delay-1' : idx % 3 === 1 ? 'cyclic-delay-2' : 'cyclic-delay-3';
 
             return (
               <motion.div
@@ -76,28 +78,24 @@ export default function Faq({ onOpenBooking }) {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 key={idx}
-                className={`rounded-2xl bg-white border transition-all duration-300 overflow-hidden ${
-                  isOpen 
-                    ? 'border-[#2650a8]/40 shadow-md ring-1 ring-[#2650a8]/10' 
-                    : 'border-slate-200 shadow-sm hover:border-slate-300'
-                }`}
+                className={`cyclic-card ${delayClass} rounded-2xl overflow-hidden transition-all duration-300 ${isOpen ? 'ring-2 ring-[#2650a8]/30 shadow-md' : ''}`}
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? -1 : idx)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-heading font-bold text-base sm:text-lg text-[#000000] hover:text-[#2650a8] transition-colors cursor-pointer"
+                  className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 sm:gap-4 font-heading font-bold text-sm sm:text-lg text-[#000000] hover:text-[#2650a8] transition-colors cursor-pointer"
                 >
-                  <span className="flex items-center gap-3.5">
-                    <div className={`p-2 rounded-xl transition-colors ${isOpen ? 'bg-[#2650a8] text-white' : 'bg-slate-100 text-[#2650a8]'}`}>
-                      <HelpCircle className="w-5 h-5" />
+                  <span className="flex items-center gap-2.5 sm:gap-3.5">
+                    <div className={`p-1.5 sm:p-2 rounded-xl shrink-0 transition-colors ${isOpen ? 'bg-[#2650a8] text-white' : 'bg-slate-100 text-[#2650a8]'}`}>
+                      <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <span>{faq.q}</span>
+                    <span className="leading-snug">{faq.q}</span>
                   </span>
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25, ease: 'easeInOut' }}
                     className="shrink-0"
                   >
-                    <ChevronDown className={`w-5 h-5 ${isOpen ? 'text-[#2650a8]' : 'text-slate-400'}`} />
+                    <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 ${isOpen ? 'text-[#2650a8]' : 'text-slate-400'}`} />
                   </motion.div>
                 </button>
 
@@ -122,33 +120,25 @@ export default function Faq({ onOpenBooking }) {
           })}
         </div>
 
-        {/* Bottom Callout */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: '-60px' }}
+        {/* Still have questions CTA with Cyclic Glow */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.5 }}
-          className="mt-14 p-8 rounded-3xl bg-white border border-slate-200 text-center shadow-lg relative overflow-hidden"
+          className="cyclic-border-flow mt-12 p-8 text-center shadow-lg"
         >
-          <div className="absolute top-0 right-0 w-60 h-60 bg-[#2650a8]/5 rounded-full blur-[60px] pointer-events-none"></div>
-
-          <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#000000] mb-2 relative z-10">
-            Still not sure which option suits you?
-          </h3>
-          <p className="text-sm text-slate-600 mb-6 max-w-lg mx-auto relative z-10">
-            Book a call. We will work it out on the call, and you will walk away with the free assessment plan either way.
-          </p>
-          <motion.a
-            whileHover={{ scale: 1.04, y: -2 }}
-            whileTap={{ scale: 0.98 }}
+          <h3 className="font-heading font-bold text-xl text-[#000000] mb-2">Have a question not listed here?</h3>
+          <p className="text-sm text-slate-600 mb-6 font-medium">Book a 1-on-1 strategy call with Gaya. We'll answer everything directly.</p>
+          <a
             href={zoomBookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-xl shadow-[#2650a8]/25 transition-all cursor-pointer relative z-10"
+            className="btn-shimmer inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-lg shadow-[#2650a8]/25 transition-all cursor-pointer"
           >
-            <span>Book Personal Brand Call</span>
+            <span>Ask Gaya Directly on Zoom</span>
             <ArrowRight className="w-4 h-4 text-[#f4ba43]" />
-          </motion.a>
+          </a>
         </motion.div>
 
       </div>

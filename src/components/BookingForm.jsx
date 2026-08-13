@@ -4,7 +4,7 @@ import { X, Calendar, CheckCircle2, ArrowRight, User, Mail, Phone, Globe, Sparkl
 
 export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
   const [submitted, setSubmitted] = useState(false);
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,14 +24,14 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 bg-slate-900/75 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
           onClick={onClose}
         >
-          <motion.div 
+          <motion.div
             initial={{ scale: 0.92, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.92, opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
             className="relative max-w-xl w-full bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl my-8 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            
+
             {/* Close Button */}
             <button
               onClick={onClose}
@@ -64,7 +64,7 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  
+
                   {/* Role Selector */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
@@ -76,11 +76,10 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
                           key={r}
                           type="button"
                           onClick={() => setFormData({ ...formData, role: r })}
-                          className={`p-3 rounded-xl border text-xs font-bold text-left transition-all cursor-pointer ${
-                            formData.role === r 
-                              ? 'border-[#2650a8] bg-[#2650a8]/10 text-[#2650a8] shadow-xs ring-1 ring-[#2650a8]/30' 
+                          className={`p-3 rounded-xl border text-xs font-bold text-left transition-all cursor-pointer ${formData.role === r
+                              ? 'border-[#2650a8] bg-[#2650a8]/10 text-[#2650a8] shadow-xs ring-1 ring-[#2650a8]/30'
                               : 'border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300'
-                          }`}
+                            }`}
                         >
                           {r}
                         </button>
@@ -198,7 +197,7 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
               </div>
             ) : (
               <div className="text-center py-8 space-y-4">
-                <motion.div 
+                <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ type: 'spring', damping: 15 }}

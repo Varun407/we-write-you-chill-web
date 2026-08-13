@@ -15,92 +15,93 @@ export default function AboutFounder({ onOpenBooking }) {
   ];
 
   return (
-    <section id="about" className="py-24 bg-white relative z-10 border-t border-slate-200 overflow-hidden">
-      
+    <section id="about" className="snap-section min-h-[auto] md:min-h-screen py-14 sm:py-24 bg-white relative z-10 border-t border-slate-200 overflow-hidden flex flex-col justify-center">
+
       {/* Decorative background glow */}
-      <div className="absolute top-1/2 right-10 w-96 h-96 bg-[#2650a8]/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/2 right-10 w-60 sm:w-96 h-60 sm:h-96 bg-[#2650a8]/5 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse-glow"></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
 
-          {/* Image Column */}
+          {/* Image Column with Premium Multi-Layer Editorial Frame */}
           <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden bg-white border border-slate-200 p-2.5 shadow-2xl group">
-              <div className="aspect-[4/5] w-full rounded-2xl overflow-hidden relative">
-                <img
-                  src={gayaFounderImg}
-                  alt="Gayathiri (Gaya) - Founder of We Write You Chill"
-                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+            
+            {/* Ambient Background Aura */}
+            <div className="absolute -inset-4 bg-gradient-to-tr from-[#2650a8]/15 via-[#f4ba43]/15 to-transparent rounded-[36px] blur-xl opacity-80 pointer-events-none"></div>
 
-                {/* Floating Profile Info Card with Guaranteed Single Line Title */}
-                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-3 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between gap-2 z-20">
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-1.5 mb-0.5">
-                      <h4 className="font-heading font-extrabold text-sm sm:text-base text-[#000000] leading-none">Gaya</h4>
-                      <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-bold shrink-0">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                        Active
-                      </span>
+            {/* Precision Layered Frame */}
+            <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none rounded-[28px] sm:rounded-[30px] bg-gradient-to-tr from-[#2650a8]/25 via-slate-100 to-[#f4ba43]/30 p-[2.5px] sm:p-[3px] shadow-2xl group cyclic-card cyclic-delay-1">
+              <div className="rounded-[25px] sm:rounded-[27px] bg-white p-2 sm:p-2.5 shadow-inner">
+                <div className="aspect-[4/5] w-full rounded-2xl overflow-hidden relative border border-slate-100/80 bg-slate-900">
+                  <img
+                    src={gayaFounderImg}
+                    alt="Gayathiri (Gaya) - Founder of We Write You Chill"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none"></div>
+
+                  {/* Floating Profile Info Card */}
+                  <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between gap-2 z-20">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <h4 className="font-heading font-extrabold text-sm sm:text-base text-[#000000] leading-none">Gaya</h4>
+                        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-bold shrink-0">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                          Active
+                        </span>
+                      </div>
+                      <p className="text-[10px] sm:text-[11.5px] text-[#2650a8] font-semibold leading-tight truncate">
+                        LinkedIn Personal Branding Strategist
+                      </p>
                     </div>
-                    <p className="text-[10.5px] sm:text-[11.5px] text-[#2650a8] font-semibold whitespace-nowrap leading-tight">
-                      LinkedIn Personal Branding Strategist
-                    </p>
+                    <a
+                      href={gayaLinkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-[#2650a8] text-white hover:bg-[#1d4088] transition-colors shadow-sm cursor-pointer shrink-0 flex items-center justify-center"
+                      aria-label="Gaya's LinkedIn Profile"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5 text-[#f4ba43]" />
+                    </a>
                   </div>
-                  <a
-                    href={gayaLinkedinUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-xl bg-[#2650a8] text-white hover:bg-[#1d4088] transition-colors shadow-sm cursor-pointer shrink-0 flex items-center justify-center"
-                    aria-label="Gaya's LinkedIn Profile"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5 text-[#f4ba43]" />
-                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Quote Badge Below Image */}
-            <motion.div 
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="mt-4 flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-slate-200 shadow-md"
-            >
-              <div className="p-2 rounded-xl bg-[#2650a8]/10 text-[#2650a8] shrink-0">
-                <Heart className="w-5 h-5 fill-current" />
+            {/* Daily Posting Streak Badge with Heart Symbol & Compounding Quote */}
+            <div className="mt-4 cyclic-card cyclic-delay-2 p-3.5 sm:p-4 rounded-2xl shadow-xs max-w-sm sm:max-w-md mx-auto lg:max-w-none">
+              <div className="flex items-start gap-2.5 text-xs font-semibold text-slate-700 leading-relaxed">
+                <div className="p-1.5 rounded-full bg-rose-50 border border-rose-200/80 text-rose-500 shrink-0 mt-0.5">
+                  <Heart className="w-3.5 h-3.5 fill-rose-500" />
+                </div>
+                <span>Posting every single day since Sept 30, 2023. Built on real compounding, not fast food marketing.</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-700 font-semibold leading-snug">
-                "Posting every single day since Sept 30, 2023. Built on real compounding, not fast food marketing."
-              </p>
-            </motion.div>
+            </div>
           </div>
 
           {/* Text Column */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 space-y-6"
+            className="lg:col-span-7 space-y-5 sm:space-y-6"
           >
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/25 inline-block shadow-xs">
+            <span className="cyclic-card cyclic-delay-1 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full inline-block shadow-xs">
               About The Strategist
             </span>
 
             <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
-              Gaya — <span className="highlight-swipe whitespace-nowrap">LinkedIn Personal Branding Strategist</span>
+              Gaya — <span className="highlight-swipe">LinkedIn Personal Branding Strategist</span>
             </h2>
 
-            <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-subheading font-medium">
+            <div className="space-y-3.5 sm:space-y-4 text-xs sm:text-base text-slate-700 leading-relaxed font-subheading font-medium">
               <p>
                 I previously worked as an assistant buyer's agent in Australia. I know firsthand how tough it is to build trust with high-net-worth clients and competitive referral partners.
               </p>
 
               <p>
-                I have been posting on LinkedIn every single day since September 30, 2023 till today. After making several mistakes myself in this process, three core things stood out to grow your brand and that's how the framework was assembled: <strong className="text-[#2650a8] font-bold">Content - Connection - Conversation</strong>.
+                I have been posting on LinkedIn every single day since September 30, 2023 till today. After making several mistakes myself in this process, three core things stood out to grow your brand and that's how the framework was assembled: <span className="framework-special-font inline-flex items-center px-3 py-1 rounded-xl bg-[#2650a8]/10 border border-[#2650a8]/20 shadow-xs font-bold my-1 text-xs sm:text-sm tracking-tight">The Content - Connection - Conversation</span>.
               </p>
 
               <p>
@@ -108,21 +109,23 @@ export default function AboutFounder({ onOpenBooking }) {
               </p>
             </div>
 
-            {/* Achievement Highlights Grid */}
+            {/* Achievement Highlights Grid with Cyclic Glow */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-              {achievements.map((item, aIdx) => (
-                <motion.div 
-                  key={aIdx}
-                  whileHover={{ scale: 1.02 }}
-                  className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 shadow-xs"
-                >
-                  <CheckCircle 
-                    className="w-4 h-4 shrink-0 mt-0.5" 
-                    style={{ color: item.color }} 
-                  />
-                  <span>{item.title}</span>
-                </motion.div>
-              ))}
+              {achievements.map((item, aIdx) => {
+                const delayClass = aIdx % 2 === 0 ? 'cyclic-delay-1' : 'cyclic-delay-2';
+                return (
+                  <motion.div
+                    key={aIdx}
+                    whileHover={{ scale: 1.02 }}
+                    className={`cyclic-card ${delayClass} flex items-start gap-2.5 p-3.5 rounded-2xl text-xs sm:text-sm font-semibold text-slate-800 shadow-xs`}
+                  >
+                    <CheckCircle
+                      className="w-4 h-4 shrink-0 mt-0.5 text-[#2650a8]"
+                    />
+                    <span>{item.title}</span>
+                  </motion.div>
+                );
+              })}
             </div>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
