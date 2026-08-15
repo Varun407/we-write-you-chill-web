@@ -33,7 +33,7 @@ export default function VideoShowcase() {
                 className="absolute inset-0 bg-cover bg-center opacity-65 mix-blend-luminosity transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                 style={{ backgroundImage: `url(${gayaFounderImg})` }}
               ></div>
-              
+
               {/* Requested Dark Aesthetic Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/85 via-[#000000]/40 to-transparent"></div>
 

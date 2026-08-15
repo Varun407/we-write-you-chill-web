@@ -97,11 +97,10 @@ export default function Hero({ onOpenBooking }) {
           >
             <button
               onClick={() => setActiveTab('write')}
-              className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-3 sm:px-6 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer ${
-                activeTab === 'write'
+              className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-3 sm:px-6 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer ${activeTab === 'write'
                   ? 'bg-[#2650a8] text-white shadow-md'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-              }`}
+                }`}
             >
               <PenTool className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeTab === 'write' ? 'text-[#f4ba43]' : 'text-slate-400'}`} />
               <span>We Write</span>
@@ -109,11 +108,10 @@ export default function Hero({ onOpenBooking }) {
 
             <button
               onClick={() => setActiveTab('chill')}
-              className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-3 sm:px-6 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer ${
-                activeTab === 'chill'
+              className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-3 sm:px-6 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer ${activeTab === 'chill'
                   ? 'bg-[#b45309] text-white shadow-md'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-              }`}
+                }`}
             >
               <Coffee className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeTab === 'chill' ? 'text-[#f4ba43]' : 'text-slate-400'}`} />
               <span>You Chill</span>
