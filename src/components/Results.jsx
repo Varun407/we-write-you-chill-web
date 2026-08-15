@@ -113,7 +113,7 @@ export default function Results() {
           >
             <div className="flex justify-center mb-1.5 sm:mb-2">
               <div className="relative p-2 sm:p-2.5 rounded-xl bg-[#2650a8]/10 text-[#2650a8] group-hover:scale-110 transition-transform">
-                <Users className="w-4 h-4 sm:w-5 sm:h-5" />
+                <Users className="w-4 h-4 sm:w-5 sm:h-5 animate-icon-users" />
               </div>
             </div>
             <div className="font-heading font-extrabold text-2xl sm:text-4xl text-[#2650a8] mb-0.5 sm:mb-1">
@@ -130,7 +130,7 @@ export default function Results() {
           >
             <div className="flex justify-center mb-1.5 sm:mb-2">
               <div className="p-2 sm:p-2.5 rounded-xl bg-[#f4ba43]/20 text-[#b45309] group-hover:scale-110 transition-transform">
-                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
+                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 animate-icon-trend" />
               </div>
             </div>
             <div className="font-heading font-extrabold text-2xl sm:text-4xl text-[#b45309] mb-0.5 sm:mb-1">
@@ -147,7 +147,7 @@ export default function Results() {
           >
             <div className="flex justify-center mb-1.5 sm:mb-2">
               <div className="p-2 sm:p-2.5 rounded-xl bg-[#2650a8]/10 text-[#2650a8] group-hover:scale-110 transition-transform">
-                <Award className="w-4 h-4 sm:w-5 sm:h-5" />
+                <Award className="w-4 h-4 sm:w-5 sm:h-5 animate-icon-award" />
               </div>
             </div>
             <div className="font-heading font-extrabold text-2xl sm:text-4xl text-[#2650a8] mb-0.5 sm:mb-1">
@@ -192,7 +192,7 @@ export default function Results() {
                   <ul className="space-y-2.5 sm:space-y-3 mb-5 sm:mb-6">
                     {cs.results.map((res, rIdx) => (
                       <li key={rIdx} className="flex items-start gap-2 sm:gap-2.5 text-xs text-slate-700 font-semibold leading-relaxed">
-                        <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#f4ba43] shrink-0 mt-0.5" />
+                        <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#f4ba43] shrink-0 mt-0.5 animate-check-pulse" />
                         <span>{res}</span>
                       </li>
                     ))}
@@ -225,7 +225,7 @@ export default function Results() {
         >
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3.5 sm:gap-4 text-center sm:text-left">
             <div className="p-3 sm:p-3.5 rounded-2xl bg-[#2650a8] text-white shrink-0 shadow-md">
-              <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-[#f4ba43]" />
+              <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-[#f4ba43] animate-float-slow" />
             </div>
             <div>
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1">

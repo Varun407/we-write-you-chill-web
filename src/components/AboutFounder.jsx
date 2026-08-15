@@ -25,7 +25,7 @@ export default function AboutFounder({ onOpenBooking }) {
 
           {/* Image Column with Premium Multi-Layer Editorial Frame */}
           <div className="lg:col-span-5 relative">
-            
+
             {/* Ambient Background Aura */}
             <div className="absolute -inset-4 bg-gradient-to-tr from-[#2650a8]/15 via-[#f4ba43]/15 to-transparent rounded-[36px] blur-xl opacity-80 pointer-events-none"></div>
 
@@ -45,12 +45,15 @@ export default function AboutFounder({ onOpenBooking }) {
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5 mb-0.5">
                         <h4 className="font-heading font-extrabold text-sm sm:text-base text-[#000000] leading-none">Gaya</h4>
-                        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-bold shrink-0">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] sm:text-[10px] font-bold shrink-0 border border-emerald-300/60">
+                          <span className="relative flex h-2 w-2 shrink-0">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-xs"></span>
+                          </span>
                           Active
                         </span>
                       </div>
-                      <p className="text-[10px] sm:text-[11.5px] text-[#2650a8] font-semibold leading-tight truncate">
+                      <p className="text-[10px] sm:text-[11.5px] text-[#2650a8] font-semibold leading-tight whitespace-nowrap">
                         LinkedIn Personal Branding Strategist
                       </p>
                     </div>
@@ -71,8 +74,8 @@ export default function AboutFounder({ onOpenBooking }) {
             {/* Daily Posting Streak Badge with Heart Symbol & Compounding Quote */}
             <div className="mt-4 cyclic-card cyclic-delay-2 p-3.5 sm:p-4 rounded-2xl shadow-xs max-w-sm sm:max-w-md mx-auto lg:max-w-none">
               <div className="flex items-start gap-2.5 text-xs font-semibold text-slate-700 leading-relaxed">
-                <div className="p-1.5 rounded-full bg-rose-50 border border-rose-200/80 text-rose-500 shrink-0 mt-0.5">
-                  <Heart className="w-3.5 h-3.5 fill-rose-500" />
+                <div className="p-1.5 rounded-full bg-rose-50 border border-rose-200/80 text-rose-500 shrink-0 mt-0.5 shadow-xs">
+                  <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500 animate-heartbeat" />
                 </div>
                 <span>Posting every single day since Sept 30, 2023. Built on real compounding, not fast food marketing.</span>
               </div>
@@ -92,7 +95,8 @@ export default function AboutFounder({ onOpenBooking }) {
             </span>
 
             <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
-              Gaya — <span className="highlight-swipe">LinkedIn Personal Branding Strategist</span>
+              <span className="inline-block">Gaya —</span>{' '}
+              <span className="highlight-swipe inline-block whitespace-normal md:whitespace-nowrap">LinkedIn Personal Branding Strategist</span>
             </h2>
 
             <div className="space-y-3.5 sm:space-y-4 text-xs sm:text-base text-slate-700 leading-relaxed font-subheading font-medium">
@@ -101,7 +105,16 @@ export default function AboutFounder({ onOpenBooking }) {
               </p>
 
               <p>
-                I have been posting on LinkedIn every single day since September 30, 2023 till today. After making several mistakes myself in this process, three core things stood out to grow your brand and that's how the framework was assembled: <span className="framework-special-font inline-flex items-center px-3 py-1 rounded-xl bg-[#2650a8]/10 border border-[#2650a8]/20 shadow-xs font-bold my-1 text-xs sm:text-sm tracking-tight">The Content - Connection - Conversation</span>.
+                I have been posting on LinkedIn every single day since September 30, 2023 till today. After making several mistakes myself in this process, three core things stood out to grow your brand and that's how the framework was assembled:{' '}
+                <span className="framework-glow-pill cursor-default">
+                  <span className="relative flex h-2 w-2 shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f4ba43] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f4ba43] shadow-xs"></span>
+                  </span>
+                  <span className="framework-pill-shimmer text-xs sm:text-[13.5px]">
+                    The Content <span className="text-[#f4ba43] font-black mx-1 inline-block">✦</span> Connection <span className="text-[#f4ba43] font-black mx-1 inline-block">✦</span> Conversation
+                  </span>
+                </span>.
               </p>
 
               <p>
