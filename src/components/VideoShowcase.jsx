@@ -1,10 +1,20 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Play, TrendingUp, MessageSquare } from 'lucide-react';
 import gayaFounderImg from '../assets/gaya-founder.jpg';
 
 export default function VideoShowcase() {
-  const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef(null);
+
+  const handlePlayClick = () => {
+    setIsPlaying(true);
+    setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.play();
+      }
+    }, 50);
+  };
 
   return (
     <section id="showcase" className="snap-section min-h-[auto] md:min-h-screen py-10 sm:py-20 bg-slate-50/50 border-t border-slate-200/80 relative z-10 overflow-hidden flex flex-col items-center justify-center">
@@ -28,54 +38,90 @@ export default function VideoShowcase() {
           >
             <div className="relative aspect-video w-full rounded-xl sm:rounded-2xl overflow-hidden bg-slate-950 flex items-center justify-center border border-slate-100">
 
-              {/* Background Image Preview */}
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-65 mix-blend-luminosity transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                style={{ backgroundImage: `url(${gayaFounderImg})` }}
-              ></div>
-
-              {/* Requested Dark Aesthetic Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/85 via-[#000000]/40 to-transparent"></div>
-
-              {/* Badges Top Left & Bottom Right (Hidden on very small screens to give play button full breathing room) */}
-              <div className="hidden sm:flex absolute top-4 left-4 sm:top-6 sm:left-6 items-center gap-2.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-left shadow-lg z-20">
-                <div className="p-1.5 sm:p-2 rounded-lg bg-[#2650a8]/10 text-[#2650a8]">
-                  <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span className="text-[9px] sm:text-[10px] text-slate-500 font-bold uppercase tracking-wider">Network Growth</span>
-                  </div>
-                  <div className="text-[11px] sm:text-xs font-extrabold text-[#000000]">+30% to +40% Weekly</div>
-                </div>
-              </div>
-
-              <div className="hidden sm:flex absolute bottom-4 right-4 sm:bottom-6 sm:right-6 items-center gap-2.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-left shadow-lg z-20">
-                <div className="p-1.5 sm:p-2 rounded-lg bg-[#f4ba43]/20 text-[#b45309]">
-                  <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#f4ba43]" />
-                </div>
-                <div>
-                  <div className="text-[9px] sm:text-[10px] text-slate-500 font-bold uppercase tracking-wider">Outreach Acceptance</div>
-                  <div className="text-[11px] sm:text-xs font-extrabold text-[#000000]">Avg 40% Acceptance</div>
-                </div>
-              </div>
-
-              {/* Play Button with Radar Wave Ripple Animation */}
-              <div className="relative z-20 flex flex-col items-center gap-3">
-                <div className="relative flex items-center justify-center">
-                  <span className="absolute w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-[#2650a8]/40 animate-radar-wave pointer-events-none"></span>
-                  <a
-                    href={zoomBookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative z-10 w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-[#2650a8] text-white flex items-center justify-center shadow-xl shadow-[#2650a8]/50 transition-all duration-300 hover:scale-105 hover:bg-[#1d4088] cursor-pointer border-2 border-white"
-                    aria-label="Book Personal Brand Call with Gaya"
+              <AnimatePresence mode="wait">
+                {!isPlaying ? (
+                  <motion.div
+                    key="poster"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="absolute inset-0 flex items-center justify-center cursor-pointer group"
+                    onClick={handlePlayClick}
                   >
-                    <Play className="w-5 h-5 sm:w-7 sm:h-7 fill-current text-[#f4ba43] ml-1" />
-                  </a>
-                </div>
-              </div>
+                    {/* Background Image Preview */}
+                    <div
+                      className="absolute inset-0 bg-cover bg-center opacity-65 mix-blend-luminosity transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                      style={{ backgroundImage: `url(${gayaFounderImg})` }}
+                    ></div>
+
+                    {/* Requested Dark Aesthetic Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/85 via-[#000000]/40 to-transparent"></div>
+
+                    {/* Badges Top Left & Bottom Right (Hidden on very small screens to give play button full breathing room) */}
+                    <div className="hidden sm:flex absolute top-4 left-4 sm:top-6 sm:left-6 items-center gap-2.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-left shadow-lg z-20">
+                      <div className="p-1.5 sm:p-2 rounded-lg bg-[#2650a8]/10 text-[#2650a8]">
+                        <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                          <span className="text-[9px] sm:text-[10px] text-slate-500 font-bold uppercase tracking-wider">Network Growth</span>
+                        </div>
+                        <div className="text-[11px] sm:text-xs font-extrabold text-[#000000]">+30% to +40% Weekly</div>
+                      </div>
+                    </div>
+
+                    <div className="hidden sm:flex absolute bottom-4 right-4 sm:bottom-6 sm:right-6 items-center gap-2.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-left shadow-lg z-20">
+                      <div className="p-1.5 sm:p-2 rounded-lg bg-[#f4ba43]/20 text-[#b45309]">
+                        <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#f4ba43]" />
+                      </div>
+                      <div>
+                        <div className="text-[9px] sm:text-[10px] text-slate-500 font-bold uppercase tracking-wider">Outreach Acceptance</div>
+                        <div className="text-[11px] sm:text-xs font-extrabold text-[#000000]">Avg 40% Acceptance</div>
+                      </div>
+                    </div>
+
+                    {/* Play Button with Radar Wave Ripple Animation */}
+                    <div className="relative z-20 flex flex-col items-center gap-3">
+                      <div className="relative flex items-center justify-center">
+                        <span className="absolute w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-[#2650a8]/40 animate-radar-wave pointer-events-none"></span>
+                        <button
+                          type="button"
+                          className="relative z-10 w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-[#2650a8] text-white flex items-center justify-center shadow-xl shadow-[#2650a8]/50 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#1d4088] cursor-pointer border-2 border-white"
+                          aria-label="Play Intro Video"
+                        >
+                          <Play className="w-5 h-5 sm:w-7 sm:h-7 fill-current text-[#f4ba43] ml-1" />
+                        </button>
+                      </div>
+                      <span className="text-white text-[11px] sm:text-xs font-medium tracking-wide bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/15 shadow-md">
+                        Watch: How We Install The Content Engine (2:30)
+                      </span>
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="video-player"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="absolute inset-0 w-full h-full bg-black flex items-center justify-center"
+                  >
+                    <video
+                      ref={videoRef}
+                      src={`${import.meta.env.BASE_URL}intro-video.mp4`}
+                      controls
+                      autoPlay
+                      playsInline
+                      className="w-full h-full object-contain"
+                      onEnded={() => setIsPlaying(false)}
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
             </div>
           </motion.div>
@@ -87,3 +133,4 @@ export default function VideoShowcase() {
     </section>
   );
 }
+
