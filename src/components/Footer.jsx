@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUp, MessageCircle, ExternalLink, Calendar, Heart } from 'lucide-react';
+import { ArrowUp, MessageCircle, ExternalLink, Calendar } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 
 export default function Footer({ onOpenBooking }) {
@@ -16,10 +16,7 @@ export default function Footer({ onOpenBooking }) {
   return (
     <footer className="bg-white border-t border-slate-200 pt-16 pb-12 relative z-10 text-slate-600 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-slate-200">
-
-          {/* Brand Bio */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <img
@@ -39,7 +36,6 @@ export default function Footer({ onOpenBooking }) {
               LinkedIn branding, content, outreach and video for property and finance experts. You bring the expertise. We build everything that makes people trust you before they call.
             </p>
 
-            {/* Social Icons */}
             <div className="flex items-center gap-3 pt-2">
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -77,7 +73,6 @@ export default function Footer({ onOpenBooking }) {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div className="md:col-span-3 space-y-3">
             <h4 className="font-heading font-bold text-sm text-[#000000] uppercase tracking-wider">Navigation</h4>
             <ul className="space-y-2.5 text-sm font-semibold">
@@ -90,7 +85,6 @@ export default function Footer({ onOpenBooking }) {
             </ul>
           </div>
 
-          {/* Contact & Booking */}
           <div className="md:col-span-4 space-y-4">
             <h4 className="font-heading font-bold text-sm text-[#000000] uppercase tracking-wider">Book Strategy Call</h4>
             <p className="text-xs text-slate-600 font-medium">
@@ -119,10 +113,8 @@ export default function Footer({ onOpenBooking }) {
               </a>
             </div>
           </div>
-
         </div>
 
-        {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-slate-500">
           <div>
             © {new Date().getFullYear()} We Write You Chill. All rights reserved. Built for Real Estate & Finance Experts.
@@ -138,8 +130,8 @@ export default function Footer({ onOpenBooking }) {
             <ArrowUp className="w-4 h-4 text-[#2650a8]" />
           </motion.button>
         </div>
-
       </div>
     </footer>
   );
 }
+

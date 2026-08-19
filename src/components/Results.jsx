@@ -70,14 +70,10 @@ export default function Results() {
 
   return (
     <section id="results" className="snap-section min-h-[auto] md:min-h-screen py-14 sm:py-24 bg-white border-t border-slate-200 relative z-10 overflow-hidden flex flex-col justify-center">
-
-      {/* Decorative ambient backdrop */}
       <div className="absolute top-1/3 left-0 w-60 sm:w-96 h-60 sm:h-96 bg-[#2650a8]/5 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse-glow"></div>
       <div className="absolute bottom-10 right-0 w-60 sm:w-96 h-60 sm:h-96 bg-[#f4ba43]/10 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '2.5s' }}></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -90,7 +86,7 @@ export default function Results() {
           </span>
 
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
-            Real Results For <span className="highlight-swipe">Property & Finance Experts</span>
+            Real Results For <span className="highlight-swipe">Property & Finance <span className="word-accent">Experts</span></span>
           </h2>
 
           <p className="mt-3 text-xs sm:text-base text-slate-600 font-subheading">
@@ -98,7 +94,6 @@ export default function Results() {
           </p>
         </motion.div>
 
-        {/* Top 3 Quick Stats Bar with Live Animated Counters & Pulse Glows */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -158,7 +153,6 @@ export default function Results() {
           </motion.div>
         </motion.div>
 
-        {/* Case Studies Cards with Cyclic Glowing Borders */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -215,7 +209,6 @@ export default function Results() {
           })}
         </motion.div>
 
-        {/* Free Assessment Lead Magnet Showcase with Cyclic Glowing Border Flow */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -248,8 +241,8 @@ export default function Results() {
             <ExternalLink className="w-4 h-4 text-[#f4ba43]" />
           </motion.a>
         </motion.div>
-
       </div>
     </section>
   );
 }
+

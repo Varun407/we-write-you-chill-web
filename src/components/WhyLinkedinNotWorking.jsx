@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Clock, Send, MapPin, XCircle, ArrowRight, AlertTriangle } from 'lucide-react';
+import { Clock, Send, MapPin, XCircle, ArrowRight } from 'lucide-react';
 
 export default function WhyLinkedinNotWorking({ onOpenBooking }) {
   const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
@@ -80,14 +80,10 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
 
   return (
     <section id="why-linkedin" className="snap-section min-h-[auto] md:min-h-screen py-14 sm:py-24 bg-[#f8fafc] border-y border-slate-200 relative z-20 overflow-hidden flex flex-col justify-center">
-
-      {/* Decorative ambient backdrop */}
       <div className="absolute top-10 right-0 w-60 sm:w-96 h-60 sm:h-96 bg-[#2650a8]/5 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none animate-pulse-glow"></div>
       <div className="absolute bottom-10 left-0 w-60 sm:w-96 h-60 sm:h-96 bg-[#f4ba43]/10 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '3.5s' }}></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -100,7 +96,7 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
           </span>
 
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
-            Why your LinkedIn isn't working <span className="highlight-swipe">(yet)</span>
+            Why your LinkedIn isn't <span className="word-accent">working</span> <span className="highlight-swipe">(yet)</span>
           </h2>
 
           <p className="mt-3 text-xs sm:text-base text-slate-700 font-subheading font-medium leading-relaxed">
@@ -108,7 +104,6 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
           </p>
         </motion.div>
 
-        {/* 4 Pain Point Cards with Cyclic Color Glowing Borders */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -127,7 +122,6 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
                 className={`cyclic-card ${delayClass} p-5 sm:p-7 rounded-2xl sm:rounded-3xl flex flex-col justify-between group relative overflow-hidden`}
               >
-                {/* Top decorative accent line */}
                 <div
                   className="absolute top-0 left-0 right-0 h-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ backgroundColor: item.color }}
@@ -164,7 +158,6 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
           })}
         </motion.div>
 
-        {/* Bottom Banner */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -172,7 +165,6 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
           transition={{ duration: 0.5 }}
           className="mt-8 sm:mt-12 p-5 sm:p-8 rounded-2xl bg-gradient-to-r from-[#2650a8] via-[#1e4290] to-[#2650a8] text-white text-center md:text-left shadow-xl flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 border border-[#2650a8]/60 relative overflow-hidden"
         >
-          {/* Subtle animated light glow inside banner */}
           <div className="absolute -right-10 -bottom-10 w-60 h-60 bg-[#f4ba43]/20 rounded-full blur-[60px] pointer-events-none"></div>
 
           <div className="max-w-xl relative z-10 text-center md:text-left">
@@ -196,8 +188,8 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
             <ArrowRight className="w-4 h-4" />
           </motion.a>
         </motion.div>
-
       </div>
     </section>
   );
 }
+

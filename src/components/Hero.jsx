@@ -5,9 +5,8 @@ import { Star, ArrowRight, CheckCircle2, PenTool, Coffee } from 'lucide-react';
 export default function Hero({ onOpenBooking }) {
   const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
 
-  const [activeTab, setActiveTab] = useState('write'); // 'write' or 'chill'
+  const [activeTab, setActiveTab] = useState('write');
 
-  // Auto rotate the "We Write / You Chill" tab every 6 seconds for gentle, smooth ambient motion
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveTab((prev) => (prev === 'write' ? 'chill' : 'write'));
@@ -38,21 +37,16 @@ export default function Hero({ onOpenBooking }) {
 
   return (
     <section id="hero" className="snap-section relative min-h-[auto] md:min-h-screen pt-24 pb-12 sm:pt-32 sm:pb-20 md:pt-36 md:pb-24 overflow-hidden bg-white bg-grid-pattern flex flex-col justify-center">
-
-      {/* Background Soft Glow Blobs */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[700px] h-[350px] sm:h-[700px] bg-[#2650a8]/8 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none animate-pulse-glow"></div>
       <div className="absolute top-1/3 right-5 w-[280px] sm:w-[450px] h-[280px] sm:h-[450px] bg-[#f4ba43]/15 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '3s' }}></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center w-full">
-
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="flex flex-col items-center w-full"
         >
-
-          {/* Rating & Trust Badge with Contained Glowing Stars */}
           <motion.div
             variants={itemVariants}
             className="cyclic-card cyclic-delay-1 inline-flex items-center justify-center flex-wrap sm:flex-nowrap gap-2 px-3.5 py-1.5 sm:px-4.5 sm:py-1.5 rounded-full mb-5 sm:mb-6 shadow-xs group overflow-hidden max-w-full"
@@ -70,18 +64,16 @@ export default function Hero({ onOpenBooking }) {
             </span>
           </motion.div>
 
-          {/* Main Caption with Silky Smooth Entrance */}
           <motion.h1
             variants={itemVariants}
             className="max-w-4xl mx-auto font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.2] sm:leading-[1.15] text-[#000000]"
           >
-            Three things work on LinkedIn.{' '}
+            <span className="word-accent">Three</span> things work on LinkedIn.{' '}
             <span className="text-[#2650a8] highlight-swipe inline-block sm:inline">
-              Nobody tells you which three.
+              Nobody tells you which <span className="word-accent">three.</span>
             </span>
           </motion.h1>
 
-          {/* Sub Caption with Silky Smooth Entrance */}
           <motion.p
             variants={itemVariants}
             className="max-w-2xl mx-auto mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-slate-600 font-subheading leading-relaxed"
@@ -89,7 +81,6 @@ export default function Hero({ onOpenBooking }) {
             LinkedIn branding, content, outreach and video for property and finance experts. <strong className="text-[#000000] font-bold">You bring the expertise.</strong> We build everything that makes people trust you before they call.
           </motion.p>
 
-          {/* Interactive "We Write, You Chill" Dynamic Motion Card */}
           <motion.div
             variants={itemVariants}
             className="cyclic-card cyclic-delay-2 mt-5 sm:mt-6 inline-flex flex-row items-center gap-2 p-1 sm:p-1.5 rounded-2xl max-w-xs sm:max-w-md w-full shadow-sm"
@@ -117,7 +108,6 @@ export default function Hero({ onOpenBooking }) {
             </button>
           </motion.div>
 
-          {/* Live Tab Content Snippet with Smooth Crossfade */}
           <motion.div
             variants={itemVariants}
             className="min-h-[44px] h-auto mt-2 flex items-center justify-center px-2"
@@ -151,7 +141,6 @@ export default function Hero({ onOpenBooking }) {
             </AnimatePresence>
           </motion.div>
 
-          {/* Call to Action Group */}
           <motion.div
             variants={itemVariants}
             className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto px-4"
@@ -167,7 +156,6 @@ export default function Hero({ onOpenBooking }) {
             </a>
           </motion.div>
 
-          {/* Feature Pills with Cyclic Glowing Color Effects */}
           <motion.div
             variants={itemVariants}
             className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-2.5 sm:gap-4 lg:gap-6 text-xs sm:text-sm font-semibold text-slate-700 w-full px-2"
@@ -185,10 +173,9 @@ export default function Hero({ onOpenBooking }) {
               <span>Includes Free Pre-Onboarding Audit</span>
             </div>
           </motion.div>
-
         </motion.div>
-
       </div>
     </section>
   );
 }
+

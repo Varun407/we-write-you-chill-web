@@ -15,7 +15,6 @@ export default function AnimatedCounter({
   useEffect(() => {
     if (!isInView) return;
 
-    // Parse numeric part from string if needed (e.g., "25", "40", "1500", "100")
     const numericStr = String(value).replace(/[^0-9.]/g, '');
     const target = parseFloat(numericStr);
 
@@ -63,3 +62,4 @@ export default function AnimatedCounter({
     </span>
   );
 }
+

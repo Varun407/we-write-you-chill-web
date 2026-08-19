@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Calendar, CheckCircle2, ArrowRight, User, Mail, Phone, Globe, Sparkles } from 'lucide-react';
+import { X, CheckCircle2, ArrowRight, User, Mail, Phone, Globe, Sparkles } from 'lucide-react';
 
 export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
   const [submitted, setSubmitted] = useState(false);
@@ -39,8 +39,6 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
             className="relative max-w-xl w-full bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl my-8 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-
-            {/* Close Button */}
             <button
               onClick={onClose}
               className="absolute top-5 right-5 p-2 rounded-full bg-slate-100 text-slate-500 hover:text-black hover:bg-slate-200 transition-colors cursor-pointer"
@@ -64,8 +62,6 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
-
-                  {/* Role Selector */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                       What is your primary role?
@@ -87,7 +83,6 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
                     </div>
                   </div>
 
-                  {/* Name & Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-slate-700 mb-1">Full Name *</label>
@@ -120,7 +115,6 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
                     </div>
                   </div>
 
-                  {/* Phone & LinkedIn */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-slate-700 mb-1">Phone Number (Optional)</label>
@@ -151,7 +145,6 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
                     </div>
                   </div>
 
-                  {/* Date & Time Choice */}
                   {mode === 'booking' && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                       <div>
@@ -179,7 +172,6 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
                     </div>
                   )}
 
-                  {/* Submit Button */}
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -229,10 +221,10 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
                 </button>
               </div>
             )}
-
           </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
   );
 }
+

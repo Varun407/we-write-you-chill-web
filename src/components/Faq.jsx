@@ -39,14 +39,10 @@ export default function Faq({ onOpenBooking }) {
 
   return (
     <section id="faq" className="snap-section min-h-[auto] md:min-h-screen py-14 sm:py-24 bg-slate-50/80 border-t border-slate-200 relative z-10 overflow-hidden flex flex-col justify-center">
-
-      {/* Decorative ambient backdrop */}
       <div className="absolute top-1/3 left-10 w-60 sm:w-96 h-60 sm:h-96 bg-[#2650a8]/5 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse-glow"></div>
       <div className="absolute bottom-1/3 right-10 w-60 sm:w-96 h-60 sm:h-96 bg-[#f4ba43]/10 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '3s' }}></div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,14 +54,13 @@ export default function Faq({ onOpenBooking }) {
             Frequently Asked Questions
           </span>
           <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-5xl text-[#000000] tracking-tight leading-tight">
-            Clear Answers. <span className="highlight-swipe">Zero Fluff.</span>
+            Clear Answers. <span className="highlight-swipe">Zero <span className="word-accent">Fluff.</span></span>
           </h2>
           <p className="mt-3 sm:mt-4 text-xs sm:text-base text-slate-600 font-subheading">
             Everything you need to know about working with Gaya and We Write You Chill.
           </p>
         </motion.div>
 
-        {/* FAQ Accordion List with Cyclic Glowing Borders */}
         <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
@@ -120,7 +115,6 @@ export default function Faq({ onOpenBooking }) {
           })}
         </div>
 
-        {/* Still have questions CTA with Cyclic Glow */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -140,8 +134,8 @@ export default function Faq({ onOpenBooking }) {
             <ArrowRight className="w-4 h-4 text-[#f4ba43]" />
           </a>
         </motion.div>
-
       </div>
     </section>
   );
 }
+

@@ -60,14 +60,10 @@ export default function Workflow() {
 
   return (
     <section id="workflow" className="snap-section min-h-[auto] md:min-h-screen py-14 sm:py-24 bg-slate-50/70 border-t border-slate-200 relative z-10 overflow-hidden flex flex-col justify-center">
-
-      {/* Decorative background glows */}
       <div className="absolute top-1/4 right-0 w-60 sm:w-96 h-60 sm:h-96 bg-[#2650a8]/5 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse-glow"></div>
       <div className="absolute bottom-1/4 left-0 w-60 sm:w-96 h-60 sm:h-96 bg-[#f4ba43]/10 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '2.5s' }}></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -79,19 +75,15 @@ export default function Workflow() {
             The Content - Connection - Conversation Framework
           </span>
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
-            How The 5-Step System <span className="highlight-swipe">Builds Client Trust</span>
+            How The 5-Step System <span className="highlight-swipe">Builds Client <span className="word-accent">Trust</span></span>
           </h2>
           <p className="mt-3 text-xs sm:text-base text-slate-600 font-subheading">
             A clear, documented workflow designed specifically for busy property and finance professionals.
           </p>
         </motion.div>
 
-        {/* Workflow Timeline Steps */}
         <div className="relative space-y-6 md:space-y-12">
-
-          {/* Connecting Line with Gradient & Flowing Animated Light Beam */}
           <div className="hidden md:block absolute left-1/2 top-8 bottom-8 w-1 bg-gradient-to-b from-[#2650a8] via-[#f4ba43] to-emerald-500 -translate-x-1/2 z-0 rounded-full opacity-40">
-            {/* Flowing animated light beam */}
             <div className="absolute left-0 right-0 w-full h-24 bg-gradient-to-b from-transparent via-[#f4ba43] to-white rounded-full shadow-[0_0_12px_#f4ba43] animate-timeline-flow pointer-events-none"></div>
           </div>
 
@@ -109,11 +101,8 @@ export default function Workflow() {
                 transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 className={`relative z-10 flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''} gap-4 md:gap-10`}
               >
-
-                {/* Step Card Content with Cyclic Glow */}
                 <div className="w-full md:w-1/2">
                   <div className={`cyclic-card ${delayClass} p-5 sm:p-7 rounded-2xl sm:rounded-3xl relative overflow-hidden group`}>
-
                     <div className="flex items-center justify-between mb-3.5 sm:mb-4">
                       <div className="flex items-center gap-2">
                         <div className={`md:hidden p-2 rounded-xl ${step.iconBg} shadow-xs`}>
@@ -140,7 +129,6 @@ export default function Workflow() {
                   </div>
                 </div>
 
-                {/* Desktop Step Circle Indicator with Cyclic Glow */}
                 <motion.div
                   whileHover={{ scale: 1.15, rotate: 6 }}
                   className={`hidden md:flex shrink-0 w-16 h-16 rounded-2xl cyclic-card ${delayClass} items-center justify-center shadow-lg z-20`}
@@ -150,14 +138,12 @@ export default function Workflow() {
                   </div>
                 </motion.div>
 
-                {/* Spacer for 2-column alternating layout */}
                 <div className="hidden md:block w-1/2"></div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Workflow CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -177,8 +163,8 @@ export default function Workflow() {
             <ArrowRight className="w-4 h-4 text-[#f4ba43] transition-transform duration-200 group-hover:translate-x-1" />
           </motion.a>
         </motion.div>
-
       </div>
     </section>
   );
 }
+

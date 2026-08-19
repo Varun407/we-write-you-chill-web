@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, TrendingUp, MessageSquare, Sparkles, CheckCircle2, ArrowRight, Mic, Video, Users2 } from 'lucide-react';
 import gayaFounderImg from '../assets/gaya-founder.jpg';
@@ -7,6 +7,28 @@ export default function VideoShowcase() {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
   const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      const video = videoRef.current;
+      if (!video) return;
+      const isFullscreen =
+        document.fullscreenElement === video ||
+        document.webkitFullscreenElement === video ||
+        document.mozFullScreenElement === video ||
+        document.fullscreenElement?.contains(video) ||
+        document.webkitFullscreenElement?.contains(video);
+      video.style.objectFit = isFullscreen ? 'contain' : 'cover';
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
+    };
+  }, []);
 
   const handlePlayClick = () => {
     setIsPlaying(true);
@@ -40,16 +62,11 @@ export default function VideoShowcase() {
 
   return (
     <section id="showcase" className="snap-section min-h-[auto] md:min-h-screen py-12 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50/60 to-white border-t border-slate-200/80 relative z-10 overflow-hidden flex flex-col items-center justify-center">
-
-      {/* Decorative ambient background glows */}
       <div className="absolute top-1/4 left-10 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#2650a8]/6 rounded-full blur-[100px] pointer-events-none animate-pulse-glow"></div>
       <div className="absolute bottom-1/4 right-10 w-[280px] sm:w-[450px] h-[280px] sm:h-[450px] bg-[#f4ba43]/10 rounded-full blur-[90px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '3s' }}></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-
-          {/* Left Column: Compelling Editorial Overview & Step Highlights */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -57,7 +74,6 @@ export default function VideoShowcase() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 space-y-6 sm:space-y-7 text-left"
           >
-            {/* Live Indicator Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/25 text-[#2650a8] shadow-xs">
               <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2650a8] opacity-75"></span>
@@ -68,20 +84,17 @@ export default function VideoShowcase() {
               </span>
             </div>
 
-            {/* Main Headline */}
             <h2 className="font-heading font-extrabold text-2xl sm:text-4xl lg:text-[42px] tracking-tight leading-[1.18] text-[#000000]">
               This is how we install your{' '}
-              <span className="text-[#2650a8] highlight-swipe inline-block">
-                LinkedIn Content & Lead Engine.
+              <span className="headline-marker">
+                LinkedIn Content &amp; Lead <span className="word-accent">Engine.</span>
               </span>
             </h2>
 
-            {/* Subtext */}
             <p className="text-sm sm:text-base md:text-lg text-slate-600 font-subheading leading-relaxed">
               Take 2.5 minutes to see the exact done-for-you system we use to turn 45 minutes of your time every month into qualified inbound broker and investor conversations.
             </p>
 
-            {/* 3 Step Breakdown Cards */}
             <div className="space-y-3 pt-1">
               {steps.map((step, idx) => {
                 const Icon = step.icon;
@@ -113,7 +126,6 @@ export default function VideoShowcase() {
               })}
             </div>
 
-            {/* Call to Action Button */}
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
               <a
                 href={zoomBookingUrl}
@@ -129,10 +141,8 @@ export default function VideoShowcase() {
                 <span>Zero writing homework</span>
               </span>
             </div>
-
           </motion.div>
 
-          {/* Right Column: Premium 9:16 Vertical Smartphone Video Player Mockup */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94, y: 24 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -140,8 +150,6 @@ export default function VideoShowcase() {
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex items-center justify-center relative"
           >
-
-            {/* Floating Trust Badge Top Right */}
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -156,7 +164,6 @@ export default function VideoShowcase() {
               </div>
             </motion.div>
 
-            {/* Floating Trust Badge Bottom Left */}
             <motion.div
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
@@ -171,17 +178,12 @@ export default function VideoShowcase() {
               </div>
             </motion.div>
 
-            {/* Smartphone Chassis Container (9:16 Vertical Ratio) */}
             <div className="relative w-full max-w-[290px] sm:max-w-[320px] md:max-w-[340px] rounded-[44px] p-2.5 sm:p-3 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 shadow-[0_25px_60px_-15px_rgba(38,80,168,0.3)] border-2 border-slate-700/80 cyclic-border-flow">
-
-              {/* Top Dynamic Island / Speaker Notch */}
               <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 sm:w-24 h-4 bg-slate-950 rounded-full z-30 flex items-center justify-end px-2 border border-slate-800/80">
                 <div className="w-2 h-2 rounded-full bg-slate-800"></div>
               </div>
 
-              {/* Inner Screen (9:16 Aspect Ratio) */}
               <div className="relative aspect-[9/16] w-full rounded-[34px] overflow-hidden bg-slate-950 border border-slate-800/80 flex items-center justify-center">
-
                 <AnimatePresence mode="wait">
                   {!isPlaying ? (
                     <motion.div
@@ -193,16 +195,13 @@ export default function VideoShowcase() {
                       className="absolute inset-0 flex flex-col items-center justify-between p-5 cursor-pointer group select-none"
                       onClick={handlePlayClick}
                     >
-                      {/* Background Image Preview */}
                       <div
                         className="absolute inset-0 bg-cover bg-center opacity-75 mix-blend-luminosity transition-transform duration-700 ease-out group-hover:scale-105"
                         style={{ backgroundImage: `url(${gayaFounderImg})` }}
                       ></div>
 
-                      {/* Dark Editorial Gradient Vignette */}
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-slate-950/40"></div>
 
-                      {/* Top Header inside Screen */}
                       <div className="relative z-20 w-full pt-4 flex items-center justify-between">
                         <span className="text-[10px] font-bold text-white/90 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
                           We Write You Chill
@@ -212,7 +211,6 @@ export default function VideoShowcase() {
                         </span>
                       </div>
 
-                      {/* Center Play Button with Animated Radar Ripple */}
                       <div className="relative z-20 flex flex-col items-center gap-3.5 my-auto">
                         <div className="relative flex items-center justify-center">
                           <span className="absolute w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#2650a8]/40 animate-radar-wave pointer-events-none"></span>
@@ -229,7 +227,6 @@ export default function VideoShowcase() {
                         </span>
                       </div>
 
-                      {/* Bottom Footer inside Screen */}
                       <div className="relative z-20 w-full text-center pb-2">
                         <p className="text-[11px] font-semibold text-slate-200 leading-snug">
                           How We Install The Content Engine
@@ -238,7 +235,6 @@ export default function VideoShowcase() {
                           Full 2:30 Walkthrough with Gaya
                         </p>
                       </div>
-
                     </motion.div>
                   ) : (
                     <motion.div
@@ -263,20 +259,14 @@ export default function VideoShowcase() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-
               </div>
 
-              {/* Bottom Home Bar Indicator */}
               <div className="w-24 h-1 bg-slate-600/60 rounded-full mx-auto mt-2"></div>
-
             </div>
-
           </motion.div>
-
         </div>
-
       </div>
-
     </section>
   );
 }
+

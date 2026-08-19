@@ -1,11 +1,48 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useEffect } from 'react';
+import { motion, useAnimation, useInView } from 'framer-motion';
 import { ArrowRight, Heart, CheckCircle, ExternalLink } from 'lucide-react';
 import gayaFounderImg from '../assets/gaya-founder.jpg';
 
 export default function AboutFounder({ onOpenBooking }) {
   const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
   const gayaLinkedinUrl = "https://www.linkedin.com/in/msgaya/";
+
+  const imageRef = useRef(null);
+  const isInView = useInView(imageRef, { amount: 0.25, once: false });
+  const imageControls = useAnimation();
+  const laserControls = useAnimation();
+  const sheenControls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      imageControls.start({
+        clipPath: 'polygon(-30% 0%, 140% 0%, 140% 140%, -30% 140%)',
+        scale: 1,
+        filter: 'blur(0px) brightness(1)',
+        opacity: 1,
+        transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.15 }
+      });
+      laserControls.start({
+        x: '230%', y: '230%',
+        opacity: [0, 1, 1, 0],
+        transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.12 }
+      });
+      sheenControls.start({
+        opacity: [0, 0.35, 0],
+        transition: { duration: 0.8, delay: 1.3, ease: 'easeOut' }
+      });
+    } else {
+      imageControls.start({
+        clipPath: 'polygon(0% 0%, 0% 0%, -30% 100%, -30% 100%)',
+        scale: 1.06,
+        filter: 'blur(5px) brightness(0.85)',
+        opacity: 0.15,
+        transition: { duration: 0 }
+      });
+      laserControls.set({ x: '-130%', y: '-130%', opacity: 0 });
+      sheenControls.set({ opacity: 0 });
+    }
+  }, [isInView, imageControls, laserControls, sheenControls]);
 
   const achievements = [
     { title: 'Millions of views generated for clients through published posts', color: '#2650a8' },
@@ -15,33 +52,21 @@ export default function AboutFounder({ onOpenBooking }) {
   ];
 
   return (
-    <section id="about" className="snap-section min-h-[auto] md:min-h-screen py-14 sm:py-24 bg-white relative z-10 border-t border-slate-200 overflow-hidden flex flex-col justify-center">
-
-      {/* Decorative background glow */}
+    <section id="about" className="snap-section min-h-[auto] md:min-h-screen py-14 sm:py-24 bg-white relative z-10 border-t border-slate-200 flex flex-col justify-center">
       <div className="absolute top-1/2 right-10 w-60 sm:w-96 h-60 sm:h-96 bg-[#2650a8]/5 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse-glow"></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
-
-          {/* Image Column with Cinematic Diagonal Crossing & Edge-Reveal Animation */}
           <div className="lg:col-span-5 relative">
-
-            {/* Ambient Background Aura */}
             <div className="absolute -inset-4 bg-gradient-to-tr from-[#2650a8]/15 via-[#f4ba43]/15 to-transparent rounded-[36px] blur-xl opacity-80 pointer-events-none"></div>
 
-            {/* Precision Layered Frame */}
             <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none rounded-[28px] sm:rounded-[30px] bg-gradient-to-tr from-[#2650a8]/25 via-slate-100 to-[#f4ba43]/30 p-[2.5px] sm:p-[3px] shadow-2xl group cyclic-card cyclic-delay-1">
               <div className="rounded-[25px] sm:rounded-[27px] bg-white p-2 sm:p-2.5 shadow-inner">
-                
-                {/* Cinematic Image Mask Container */}
-                <div className="aspect-[4/5] w-full rounded-2xl overflow-hidden relative border border-slate-100/80 bg-slate-950">
-                  
-                  {/* Base Placeholder Dark Silhouette */}
+                <div ref={imageRef} className="aspect-[4/5] w-full rounded-2xl overflow-hidden relative border border-slate-100/80 bg-slate-950">
                   <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 flex items-center justify-center">
                     <div className="w-32 h-32 rounded-full bg-[#2650a8]/10 blur-2xl"></div>
                   </div>
 
-                  {/* Crystal-Clear Image Revealed as Diagonal Cut Expands Out to All Edges */}
                   <motion.div
                     initial={{
                       clipPath: 'polygon(0% 0%, 0% 0%, -30% 100%, -30% 100%)',
@@ -49,18 +74,7 @@ export default function AboutFounder({ onOpenBooking }) {
                       filter: 'blur(5px) brightness(0.85)',
                       opacity: 0.15
                     }}
-                    whileInView={{
-                      clipPath: 'polygon(-30% 0%, 140% 0%, 140% 140%, -30% 140%)',
-                      scale: 1,
-                      filter: 'blur(0px) brightness(1)',
-                      opacity: 1
-                    }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{
-                      duration: 1.5,
-                      ease: [0.16, 1, 0.3, 1],
-                      delay: 0.15
-                    }}
+                    animate={imageControls}
                     className="absolute inset-0 z-10"
                   >
                     <img
@@ -71,44 +85,26 @@ export default function AboutFounder({ onOpenBooking }) {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none"></div>
                   </motion.div>
 
-                  {/* The Crossing Diagonal Laser / Golden Light Line */}
                   <motion.div
                     initial={{
                       x: '-130%',
                       y: '-130%',
                       opacity: 0
                     }}
-                    whileInView={{
-                      x: '230%',
-                      y: '230%',
-                      opacity: [0, 1, 1, 0]
-                    }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{
-                      duration: 1.5,
-                      ease: [0.16, 1, 0.3, 1],
-                      delay: 0.12
-                    }}
+                    animate={laserControls}
                     className="absolute -inset-y-36 -left-24 w-44 z-20 pointer-events-none -rotate-[35deg] flex items-center justify-center"
                   >
-                    {/* Soft wide golden glow halo */}
                     <div className="absolute inset-y-0 w-36 bg-gradient-to-r from-transparent via-[#f4ba43]/40 to-transparent blur-md"></div>
-                    {/* Crisp neon center light blade with white-hot core */}
                     <div className="w-[3px] h-[220%] bg-gradient-to-b from-transparent via-[#f4ba43] via-white to-transparent shadow-[0_0_20px_#f4ba43,0_0_40px_#2650a8]"></div>
-                    {/* Trailing sparkle particles glow */}
                     <div className="absolute -left-3 top-1/2 w-8 h-8 rounded-full bg-white/90 blur-sm shadow-[0_0_25px_#f4ba43]"></div>
                   </motion.div>
 
-                  {/* Secondary Ambient Finishing Sheen */}
                   <motion.div
                     initial={{ opacity: 0 }}
-                    whileInView={{ opacity: [0, 0.35, 0] }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{ duration: 0.8, delay: 1.3, ease: 'easeOut' }}
+                    animate={sheenControls}
                     className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent z-25 pointer-events-none"
                   ></motion.div>
 
-                  {/* Floating Profile Info Card */}
                   <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between gap-2 z-30">
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5 mb-0.5">
@@ -135,13 +131,10 @@ export default function AboutFounder({ onOpenBooking }) {
                       <ExternalLink className="w-3.5 h-3.5 text-[#f4ba43]" />
                     </a>
                   </div>
-
                 </div>
-
               </div>
             </div>
 
-            {/* Daily Posting Streak Badge with Heart Symbol & Compounding Quote */}
             <div className="mt-4 cyclic-card cyclic-delay-2 p-3.5 sm:p-4 rounded-2xl shadow-xs max-w-sm sm:max-w-md mx-auto lg:max-w-none">
               <div className="flex items-start gap-2.5 text-xs font-semibold text-slate-700 leading-relaxed">
                 <div className="p-1.5 rounded-full bg-rose-50 border border-rose-200/80 text-rose-500 shrink-0 mt-0.5 shadow-xs">
@@ -152,7 +145,6 @@ export default function AboutFounder({ onOpenBooking }) {
             </div>
           </div>
 
-          {/* Text Column */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -166,7 +158,7 @@ export default function AboutFounder({ onOpenBooking }) {
 
             <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
               <span className="inline-block">Gaya -</span>{' '}
-              <span className="highlight-swipe inline-block whitespace-normal md:whitespace-nowrap">LinkedIn Personal Branding Strategist</span>
+              <span className="highlight-swipe inline-block whitespace-normal md:whitespace-nowrap">LinkedIn Personal Branding <span className="word-accent">Strategist</span></span>
             </h2>
 
             <div className="space-y-3.5 sm:space-y-4 text-xs sm:text-base text-slate-700 leading-relaxed font-subheading font-medium">
@@ -192,7 +184,6 @@ export default function AboutFounder({ onOpenBooking }) {
               </p>
             </div>
 
-            {/* Achievement Highlights Grid with Cyclic Glow */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               {achievements.map((item, aIdx) => {
                 const delayClass = aIdx % 2 === 0 ? 'cyclic-delay-1' : 'cyclic-delay-2';
@@ -236,11 +227,10 @@ export default function AboutFounder({ onOpenBooking }) {
                 <ExternalLink className="w-3.5 h-3.5 text-[#2650a8]" />
               </motion.a>
             </div>
-
           </motion.div>
-
         </div>
       </div>
     </section>
   );
 }
+

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Sparkles } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
@@ -31,23 +31,18 @@ export default function App() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [modalMode, setModalMode] = useState('booking');
   const [showFloatingCta, setShowFloatingCta] = useState(false);
-  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
 
-  // Smoothly scroll to a specific section by index
   const scrollToSectionIndex = (index) => {
     const targetIdx = Math.max(0, Math.min(index, SECTIONS.length - 1));
     const sectionId = SECTIONS[targetIdx].id;
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setActiveSectionIndex(targetIdx);
     }
   };
 
-  // Keyboard PageDown / PageUp navigation listener
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Don't intercept if user is typing in an input/textarea or modal is open
       if (
         bookingModalOpen ||
         ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)
@@ -85,22 +80,9 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [bookingModalOpen]);
 
-  // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
       setShowFloatingCta(window.scrollY > 450);
-
-      const currentScrollY = window.scrollY + window.innerHeight / 3;
-      SECTIONS.forEach((sec, idx) => {
-        const el = document.getElementById(sec.id);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (currentScrollY >= top && currentScrollY < top + height) {
-            setActiveSectionIndex(idx);
-          }
-        }
-      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -112,58 +94,29 @@ export default function App() {
     setBookingModalOpen(true);
   };
 
-  const handleOpenEnquiry = () => {
-    setModalMode('enquiry');
-    setBookingModalOpen(true);
-  };
-
   return (
     <div className="min-h-screen bg-white text-[#0f172a] flex flex-col font-sans selection:bg-[#2650a8]/20 selection:text-[#000000]">
-
-      {/* Sticky Top Header Navigation */}
       <Navbar onOpenBooking={handleOpenBooking} />
 
-      {/* Main Page Content */}
       <main className="flex-grow">
-        {/* 1. Hero Section (Includes Feature Pills and Marquee) */}
-        <Hero
-          onOpenBooking={handleOpenBooking}
-        />
-
-        {/* 2. Standalone Visual Presentation Showcase (Separate Page) */}
+        <Hero onOpenBooking={handleOpenBooking} />
         <VideoShowcase />
-
-        {/* 3. Why your LinkedIn isn't working (yet) */}
         <WhyLinkedinNotWorking onOpenBooking={handleOpenBooking} />
-
-        {/* 4. Proven Client Results & Case Studies */}
         <Results />
 
-        {/* Social Proof Marquee Ticker */}
         <div className="py-2 bg-slate-50/50 border-y border-slate-200/60 overflow-hidden">
           <Marquee />
         </div>
 
-        {/* 5. Three Ways I Provide Support (Packages) */}
         <Services onOpenBooking={handleOpenBooking} />
-
-        {/* 6. The 5-Step Content-Connection-Conversation Framework */}
         <Workflow onOpenBooking={handleOpenBooking} />
-
-        {/* 7. Original LinkedIn Recommendation Screenshots */}
         <Testimonials />
-
-        {/* 8. About Founder Gaya */}
         <AboutFounder onOpenBooking={handleOpenBooking} />
-
-        {/* 9. Frequently Asked Questions */}
         <Faq onOpenBooking={handleOpenBooking} />
       </main>
 
-      {/* Footer */}
       <Footer onOpenBooking={handleOpenBooking} />
 
-      {/* Floating Action Button on Scroll */}
       <AnimatePresence>
         {showFloatingCta && (
           <motion.div
@@ -190,13 +143,12 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Booking & Enquiry Modal */}
       <BookingForm
         isOpen={bookingModalOpen}
         onClose={() => setBookingModalOpen(false)}
         mode={modalMode}
       />
-
     </div>
   );
 }
+

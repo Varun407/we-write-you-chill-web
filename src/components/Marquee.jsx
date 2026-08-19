@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, TrendingUp, CheckCircle, Clock, Zap, Target, Star, Users, MessageSquare, Award, ArrowUpRight } from 'lucide-react';
+import { Sparkles, TrendingUp, Clock, Zap, Target, Star, Users, Award } from 'lucide-react';
 
 export default function Marquee() {
   const highlightsRow1 = [
@@ -25,14 +25,10 @@ export default function Marquee() {
 
   return (
     <div className="py-6 overflow-hidden relative z-20 w-full">
-      
-      {/* Edge Blur / Fade Gradient Masks for Seamless Edge Gliding */}
       <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
       <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
 
       <div className="space-y-3.5">
-        
-        {/* Row 1: Key Value Pillars (Scrolling Left) */}
         <div className="flex overflow-hidden">
           <div className="animate-marquee flex items-center gap-4 py-1">
             {[...highlightsRow1, ...highlightsRow1].map((item, idx) => {
@@ -57,7 +53,6 @@ export default function Marquee() {
           </div>
         </div>
 
-        {/* Row 2: Verified Client Proof & Niches (Scrolling Right / Reverse) */}
         <div className="flex overflow-hidden">
           <div className="animate-marquee-reverse flex items-center gap-4 py-1">
             {[...clientsRow2, ...clientsRow2].map((client, idx) => (
@@ -81,8 +76,8 @@ export default function Marquee() {
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );
 }
+

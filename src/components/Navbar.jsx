@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
-import { Menu, X, Calendar, ArrowRight, Sparkles } from 'lucide-react';
+import { Menu, X, Calendar, ArrowRight } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 
 export default function Navbar({ onOpenBooking }) {
@@ -33,7 +33,6 @@ export default function Navbar({ onOpenBooking }) {
 
   return (
     <>
-      {/* Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#2650a8] via-[#f4ba43] to-[#2650a8] z-[60] origin-left"
         style={{ scaleX }}
@@ -48,8 +47,6 @@ export default function Navbar({ onOpenBooking }) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-
-            {/* Logo */}
             <a href="#" className="flex items-center gap-3 group">
               <motion.img
                 whileHover={{ scale: 1.05, rotate: [0, -2, 2, 0] }}
@@ -71,7 +68,6 @@ export default function Navbar({ onOpenBooking }) {
               </div>
             </a>
 
-            {/* Desktop Navigation Links */}
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <motion.a
@@ -87,7 +83,6 @@ export default function Navbar({ onOpenBooking }) {
               ))}
             </nav>
 
-            {/* CTA Buttons */}
             <div className="hidden md:flex items-center gap-4">
               <motion.button
                 whileHover={{ scale: 1.03 }}
@@ -105,7 +100,6 @@ export default function Navbar({ onOpenBooking }) {
               </motion.button>
             </div>
 
-            {/* Mobile Menu Button */}
             <motion.button
               whileTap={{ scale: 0.92 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -117,7 +111,6 @@ export default function Navbar({ onOpenBooking }) {
           </div>
         </div>
 
-        {/* Mobile Drawer with AnimatePresence */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
@@ -163,3 +156,4 @@ export default function Navbar({ onOpenBooking }) {
     </>
   );
 }
+
