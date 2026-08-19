@@ -68,7 +68,7 @@ export default function Hero({ onOpenBooking }) {
             variants={itemVariants}
             className="max-w-4xl mx-auto font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.2] sm:leading-[1.15] text-[#000000]"
           >
-            <span className="word-accent">Three</span> things work on LinkedIn.{' '}
+            Three things work on LinkedIn.{' '}
             <span className="text-[#2650a8] highlight-swipe inline-block sm:inline">
               Nobody tells you which <span className="word-accent">three.</span>
             </span>
