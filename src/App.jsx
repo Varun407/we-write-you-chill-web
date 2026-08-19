@@ -139,6 +139,11 @@ export default function App() {
         {/* 4. Proven Client Results & Case Studies */}
         <Results />
 
+        {/* Social Proof Marquee Ticker */}
+        <div className="py-2 bg-slate-50/50 border-y border-slate-200/60 overflow-hidden">
+          <Marquee />
+        </div>
+
         {/* 5. Three Ways I Provide Support (Packages) */}
         <Services onOpenBooking={handleOpenBooking} />
 

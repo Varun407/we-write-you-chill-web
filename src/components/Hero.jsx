@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ArrowRight, CheckCircle2, PenTool, Coffee } from 'lucide-react';
-import Marquee from './Marquee';
 
 export default function Hero({ onOpenBooking }) {
   const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
@@ -185,14 +184,6 @@ export default function Hero({ onOpenBooking }) {
               <CheckCircle2 className="w-4 h-4 text-[#2650a8] shrink-0" />
               <span>Includes Free Pre-Onboarding Audit</span>
             </div>
-          </motion.div>
-
-          {/* Infinite Marquee Ticker directly on the Landing Page after Feature Pills */}
-          <motion.div
-            variants={itemVariants}
-            className="w-full mt-8 sm:mt-10 overflow-hidden"
-          >
-            <Marquee />
           </motion.div>
 
         </motion.div>

@@ -27,8 +27,11 @@ export default function Footer({ onOpenBooking }) {
                 alt="We Write You Chill Logo"
                 className="h-10 w-auto object-contain"
               />
-              <span className="font-heading font-black text-lg text-[#000000] tracking-tight">
-                WE WRITE <span className="text-[#2650a8]">YOU CHILL</span>
+              <span
+                style={{ fontFamily: "'Heksilo', 'Playfair Display', Georgia, serif" }}
+                className="font-normal text-[26px] tracking-wide text-[#0f172a] leading-none"
+              >
+                We Write You <span className="text-[#2650a8]">Chill</span>
               </span>
             </div>
 

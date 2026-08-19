@@ -58,11 +58,14 @@ export default function Navbar({ onOpenBooking }) {
                 alt="We Write You Chill Logo"
                 className="h-10 w-auto object-contain"
               />
-              <div className="flex flex-col">
-                <span className="font-heading font-extrabold text-base tracking-tight text-[#000000] leading-tight">
-                  WE WRITE <span className="text-[#2650a8]">YOU CHILL</span>
+              <div className="flex flex-col justify-center">
+                <span
+                  style={{ fontFamily: "'Heksilo', 'Playfair Display', Georgia, serif" }}
+                  className="font-normal text-[22px] tracking-wide text-[#0f172a] leading-none"
+                >
+                  We Write You <span className="text-[#2650a8]">Chill</span>
                 </span>
-                <span className="text-[10px] text-slate-500 font-semibold tracking-widest uppercase flex items-center gap-1">
+                <span className="text-[9px] text-slate-500 font-extrabold tracking-[0.16em] uppercase mt-1 flex items-center gap-1">
                   Content & Lead Engine
                 </span>
               </div>

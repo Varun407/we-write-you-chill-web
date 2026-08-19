@@ -23,7 +23,7 @@ export default function AboutFounder({ onOpenBooking }) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
 
-          {/* Image Column with Premium Multi-Layer Editorial Frame */}
+          {/* Image Column with Cinematic Diagonal Crossing & Edge-Reveal Animation */}
           <div className="lg:col-span-5 relative">
 
             {/* Ambient Background Aura */}
@@ -32,16 +32,84 @@ export default function AboutFounder({ onOpenBooking }) {
             {/* Precision Layered Frame */}
             <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none rounded-[28px] sm:rounded-[30px] bg-gradient-to-tr from-[#2650a8]/25 via-slate-100 to-[#f4ba43]/30 p-[2.5px] sm:p-[3px] shadow-2xl group cyclic-card cyclic-delay-1">
               <div className="rounded-[25px] sm:rounded-[27px] bg-white p-2 sm:p-2.5 shadow-inner">
-                <div className="aspect-[4/5] w-full rounded-2xl overflow-hidden relative border border-slate-100/80 bg-slate-900">
-                  <img
-                    src={gayaFounderImg}
-                    alt="Gayathiri (Gaya) - Founder of We Write You Chill"
-                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none"></div>
+                
+                {/* Cinematic Image Mask Container */}
+                <div className="aspect-[4/5] w-full rounded-2xl overflow-hidden relative border border-slate-100/80 bg-slate-950">
+                  
+                  {/* Base Placeholder Dark Silhouette */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 flex items-center justify-center">
+                    <div className="w-32 h-32 rounded-full bg-[#2650a8]/10 blur-2xl"></div>
+                  </div>
+
+                  {/* Crystal-Clear Image Revealed as Diagonal Cut Expands Out to All Edges */}
+                  <motion.div
+                    initial={{
+                      clipPath: 'polygon(0% 0%, 0% 0%, -30% 100%, -30% 100%)',
+                      scale: 1.06,
+                      filter: 'blur(5px) brightness(0.85)',
+                      opacity: 0.15
+                    }}
+                    whileInView={{
+                      clipPath: 'polygon(-30% 0%, 140% 0%, 140% 140%, -30% 140%)',
+                      scale: 1,
+                      filter: 'blur(0px) brightness(1)',
+                      opacity: 1
+                    }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{
+                      duration: 1.5,
+                      ease: [0.16, 1, 0.3, 1],
+                      delay: 0.15
+                    }}
+                    className="absolute inset-0 z-10"
+                  >
+                    <img
+                      src={gayaFounderImg}
+                      alt="Gayathiri (Gaya) - Founder of We Write You Chill"
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none"></div>
+                  </motion.div>
+
+                  {/* The Crossing Diagonal Laser / Golden Light Line */}
+                  <motion.div
+                    initial={{
+                      x: '-130%',
+                      y: '-130%',
+                      opacity: 0
+                    }}
+                    whileInView={{
+                      x: '230%',
+                      y: '230%',
+                      opacity: [0, 1, 1, 0]
+                    }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{
+                      duration: 1.5,
+                      ease: [0.16, 1, 0.3, 1],
+                      delay: 0.12
+                    }}
+                    className="absolute -inset-y-36 -left-24 w-44 z-20 pointer-events-none -rotate-[35deg] flex items-center justify-center"
+                  >
+                    {/* Soft wide golden glow halo */}
+                    <div className="absolute inset-y-0 w-36 bg-gradient-to-r from-transparent via-[#f4ba43]/40 to-transparent blur-md"></div>
+                    {/* Crisp neon center light blade with white-hot core */}
+                    <div className="w-[3px] h-[220%] bg-gradient-to-b from-transparent via-[#f4ba43] via-white to-transparent shadow-[0_0_20px_#f4ba43,0_0_40px_#2650a8]"></div>
+                    {/* Trailing sparkle particles glow */}
+                    <div className="absolute -left-3 top-1/2 w-8 h-8 rounded-full bg-white/90 blur-sm shadow-[0_0_25px_#f4ba43]"></div>
+                  </motion.div>
+
+                  {/* Secondary Ambient Finishing Sheen */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: [0, 0.35, 0] }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.8, delay: 1.3, ease: 'easeOut' }}
+                    className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent z-25 pointer-events-none"
+                  ></motion.div>
 
                   {/* Floating Profile Info Card */}
-                  <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between gap-2 z-20">
+                  <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between gap-2 z-30">
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5 mb-0.5">
                         <h4 className="font-heading font-extrabold text-sm sm:text-base text-[#000000] leading-none">Gaya</h4>
@@ -67,7 +135,9 @@ export default function AboutFounder({ onOpenBooking }) {
                       <ExternalLink className="w-3.5 h-3.5 text-[#f4ba43]" />
                     </a>
                   </div>
+
                 </div>
+
               </div>
             </div>
 
@@ -95,7 +165,7 @@ export default function AboutFounder({ onOpenBooking }) {
             </span>
 
             <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
-              <span className="inline-block">Gaya —</span>{' '}
+              <span className="inline-block">Gaya -</span>{' '}
               <span className="highlight-swipe inline-block whitespace-normal md:whitespace-nowrap">LinkedIn Personal Branding Strategist</span>
             </h2>
 

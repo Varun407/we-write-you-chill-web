@@ -6,6 +6,7 @@
     --font-open-sauce: 'Open Sans', 'Plus Jakarta Sans', sans-serif;
     --font-sans: 'Inter', sans-serif;
     --font-framework: 'Syne', 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    --font-garamond: 'EB Garamond', 'Apple Garamond', 'Garamond', 'Baskerville', 'Georgia', serif;
 
     /* Custom Color Tokens */
     --color-white: #ffffff;
@@ -13,6 +14,49 @@
     --color-royal-blue: #2650a8;
     --color-gold: #f4ba43;
   }
+}
+
+@font-face {
+  font-family: 'Heksilo';
+  src: url('/fonts/Heksilo-DEMO.ttf') format('truetype'),
+       url('./assets/fonts/Heksilo-DEMO.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-garamond {
+  font-family: var(--font-garamond);
+}
+
+.font-heksilo {
+  font-family: 'Heksilo', 'Playfair Display', Georgia, serif;
+}
+
+/* Premium Editorial Brand Logo Wordmark */
+.brand-logo-wordmark {
+  font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.32rem;
+  line-height: 1.15;
+}
+
+.brand-logo-chill {
+  font-family: 'EB Garamond', 'Apple Garamond', 'Garamond', serif !important;
+  font-weight: 800 !important;
+  font-style: italic !important;
+  font-size: 1.35em !important;
+  color: #2650a8 !important;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  position: relative;
+  top: 0.04em;
+  text-shadow: 0 1px 2px rgba(38, 80, 168, 0.12);
 }
 
 .framework-special-font {
@@ -310,7 +354,7 @@ h3,
   left: -0.15em;
   right: -0.15em;
   height: 0.35em;
-  background: linear-gradient(90deg, rgba(244, 186, 67, 0.5), rgba(38, 80, 168, 0.3));
+  background: rgba(244, 186, 67, 0.45);
   border-radius: 4px;
   z-index: -1;
   transform-origin: left;
