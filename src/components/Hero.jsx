@@ -69,7 +69,8 @@ export default function Hero({ onOpenBooking }) {
             className="max-w-4xl mx-auto font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.2] sm:leading-[1.15] text-[#000000]"
           >
             Three things work on LinkedIn.{' '}
-            <span className="text-[#2650a8] highlight-swipe inline-block sm:inline">
+            <br />
+            <span className="text-[#2650a8] highlight-swipe inline-block">
               Nobody tells you which <span className="word-accent">three.</span>
             </span>
           </motion.h1>
