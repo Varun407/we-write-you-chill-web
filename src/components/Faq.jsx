@@ -130,7 +130,7 @@ export default function Faq({ onOpenBooking }) {
             rel="noopener noreferrer"
             className="btn-shimmer inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-lg shadow-[#2650a8]/25 transition-all cursor-pointer"
           >
-            <span>Ask Gaya Directly on Zoom</span>
+            <span>Ask Gaya Directly</span>
             <ArrowRight className="w-4 h-4 text-[#f4ba43]" />
           </a>
         </motion.div>

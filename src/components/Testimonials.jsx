@@ -184,7 +184,6 @@ export default function Testimonials() {
 
                     <div className="relative z-20 w-full text-center pb-2">
                       <p className="text-[11px] font-semibold text-slate-200 leading-snug">Real Client. Real Results.</p>
-                      <p className="text-[9.5px] text-slate-400 font-medium mt-0.5">Unscripted testimonial</p>
                     </div>
                   </motion.div>
                 ) : (

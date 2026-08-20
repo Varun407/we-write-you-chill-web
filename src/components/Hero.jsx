@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Star, ArrowRight, CheckCircle2, PenTool, Coffee } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Star, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export default function Hero({ onOpenBooking }) {
   const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
-
-  const [activeTab, setActiveTab] = useState('write');
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveTab((prev) => (prev === 'write' ? 'chill' : 'write'));
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -82,65 +73,7 @@ export default function Hero({ onOpenBooking }) {
             LinkedIn branding, content, outreach and video for property and finance experts. <strong className="text-[#000000] font-bold">You bring the expertise.</strong> We build everything that makes people trust you before they call.
           </motion.p>
 
-          <motion.div
-            variants={itemVariants}
-            className="cyclic-card cyclic-delay-2 mt-5 sm:mt-6 inline-flex flex-row items-center gap-2 p-1 sm:p-1.5 rounded-2xl max-w-xs sm:max-w-md w-full shadow-sm"
-          >
-            <button
-              onClick={() => setActiveTab('write')}
-              className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-3 sm:px-6 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer ${activeTab === 'write'
-                ? 'bg-[#2650a8] text-white shadow-md'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                }`}
-            >
-              <PenTool className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeTab === 'write' ? 'text-[#f4ba43]' : 'text-slate-400'}`} />
-              <span>We Write</span>
-            </button>
 
-            <button
-              onClick={() => setActiveTab('chill')}
-              className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-3 sm:px-6 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer ${activeTab === 'chill'
-                ? 'bg-[#b45309] text-white shadow-md'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                }`}
-            >
-              <Coffee className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeTab === 'chill' ? 'text-[#f4ba43]' : 'text-slate-400'}`} />
-              <span>You Chill</span>
-            </button>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="min-h-[44px] h-auto mt-2 flex items-center justify-center px-2"
-          >
-            <AnimatePresence mode="wait">
-              {activeTab === 'write' ? (
-                <motion.div
-                  key="write-content"
-                  initial={{ opacity: 0, y: 8, filter: 'blur(3px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  exit={{ opacity: 0, y: -8, filter: 'blur(3px)' }}
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold text-slate-700 bg-white px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs text-center"
-                >
-                  <span className="w-2 h-2 rounded-full bg-[#2650a8] animate-pulse shrink-0"></span>
-                  <span>We draft your hooks, carousels, outbound DMs & 100% of your content.</span>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="chill-content"
-                  initial={{ opacity: 0, y: 8, filter: 'blur(3px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  exit={{ opacity: 0, y: -8, filter: 'blur(3px)' }}
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold text-slate-700 bg-white px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs text-center"
-                >
-                  <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse shrink-0"></span>
-                  <span>Give 45 mins every 4 weeks. High-intent referral partners reach out to you.</span>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
 
           <motion.div
             variants={itemVariants}

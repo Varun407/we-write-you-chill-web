@@ -95,7 +95,7 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
             The Trust Bridge Problem
           </span>
 
-          <h2 className="font-heading font-semibold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl lg:text-4xl text-slate-800 tracking-tight leading-tight">
             Why your LinkedIn isn't <span className="word-accent">working</span> <span className="highlight-swipe">(yet)</span>
           </h2>
 
@@ -140,7 +140,7 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
                     </span>
                   </div>
 
-                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-[#000000] mb-2.5 sm:mb-3 group-hover:text-[#2650a8] transition-colors">
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900 mb-2.5 sm:mb-3 group-hover:text-[#2650a8] transition-colors">
                     {item.title}
                   </h3>
 
@@ -168,8 +168,9 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
           <div className="absolute -right-10 -bottom-10 w-60 h-60 bg-[#f4ba43]/20 rounded-full blur-[60px] pointer-events-none"></div>
 
           <div className="max-w-xl relative z-10 text-center md:text-left">
-            <h3 className="font-heading font-semibold text-lg sm:text-2xl text-white mb-1.5">
-              Stop guessing. Get a customized LinkedIn Assessment.
+            <h3 className="font-heading font-bold text-lg sm:text-2xl text-white mb-1.5">
+              <span className="text-white">Stop guessing.</span>{' '}
+              <span className="text-[#f4ba43] font-bold">Get a customized LinkedIn Assessment.</span>
             </h3>
             <p className="text-xs sm:text-sm text-slate-200 font-medium leading-relaxed">
               Book a call with Gaya and receive a free LinkedIn Assessment plan showing what is missing and how to fix it.
@@ -182,9 +183,9 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
             href={zoomBookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-shimmer shrink-0 w-full sm:w-auto justify-center px-6 py-3.5 sm:px-7 sm:py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-[#000000] bg-[#f4ba43] hover:bg-[#eab308] shadow-lg shadow-[#f4ba43]/30 transition-all cursor-pointer relative z-10 flex items-center gap-2"
+            className="btn-shimmer shrink-0 w-full sm:w-auto justify-center px-6 py-3.5 sm:px-7 sm:py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-slate-900 bg-[#f4ba43] hover:bg-[#eab308] shadow-lg shadow-[#f4ba43]/30 transition-all cursor-pointer relative z-10 flex items-center gap-2"
           >
-            <span>Get Free Assessment Blueprint</span>
+            <span>Get Assessment Blueprint</span>
             <ArrowRight className="w-4 h-4" />
           </motion.a>
         </motion.div>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, TrendingUp, MessageSquare, Sparkles, CheckCircle2, ArrowRight, Mic, Video, Users2 } from 'lucide-react';
+import { Play, TrendingUp, MessageSquare, Sparkles, ArrowRight, Mic, Video, Users2 } from 'lucide-react';
 import gayaFounderImg from '../assets/gaya-founder.jpg';
 
 export default function VideoShowcase() {
@@ -43,7 +43,7 @@ export default function VideoShowcase() {
     {
       icon: Mic,
       title: '45-Min Monthly Voice Extraction',
-      desc: 'No homework or writing required. We interview you to extract authentic insights, case stories, and market expertise.',
+      desc: 'You simply talk through the content prompts we give you. In 45 minutes, you give us everything we need to create an entire month of authentic content in your voice.',
       badge: 'Step 1'
     },
     {
@@ -55,7 +55,7 @@ export default function VideoShowcase() {
     {
       icon: Users2,
       title: 'Targeted Outreach & Inbound Pipeline',
-      desc: 'We expand your network by 30–40% weekly and open conversations with referral partners who trust you before they call.',
+      desc: 'We expand your network by 30-40% weekly through partial automated outreach systems.',
       badge: 'Step 3'
     }
   ];
@@ -74,25 +74,15 @@ export default function VideoShowcase() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 space-y-6 sm:space-y-7 text-left"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/25 text-[#2650a8] shadow-xs">
-              <span className="relative flex h-2 w-2 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2650a8] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2650a8]"></span>
-              </span>
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">
-                Video Walkthrough · 2:30 Min
-              </span>
-            </div>
-
-            <h2 className="font-heading font-semibold text-2xl sm:text-4xl lg:text-[42px] tracking-tight leading-[1.18] text-[#000000]">
+            <h2 className="font-heading font-extrabold text-2xl sm:text-4xl lg:text-[42px] tracking-tight leading-[1.18] text-slate-800">
               This is how we install your{' '}
-              <span className="text-[#2650a8] highlight-swipe inline">
+              <span className="font-extrabold text-[#2650a8] highlight-swipe inline">
                 LinkedIn Content &amp; Lead Engine.
               </span>
             </h2>
 
             <p className="text-sm sm:text-base md:text-lg text-slate-600 font-subheading leading-relaxed">
-              Take 2.5 minutes to see the exact done-for-you system we use to turn 45 minutes of your time every month into qualified inbound broker and investor conversations.
+              Take 2.5 minutes to see how we use organic content to build trust and establish authority with the right audience.
             </p>
 
             <div className="space-y-3 pt-1">
@@ -136,10 +126,6 @@ export default function VideoShowcase() {
                 <span>Book 1-on-1 Strategy Call</span>
                 <ArrowRight className="w-4 h-4 text-[#f4ba43] transition-transform duration-200 group-hover:translate-x-1" />
               </a>
-              <span className="text-xs text-slate-500 font-semibold flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span>Zero writing homework</span>
-              </span>
             </div>
           </motion.div>
 

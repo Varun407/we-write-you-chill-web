@@ -18,7 +18,7 @@ export default function Workflow() {
     },
     {
       num: 2,
-      title: '45-Min Voice & Story Discovery',
+      title: 'You invest only 45 minutes every 4 weeks',
       subtitle: 'Capturing how you think, speak, and advise clients',
       description: 'One 45-minute call every 4 weeks. We ask targeted questions about your recent client wins, market insights, and business philosophy so nothing sounds generic or AI-generated.',
       icon: Compass,
