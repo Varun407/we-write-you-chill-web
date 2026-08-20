@@ -53,7 +53,7 @@ export default function Faq({ onOpenBooking }) {
           <span className="cyclic-card cyclic-delay-1 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full inline-block mb-3 sm:mb-4 shadow-xs">
             Frequently Asked Questions
           </span>
-          <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-5xl text-[#000000] tracking-tight leading-tight">
+          <h2 className="font-heading font-semibold text-2xl sm:text-4xl lg:text-5xl text-[#000000] tracking-tight leading-tight">
             Clear Answers. <span className="highlight-swipe">Zero <span className="word-accent">Fluff.</span></span>
           </h2>
           <p className="mt-3 sm:mt-4 text-xs sm:text-base text-slate-600 font-subheading">
@@ -77,7 +77,7 @@ export default function Faq({ onOpenBooking }) {
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? -1 : idx)}
-                  className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 sm:gap-4 font-heading font-bold text-sm sm:text-lg text-[#000000] hover:text-[#2650a8] transition-colors cursor-pointer"
+                  className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 sm:gap-4 font-heading font-semibold text-sm sm:text-lg text-[#000000] hover:text-[#2650a8] transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-2.5 sm:gap-3.5">
                     <div className={`p-1.5 sm:p-2 rounded-xl shrink-0 transition-colors ${isOpen ? 'bg-[#2650a8] text-white' : 'bg-slate-100 text-[#2650a8]'}`}>
@@ -122,7 +122,7 @@ export default function Faq({ onOpenBooking }) {
           transition={{ duration: 0.5 }}
           className="cyclic-border-flow mt-12 p-8 text-center shadow-lg"
         >
-          <h3 className="font-heading font-bold text-xl text-[#000000] mb-2">Have a question not listed here?</h3>
+          <h3 className="font-heading font-semibold text-xl text-[#000000] mb-2">Have a question not listed here?</h3>
           <p className="text-sm text-slate-600 mb-6 font-medium">Book a 1-on-1 strategy call with Gaya. We'll answer everything directly.</p>
           <a
             href={zoomBookingUrl}

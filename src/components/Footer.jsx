@@ -26,7 +26,7 @@ export default function Footer({ onOpenBooking }) {
               />
               <span
                 style={{ fontFamily: "'Heksilo', 'Playfair Display', Georgia, serif" }}
-                className="font-normal text-[26px] tracking-wide text-[#0f172a] leading-none"
+                className="font-bold text-[26px] tracking-wide text-[#0f172a] leading-none"
               >
                 We Write You <span className="text-[#2650a8]">Chill</span>
               </span>
@@ -74,7 +74,7 @@ export default function Footer({ onOpenBooking }) {
           </div>
 
           <div className="md:col-span-3 space-y-3">
-            <h4 className="font-heading font-bold text-sm text-[#000000] uppercase tracking-wider">Navigation</h4>
+            <h4 className="font-heading font-semibold text-sm text-[#000000] uppercase tracking-wider">Navigation</h4>
             <ul className="space-y-2.5 text-sm font-semibold">
               <li><a href="#results" className="hover:text-[#2650a8] transition-colors">Client Results</a></li>
               <li><a href="#services" className="hover:text-[#2650a8] transition-colors">3 Support Options</a></li>
@@ -86,7 +86,7 @@ export default function Footer({ onOpenBooking }) {
           </div>
 
           <div className="md:col-span-4 space-y-4">
-            <h4 className="font-heading font-bold text-sm text-[#000000] uppercase tracking-wider">Book Strategy Call</h4>
+            <h4 className="font-heading font-semibold text-sm text-[#000000] uppercase tracking-wider">Book Strategy Call</h4>
             <p className="text-xs text-slate-600 font-medium">
               Get Gaya's free LinkedIn assessment plan showing missing gaps & exact steps to fix them.
             </p>

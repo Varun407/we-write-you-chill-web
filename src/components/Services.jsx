@@ -14,7 +14,7 @@ export default function Services({ onOpenBooking }) {
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#2650a8] px-3.5 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/25 inline-block mb-3 shadow-xs">
             Service Packages
           </span>
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
             Three Ways I <span className="highlight-swipe">Provide <span className="word-accent">Support</span></span>
           </h2>
           <p className="mt-3 text-xs sm:text-base text-slate-600 font-subheading font-medium">
@@ -33,7 +33,7 @@ export default function Services({ onOpenBooking }) {
 
             <div>
               <div className="text-[10px] sm:text-[11px] font-extrabold text-[#2650a8] uppercase tracking-wider mb-1.5 sm:mb-2">Option 01</div>
-              <h3 className="font-heading font-black text-xl sm:text-2xl text-[#000000] mb-2 leading-tight">
+              <h3 className="font-heading font-semibold text-xl sm:text-2xl text-[#000000] mb-2 leading-tight">
                 Done-For-You LinkedIn Personal Branding
               </h3>
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 sm:mb-6">
@@ -80,7 +80,7 @@ export default function Services({ onOpenBooking }) {
           <div className="cyclic-card cyclic-delay-2 p-5 sm:p-8 rounded-2xl sm:rounded-3xl flex flex-col justify-between group relative">
             <div>
               <div className="text-[10px] sm:text-[11px] font-extrabold text-[#b45309] uppercase tracking-wider mb-1.5 sm:mb-2">Option 02</div>
-              <h3 className="font-heading font-black text-xl sm:text-2xl text-[#000000] mb-2 leading-tight">
+              <h3 className="font-heading font-semibold text-xl sm:text-2xl text-[#000000] mb-2 leading-tight">
                 Done-With-You Training
               </h3>
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 sm:mb-6">
@@ -137,7 +137,7 @@ export default function Services({ onOpenBooking }) {
                   <span>REC Camera Ready</span>
                 </div>
               </div>
-              <h3 className="font-heading font-black text-xl sm:text-2xl text-[#000000] mb-2 leading-tight">
+              <h3 className="font-heading font-semibold text-xl sm:text-2xl text-[#000000] mb-2 leading-tight">
                 Video Content System
               </h3>
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 sm:mb-6">

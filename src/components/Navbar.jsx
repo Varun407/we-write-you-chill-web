@@ -58,7 +58,7 @@ export default function Navbar({ onOpenBooking }) {
               <div className="flex flex-col justify-center">
                 <span
                   style={{ fontFamily: "'Heksilo', 'Playfair Display', Georgia, serif" }}
-                  className="font-normal text-[22px] tracking-wide text-[#0f172a] leading-none"
+                  className="font-bold text-[22px] tracking-wide text-[#0f172a] leading-none"
                 >
                   We Write You <span className="text-[#2650a8]">Chill</span>
                 </span>

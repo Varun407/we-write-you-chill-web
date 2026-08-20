@@ -85,7 +85,7 @@ export default function Results() {
             Proven Track Record
           </span>
 
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
             Real Results For <span className="highlight-swipe">Property & Finance <span className="word-accent">Experts</span></span>
           </h2>
 
@@ -177,7 +177,7 @@ export default function Results() {
                     </span>
                   </div>
 
-                  <h3 className="font-heading font-bold text-base sm:text-lg text-[#000000] mb-0.5 group-hover:text-[#2650a8] transition-colors">
+                  <h3 className="font-heading font-semibold text-base sm:text-lg text-[#000000] mb-0.5 group-hover:text-[#2650a8] transition-colors">
                     {cs.person}
                   </h3>
                   <p className="text-xs font-semibold text-[#2650a8]">{cs.role}</p>
@@ -222,7 +222,7 @@ export default function Results() {
             </div>
             <div>
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1">
-                <h4 className="font-heading font-extrabold text-base sm:text-lg text-[#000000]">Example LinkedIn Profile & Strategy Assessment</h4>
+                <h4 className="font-heading font-semibold text-base sm:text-lg text-[#000000]">Example LinkedIn Profile & Strategy Assessment</h4>
                 <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-[#f4ba43]/20 text-[#b45309] text-[9px] sm:text-[10px] font-extrabold uppercase">Free Blueprint</span>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">See the exact assessment plan Gaya provides for clients before onboarding.</p>

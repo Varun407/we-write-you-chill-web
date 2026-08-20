@@ -108,7 +108,7 @@ export default function AboutFounder({ onOpenBooking }) {
                   <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between gap-2 z-30">
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5 mb-0.5">
-                        <h4 className="font-heading font-extrabold text-sm sm:text-base text-[#000000] leading-none">Gaya</h4>
+                        <h4 className="font-heading font-semibold text-sm sm:text-base text-[#000000] leading-none">Gaya</h4>
                         <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] sm:text-[10px] font-bold shrink-0 border border-emerald-300/60">
                           <span className="relative flex h-2 w-2 shrink-0">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -156,7 +156,7 @@ export default function AboutFounder({ onOpenBooking }) {
               About The Strategist
             </span>
 
-            <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
               <span className="inline-block">Gaya -</span>{' '}
               <span className="highlight-swipe inline-block whitespace-normal md:whitespace-nowrap">LinkedIn Personal Branding <span className="word-accent">Strategist</span></span>
             </h2>

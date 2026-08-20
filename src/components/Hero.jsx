@@ -66,11 +66,11 @@ export default function Hero({ onOpenBooking }) {
 
           <motion.h1
             variants={itemVariants}
-            className="max-w-4xl mx-auto font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.2] sm:leading-[1.15] text-[#000000]"
+            className="max-w-4xl mx-auto font-heading text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.2] sm:leading-[1.15]"
           >
-            Three things work on LinkedIn.{' '}
+            <span className="font-semibold text-slate-800">Three things work on LinkedIn.</span>{' '}
             <br />
-            <span className="text-[#2650a8] highlight-swipe inline-block">
+            <span className="font-bold text-[#2650a8] highlight-swipe inline">
               Nobody tells you which <span className="word-accent">three.</span>
             </span>
           </motion.h1>
@@ -89,8 +89,8 @@ export default function Hero({ onOpenBooking }) {
             <button
               onClick={() => setActiveTab('write')}
               className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-3 sm:px-6 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer ${activeTab === 'write'
-                  ? 'bg-[#2650a8] text-white shadow-md'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                ? 'bg-[#2650a8] text-white shadow-md'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
             >
               <PenTool className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeTab === 'write' ? 'text-[#f4ba43]' : 'text-slate-400'}`} />
@@ -100,8 +100,8 @@ export default function Hero({ onOpenBooking }) {
             <button
               onClick={() => setActiveTab('chill')}
               className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-3 sm:px-6 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer ${activeTab === 'chill'
-                  ? 'bg-[#b45309] text-white shadow-md'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                ? 'bg-[#b45309] text-white shadow-md'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
             >
               <Coffee className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeTab === 'chill' ? 'text-[#f4ba43]' : 'text-slate-400'}`} />

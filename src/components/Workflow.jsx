@@ -74,7 +74,7 @@ export default function Workflow() {
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#2650a8] px-4 py-1.5 rounded-full bg-[#2650a8]/10 border border-[#2650a8]/25 inline-block mb-3 shadow-xs">
             The Content - Connection - Conversation Framework
           </span>
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
             How The 5-Step System <span className="highlight-swipe">Builds Client <span className="word-accent">Trust</span></span>
           </h2>
           <p className="mt-3 text-xs sm:text-base text-slate-600 font-subheading">
@@ -117,7 +117,7 @@ export default function Workflow() {
                       </span>
                     </div>
 
-                    <h3 className="font-heading font-bold text-lg sm:text-2xl text-[#000000] mb-1 group-hover:text-[#2650a8] transition-colors">
+                    <h3 className="font-heading font-semibold text-lg sm:text-2xl text-[#000000] mb-1 group-hover:text-[#2650a8] transition-colors">
                       {step.title}
                     </h3>
                     <p className="text-[11px] sm:text-xs font-bold text-[#2650a8] uppercase tracking-wider mb-2.5 sm:mb-3">

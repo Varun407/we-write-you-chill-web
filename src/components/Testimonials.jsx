@@ -121,7 +121,7 @@ export default function Testimonials() {
             <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">Verified Client Feedback</span>
           </div>
 
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
             <span className="highlight-swipe">What working together <span className="word-accent">feels</span> like...</span>
           </h2>
         </motion.div>
@@ -250,7 +250,7 @@ export default function Testimonials() {
                       </div>
 
                       <div className="min-w-0">
-                        <h3 className="font-heading font-bold text-base sm:text-lg text-[#000000] group-hover:text-[#2650a8] transition-colors leading-tight">
+                        <h3 className="font-heading font-semibold text-base sm:text-lg text-[#000000] group-hover:text-[#2650a8] transition-colors leading-tight">
                           {item.name}
                         </h3>
                         <p className="text-xs font-semibold text-[#2650a8] truncate leading-tight mt-0.5">

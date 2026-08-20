@@ -95,7 +95,7 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
             The Trust Bridge Problem
           </span>
 
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl lg:text-4xl text-[#000000] tracking-tight leading-tight">
             Why your LinkedIn isn't <span className="word-accent">working</span> <span className="highlight-swipe">(yet)</span>
           </h2>
 
@@ -140,7 +140,7 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
                     </span>
                   </div>
 
-                  <h3 className="font-heading font-bold text-lg sm:text-xl text-[#000000] mb-2.5 sm:mb-3 group-hover:text-[#2650a8] transition-colors">
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-[#000000] mb-2.5 sm:mb-3 group-hover:text-[#2650a8] transition-colors">
                     {item.title}
                   </h3>
 
@@ -168,7 +168,7 @@ export default function WhyLinkedinNotWorking({ onOpenBooking }) {
           <div className="absolute -right-10 -bottom-10 w-60 h-60 bg-[#f4ba43]/20 rounded-full blur-[60px] pointer-events-none"></div>
 
           <div className="max-w-xl relative z-10 text-center md:text-left">
-            <h3 className="font-heading font-bold text-lg sm:text-2xl text-white mb-1.5">
+            <h3 className="font-heading font-semibold text-lg sm:text-2xl text-white mb-1.5">
               Stop guessing. Get a customized LinkedIn Assessment.
             </h3>
             <p className="text-xs sm:text-sm text-slate-200 font-medium leading-relaxed">

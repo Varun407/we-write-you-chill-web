@@ -84,10 +84,10 @@ export default function VideoShowcase() {
               </span>
             </div>
 
-            <h2 className="font-heading font-extrabold text-2xl sm:text-4xl lg:text-[42px] tracking-tight leading-[1.18] text-[#000000]">
+            <h2 className="font-heading font-semibold text-2xl sm:text-4xl lg:text-[42px] tracking-tight leading-[1.18] text-[#000000]">
               This is how we install your{' '}
-              <span className="headline-marker">
-                LinkedIn Content &amp; Lead <span className="word-accent">Engine.</span>
+              <span className="text-[#2650a8] highlight-swipe inline">
+                LinkedIn Content &amp; Lead Engine.
               </span>
             </h2>
 
@@ -113,7 +113,7 @@ export default function VideoShowcase() {
                         <span className="text-[9.5px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-[#2650a8]/10 text-[#2650a8] border border-[#2650a8]/20">
                           {step.badge}
                         </span>
-                        <h4 className="font-heading font-bold text-xs sm:text-sm text-slate-900">
+                        <h4 className="font-heading font-semibold text-xs sm:text-sm text-slate-900">
                           {step.title}
                         </h4>
                       </div>

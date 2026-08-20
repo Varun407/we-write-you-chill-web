@@ -54,7 +54,7 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
                   <span>{mode === 'booking' ? 'Book Strategy Call With Gaya' : 'Submit Enquiry'}</span>
                 </div>
 
-                <h3 className="font-heading font-black text-2xl sm:text-3xl text-[#000000] mb-2 leading-tight">
+                <h3 className="font-heading font-semibold text-2xl sm:text-3xl text-[#000000] mb-2 leading-tight">
                   Let's Turn Your LinkedIn Into A Client Engine
                 </h3>
                 <p className="text-xs text-slate-500 font-medium mb-6">
@@ -198,7 +198,7 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
                   <CheckCircle2 className="w-10 h-10" />
                 </motion.div>
 
-                <h3 className="font-heading font-extrabold text-2xl text-[#000000]">
+                <h3 className="font-heading font-semibold text-2xl text-[#000000]">
                   Booking Confirmed, {formData.name.split(' ')[0]}!
                 </h3>
                 <p className="text-sm text-slate-600 max-w-md mx-auto">
