@@ -42,33 +42,35 @@ export default function Navbar({ onOpenBooking }) {
         initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'light-nav py-3 shadow-sm' : 'bg-white/85 backdrop-blur-md py-4 border-b border-slate-100'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+          ? 'light-nav py-2 sm:py-2.5 lg:py-3 shadow-sm'
+          : 'bg-white/85 backdrop-blur-md py-2.5 sm:py-3 lg:py-4 border-b border-slate-100'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <a href="#" className="flex items-center gap-3 group">
+            <a href="#" className="flex items-center gap-2.5 sm:gap-3 group">
               <motion.img
                 whileHover={{ scale: 1.05, rotate: [0, -2, 2, 0] }}
                 transition={{ duration: 0.3 }}
                 src={logoImg}
                 alt="We Write You Chill Logo"
-                className="h-10 w-auto object-contain"
+                className="h-8 sm:h-9 lg:h-10 w-auto object-contain"
               />
               <div className="flex flex-col justify-center">
                 <span
                   style={{ fontFamily: "'Heksilo', 'Playfair Display', Georgia, serif" }}
-                  className="font-bold text-[22px] tracking-wide text-[#0f172a] leading-none"
+                  className="font-bold text-[18px] sm:text-[20px] lg:text-[22px] tracking-wide text-[#0f172a] leading-none"
                 >
                   We Write You <span className="text-[#2650a8]">Chill</span>
                 </span>
-                <span className="text-[9px] text-slate-500 font-extrabold tracking-[0.16em] uppercase mt-1 flex items-center gap-1">
+                <span className="text-[8px] sm:text-[8.5px] lg:text-[9px] text-slate-500 font-extrabold tracking-[0.16em] uppercase mt-0.5 sm:mt-1 flex items-center gap-1">
                   Content & Lead Engine
                 </span>
               </div>
             </a>
 
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
               {navLinks.map((link) => (
                 <motion.a
                   key={link.name}
@@ -83,7 +85,7 @@ export default function Navbar({ onOpenBooking }) {
               ))}
             </nav>
 
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-4">
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
@@ -103,10 +105,10 @@ export default function Navbar({ onOpenBooking }) {
             <motion.button
               whileTap={{ scale: 0.92 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-700 hover:text-[#000000] rounded-lg md:hidden border border-slate-200 bg-slate-50 cursor-pointer"
+              className="p-1.5 sm:p-2 text-slate-700 hover:text-[#000000] rounded-lg lg:hidden border border-slate-200 bg-slate-50 cursor-pointer"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </motion.button>
           </div>
         </div>
@@ -118,7 +120,7 @@ export default function Navbar({ onOpenBooking }) {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25, ease: 'easeInOut' }}
-              className="md:hidden bg-white border-t border-slate-200 px-6 pt-4 pb-6 mt-3 space-y-4 shadow-xl overflow-hidden"
+              className="lg:hidden bg-white border-t border-slate-200 px-6 pt-4 pb-6 mt-3 space-y-4 shadow-xl overflow-hidden"
             >
               <div className="flex flex-col gap-2">
                 {navLinks.map((link, idx) => (

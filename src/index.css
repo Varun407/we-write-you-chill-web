@@ -147,7 +147,7 @@ h4,
   font-family: var(--font-open-sauce);
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   html {
     scroll-snap-type: y proximity;
   }
@@ -158,7 +158,7 @@ h4,
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   html {
     scroll-snap-type: none !important;
   }

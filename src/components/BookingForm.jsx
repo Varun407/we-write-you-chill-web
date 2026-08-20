@@ -36,7 +36,7 @@ export default function BookingForm({ isOpen, onClose, mode = 'booking' }) {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.92, opacity: 0, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="relative max-w-xl w-full bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl my-8 overflow-hidden"
+            className="relative max-w-xl w-full max-h-[92vh] overflow-y-auto bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
