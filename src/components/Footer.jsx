@@ -101,7 +101,7 @@ export default function Footer({ onOpenBooking }) {
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-slate-500">
           <div>
-            © {new Date().getFullYear()} We Write You Chill. All rights reserved. Built for Real Estate & Finance Experts.
+            © {new Date().getFullYear()} We Write You Chill. All rights reserved. Built for Property & Finance Experts.
           </div>
 
           <motion.button

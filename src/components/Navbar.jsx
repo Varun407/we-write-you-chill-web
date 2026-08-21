@@ -65,7 +65,7 @@ export default function Navbar({ onOpenBooking }) {
                   We Write You <span className="text-[#2650a8]">Chill</span>
                 </span>
                 <span className="text-[8px] sm:text-[8.5px] lg:text-[9px] text-slate-500 font-extrabold tracking-[0.16em] uppercase mt-0.5 sm:mt-1 flex items-center gap-1">
-                  Content & Lead Engine
+                  Content & Growth Engine
                 </span>
               </div>
             </a>

@@ -77,13 +77,9 @@ export default function VideoShowcase() {
             <h2 className="font-heading font-extrabold text-2xl sm:text-4xl lg:text-[42px] tracking-tight leading-[1.18] text-slate-800">
               This is how we install your{' '}
               <span className="font-extrabold text-[#2650a8] highlight-swipe inline">
-                LinkedIn Content &amp; Lead Engine.
+                LinkedIn Content &amp; Growth Engine.
               </span>
             </h2>
-
-            <p className="text-sm sm:text-base md:text-lg text-slate-600 font-subheading leading-relaxed">
-              Take 2.5 minutes to see how we use organic content to build trust and establish authority with the right audience.
-            </p>
 
             <div className="space-y-3 pt-1">
               {steps.map((step, idx) => {
