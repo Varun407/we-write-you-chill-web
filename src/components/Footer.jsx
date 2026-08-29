@@ -87,7 +87,7 @@ export default function Footer({ onOpenBooking }) {
               className="btn-shimmer w-full py-3.5 px-5 rounded-full text-xs font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-md shadow-[#2650a8]/20 transition-all inline-flex items-center justify-center gap-2 cursor-pointer"
             >
               <Calendar className="w-4 h-4 text-[#f4ba43]" />
-              <span>Book Zoom Strategy Call</span>
+              <span>Book Strategy Call</span>
             </motion.a>
 
             <div className="space-y-2 text-xs text-slate-700 font-semibold pt-2">

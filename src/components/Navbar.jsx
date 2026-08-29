@@ -6,6 +6,7 @@ import logoImg from '../assets/logo.png';
 export default function Navbar({ onOpenBooking }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -86,10 +87,12 @@ export default function Navbar({ onOpenBooking }) {
             </nav>
 
             <div className="hidden lg:flex items-center gap-4">
-              <motion.button
+              <motion.a
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={onOpenBooking}
+                href={zoomBookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-shimmer group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-sm font-bold text-white bg-[#2650a8] hover:bg-[#1d4088] shadow-lg shadow-[#2650a8]/20 transition-all duration-300 cursor-pointer"
               >
                 <span className="relative flex h-2 w-2">
@@ -99,7 +102,7 @@ export default function Navbar({ onOpenBooking }) {
                 <Calendar className="w-4 h-4 text-[#f4ba43]" />
                 <span>Book Strategy Call</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 text-[#f4ba43]" />
-              </motion.button>
+              </motion.a>
             </div>
 
             <motion.button
@@ -137,19 +140,19 @@ export default function Navbar({ onOpenBooking }) {
                     <ArrowRight className="w-4 h-4 text-slate-400" />
                   </motion.a>
                 ))}
-                <motion.button
+                <motion.a
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenBooking();
-                  }}
+                  href={zoomBookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="w-full mt-3 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-bold text-white bg-[#2650a8] shadow-lg shadow-[#2650a8]/20 btn-shimmer"
                 >
                   <Calendar className="w-5 h-5 text-[#f4ba43]" />
                   <span>Book Strategy Call</span>
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
           )}

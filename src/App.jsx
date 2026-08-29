@@ -126,10 +126,12 @@ export default function App() {
             transition={{ duration: 0.25 }}
             className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40"
           >
-            <motion.button
+            <motion.a
               whileHover={{ scale: 1.06, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              onClick={handleOpenBooking}
+              href="https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-shimmer flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3.5 rounded-full bg-[#2650a8] text-white font-bold text-xs sm:text-sm shadow-2xl shadow-[#2650a8]/50 border-2 border-white cursor-pointer"
             >
               <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
@@ -138,7 +140,7 @@ export default function App() {
               </span>
               <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#f4ba43]" />
               <span>Book Strategy Call</span>
-            </motion.button>
+            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>
