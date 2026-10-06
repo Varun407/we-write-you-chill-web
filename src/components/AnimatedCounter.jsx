@@ -10,18 +10,15 @@ export default function AnimatedCounter({
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
-  const [displayValue, setDisplayValue] = useState('0');
+  const isInitialNaN = isNaN(parseFloat(String(value).replace(/[^0-9.]/g, '')));
+  const [displayValue, setDisplayValue] = useState(isInitialNaN ? String(value) : '0');
 
   useEffect(() => {
     if (!isInView) return;
 
     const numericStr = String(value).replace(/[^0-9.]/g, '');
     const target = parseFloat(numericStr);
-
-    if (isNaN(target)) {
-      setDisplayValue(String(value));
-      return;
-    }
+    if (isNaN(target)) return;
 
     let startTime = null;
     let animationFrameId;

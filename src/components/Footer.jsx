@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { ArrowUp, ExternalLink, Calendar } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export default function Footer({ onOpenBooking }) {
   const zoomBookingUrl = "https://scheduler.zoom.us/gaya-we-write-you-chill/building-your-personal-brand";
   const gayaLinkedinUrl = "https://www.linkedin.com/in/msgaya/";
@@ -101,7 +103,7 @@ export default function Footer({ onOpenBooking }) {
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-slate-500">
           <div>
-            © {new Date().getFullYear()} We Write You Chill. All rights reserved. Built for Property & Finance Experts.
+            © {CURRENT_YEAR} We Write You Chill. All rights reserved. Built for Property & Finance Experts.
           </div>
 
           <motion.button
