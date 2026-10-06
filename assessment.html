@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
   <title>Benny | LinkedIn Profile Audit | We Write You Chill</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
@@ -4046,6 +4049,7 @@
     }
 
     function copyHex(btn, hex) {
+      if (!navigator.clipboard) return;
       navigator.clipboard.writeText(hex).then(() => {
         btn.classList.add('copied');
         btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>`;
@@ -4054,17 +4058,21 @@
           btn.classList.remove('copied');
           btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>`;
         }, 2000);
+      }).catch(() => {
+        showToast('Unable to copy to clipboard');
       });
     }
 
     function copyText(btn, id) {
       const el = document.getElementById(id);
-      if (!el) return;
+      if (!el || !navigator.clipboard) return;
       navigator.clipboard.writeText(el.innerText.trim()).then(() => {
         const orig = btn.textContent;
         btn.textContent = 'Copied!';
         showToast('Copy ready , paste into LinkedIn');
         setTimeout(() => btn.textContent = orig, 2000);
+      }).catch(() => {
+        showToast('Unable to copy to clipboard');
       });
     }
 
